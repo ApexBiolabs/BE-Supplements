@@ -92,14 +92,14 @@ async function sendEmails(orderRef, amount, customerName, customerEmail) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Be Elite Supplements <sales@beelitesupplements.com>',
+          from: 'Be Elite Supplements <sales@belitesupplements.com>',
           to: email,
           subject: `Order Confirmed — ${orderRef}`,
           html: `
             <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto">
               <div style="background:#0E1116;padding:24px;text-align:center">
                 <div style="display:inline-block;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:6px">
-                  <img src="https://beelitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/>
+                  <img src="https://belitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/>
                 </div>
                 <p style="color:#A3A3A0;font-size:12px;margin:4px 0 0">Research Grade Peptides</p>
               </div>
@@ -115,10 +115,10 @@ async function sendEmails(orderRef, amount, customerName, customerEmail) {
                 <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px;margin-bottom:24px">
                   <p style="margin:0;color:#7a5c00;font-size:12px"><strong>⚠ Research Use Only.</strong> All products are supplied strictly for in vitro laboratory research purposes only. Not for human or veterinary use.</p>
                 </div>
-                <p style="color:#666;font-size:13px">Questions? Contact us at <a href="mailto:sales@beelitesupplements.com" style="color:#8C6A1E">sales@beelitesupplements.com</a></p>
+                <p style="color:#666;font-size:13px">Questions? Contact us at <a href="mailto:sales@belitesupplements.com" style="color:#8C6A1E">sales@belitesupplements.com</a></p>
               </div>
               <div style="background:#0E1116;padding:16px;text-align:center">
-                <p style="color:#8A8A87;font-size:11px;margin:0">© 2026 Be Elite Supplements · beelitesupplements.com · Research use only</p>
+                <p style="color:#8A8A87;font-size:11px;margin:0">© 2026 Be Elite Supplements · belitesupplements.com · Research use only</p>
               </div>
             </div>
           `,
@@ -133,8 +133,8 @@ async function sendEmails(orderRef, amount, customerName, customerEmail) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Be Elite Supplements <sales@beelitesupplements.com>',
-        to: 'sales@beelitesupplements.com',
+        from: 'Be Elite Supplements <sales@belitesupplements.com>',
+        to: 'sales@belitesupplements.com',
         subject: `💰 New Order — ${orderRef} — £${amount.toFixed(2)}`,
         html: `
           <div style="font-family:Arial,sans-serif;max-width:500px">
@@ -151,7 +151,7 @@ async function sendEmails(orderRef, amount, customerName, customerEmail) {
               <tr><td style="padding:6px 0;color:#666">Affiliate</td><td style="padding:6px 0">${order?.affiliate_code || 'None'}</td></tr>
               ${order?.commission ? `<tr><td style="padding:6px 0;color:#666">Commission</td><td style="padding:6px 0;color:#c9a84c">£${parseFloat(order.commission).toFixed(2)}</td></tr>` : ''}
             </table>
-            <p style="margin-top:20px"><a href="https://beelitesupplements.com/admin" style="background:#0E1116;color:white;padding:10px 20px;border-radius:6px;text-decoration:none">View in Admin Panel</a></p>
+            <p style="margin-top:20px"><a href="https://belitesupplements.com/admin" style="background:#0E1116;color:white;padding:10px 20px;border-radius:6px;text-decoration:none">View in Admin Panel</a></p>
           </div>
         `,
       }),

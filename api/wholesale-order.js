@@ -29,8 +29,8 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Be Elite Supplements <sales@beelitesupplements.com>',
-        to: 'sales@beelitesupplements.com',
+        from: 'Be Elite Supplements <sales@belitesupplements.com>',
+        to: 'sales@belitesupplements.com',
         reply_to: email,
         subject: `📦 Wholesale Order Request — ${business} — £${grandTotal.toFixed(2)}`,
         html: `

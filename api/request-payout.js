@@ -31,8 +31,8 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Be Elite Supplements <sales@beelitesupplements.com>',
-        to: 'sales@beelitesupplements.com',
+        from: 'Be Elite Supplements <sales@belitesupplements.com>',
+        to: 'sales@belitesupplements.com',
         subject: `💸 Payout Request — ${name} (${code})`,
         html: `
           <div style="font-family:Arial,sans-serif;max-width:500px">
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
               <tr><td style="padding:6px 0;color:#666">Email</td><td style="padding:6px 0">${email || '—'}</td></tr>
               <tr><td style="padding:6px 0;color:#666">Amount Owed</td><td style="padding:6px 0;font-weight:bold;color:#8C6A1E">£${totalCommission.toFixed(2)}</td></tr>
             </table>
-            <p style="margin-top:20px"><a href="https://beelitesupplements.com/admin" style="background:#0E1116;color:white;padding:10px 20px;border-radius:6px;text-decoration:none">View in Admin Panel</a></p>
+            <p style="margin-top:20px"><a href="https://belitesupplements.com/admin" style="background:#0E1116;color:white;padding:10px 20px;border-radius:6px;text-decoration:none">View in Admin Panel</a></p>
           </div>
         `,
       }),

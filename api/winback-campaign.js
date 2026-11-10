@@ -69,14 +69,14 @@ export default async function handler(req, res) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Be Elite Supplements <sales@beelitesupplements.com>',
+          from: 'Be Elite Supplements <sales@belitesupplements.com>',
           to: customer.customer_email,
           subject: 'We miss you — 10% off your next order 🧪',
           html: `
             <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto">
               <div style="background:#0E1116;padding:24px;text-align:center">
                 <div style="display:inline-block;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:6px">
-                  <img src="https://beelitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/>
+                  <img src="https://belitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/>
                 </div>
                 <p style="color:#A3A3A0;font-size:12px;margin:4px 0 0">Research Grade Peptides</p>
               </div>
@@ -89,16 +89,16 @@ export default async function handler(req, res) {
                   <p style="margin:8px 0 0;color:#999;font-size:11px">10% off · No expiry · One use per customer</p>
                 </div>
                 <p style="text-align:center;margin:0 0 24px">
-                  <a href="https://beelitesupplements.com" style="background:#8C6A1E;color:#fff;padding:13px 32px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block">Shop Now</a>
+                  <a href="https://belitesupplements.com" style="background:#8C6A1E;color:#fff;padding:13px 32px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block">Shop Now</a>
                 </p>
                 <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px;margin-bottom:20px">
                   <p style="margin:0;color:#7a5c00;font-size:12px"><strong>⚠ Research Use Only.</strong> All products are supplied strictly for in vitro laboratory research purposes only. Not for human or veterinary use.</p>
                 </div>
-                <p style="color:#666;font-size:13px">Any questions? Just reply to this email or contact <a href="mailto:sales@beelitesupplements.com" style="color:#8C6A1E">sales@beelitesupplements.com</a></p>
+                <p style="color:#666;font-size:13px">Any questions? Just reply to this email or contact <a href="mailto:sales@belitesupplements.com" style="color:#8C6A1E">sales@belitesupplements.com</a></p>
               </div>
               <div style="background:#0E1116;padding:16px;text-align:center">
-                <p style="color:#8A8A87;font-size:11px;margin:0 0 6px">© 2026 Be Elite Supplements · beelitesupplements.com · Research use only</p>
-                <p style="color:#8A8A87;font-size:11px;margin:0">Don't want offers like this? <a href="mailto:sales@beelitesupplements.com?subject=Unsubscribe" style="color:#A3A3A0">Unsubscribe</a></p>
+                <p style="color:#8A8A87;font-size:11px;margin:0 0 6px">© 2026 Be Elite Supplements · belitesupplements.com · Research use only</p>
+                <p style="color:#8A8A87;font-size:11px;margin:0">Don't want offers like this? <a href="mailto:sales@belitesupplements.com?subject=Unsubscribe" style="color:#A3A3A0">Unsubscribe</a></p>
               </div>
             </div>
           `,

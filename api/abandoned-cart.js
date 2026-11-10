@@ -99,13 +99,13 @@ async function sendPlainReminder(order) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'Be Elite Supplements <sales@beelitesupplements.com>',
+      from: 'Be Elite Supplements <sales@belitesupplements.com>',
       to: order.customer_email,
       subject: 'You left something behind 🧪',
       html: `
         <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto">
           <div style="background:#0E1116;padding:24px;text-align:center">
-            <div style="display:inline-block;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:6px"><img src="https://beelitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/></div>
+            <div style="display:inline-block;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:6px"><img src="https://belitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/></div>
             <p style="color:#A3A3A0;font-size:12px;margin:4px 0 0">Research Grade Peptides</p>
           </div>
           <div style="background:#fff;padding:32px">
@@ -116,16 +116,16 @@ async function sendPlainReminder(order) {
               <p style="margin:0;color:#555;font-size:13px"><strong>Total:</strong> £${parseFloat(order.amount || 0).toFixed(2)}</p>
             </div>
             <p style="text-align:center;margin:0 0 24px">
-              <a href="https://beelitesupplements.com" style="background:#8C6A1E;color:#fff;padding:13px 32px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block">Complete Your Order</a>
+              <a href="https://belitesupplements.com" style="background:#8C6A1E;color:#fff;padding:13px 32px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block">Complete Your Order</a>
             </p>
             <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px;margin-bottom:20px">
               <p style="margin:0;color:#7a5c00;font-size:12px"><strong>⚠ Research Use Only.</strong> All products are supplied strictly for in vitro laboratory research purposes only. Not for human or veterinary use.</p>
             </div>
-            <p style="color:#666;font-size:13px">Any questions? Just reply to this email or contact <a href="mailto:sales@beelitesupplements.com" style="color:#8C6A1E">sales@beelitesupplements.com</a></p>
+            <p style="color:#666;font-size:13px">Any questions? Just reply to this email or contact <a href="mailto:sales@belitesupplements.com" style="color:#8C6A1E">sales@belitesupplements.com</a></p>
           </div>
           <div style="background:#0E1116;padding:16px;text-align:center">
-            <p style="color:#8A8A87;font-size:11px;margin:0 0 6px">© 2026 Be Elite Supplements · beelitesupplements.com · Research use only</p>
-            <p style="color:#8A8A87;font-size:11px;margin:0">Don't want reminders like this? <a href="mailto:sales@beelitesupplements.com?subject=Unsubscribe" style="color:#A3A3A0">Unsubscribe</a></p>
+            <p style="color:#8A8A87;font-size:11px;margin:0 0 6px">© 2026 Be Elite Supplements · belitesupplements.com · Research use only</p>
+            <p style="color:#8A8A87;font-size:11px;margin:0">Don't want reminders like this? <a href="mailto:sales@belitesupplements.com?subject=Unsubscribe" style="color:#A3A3A0">Unsubscribe</a></p>
           </div>
         </div>
       `,
@@ -138,7 +138,7 @@ async function sendPlainReminder(order) {
 async function sendEnhancedReminder(order) {
   const original = parseFloat(order.amount || 0);
   const discounted = Math.round(original * 0.9 * 100) / 100;
-  const link = `https://beelitesupplements.com/?ref=${BASKET_CODE}`;
+  const link = `https://belitesupplements.com/?ref=${BASKET_CODE}`;
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -147,13 +147,13 @@ async function sendEnhancedReminder(order) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'Be Elite Supplements <sales@beelitesupplements.com>',
+      from: 'Be Elite Supplements <sales@belitesupplements.com>',
       to: order.customer_email,
       subject: "You left something behind — here's 10% off 🧪",
       html: `
         <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto">
           <div style="background:#0E1116;padding:24px;text-align:center">
-            <div style="display:inline-block;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:6px"><img src="https://beelitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/></div>
+            <div style="display:inline-block;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:6px"><img src="https://belitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/></div>
             <p style="color:#A3A3A0;font-size:12px;margin:4px 0 0">Research Grade Peptides</p>
           </div>
           <div style="background:#fff;padding:32px">
@@ -171,11 +171,11 @@ async function sendEnhancedReminder(order) {
             <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px;margin-bottom:20px">
               <p style="margin:0;color:#7a5c00;font-size:12px"><strong>⚠ Research Use Only.</strong> All products are supplied strictly for in vitro laboratory research purposes only. Not for human or veterinary use.</p>
             </div>
-            <p style="color:#666;font-size:13px">Any questions? Just reply to this email or contact <a href="mailto:sales@beelitesupplements.com" style="color:#8C6A1E">sales@beelitesupplements.com</a></p>
+            <p style="color:#666;font-size:13px">Any questions? Just reply to this email or contact <a href="mailto:sales@belitesupplements.com" style="color:#8C6A1E">sales@belitesupplements.com</a></p>
           </div>
           <div style="background:#0E1116;padding:16px;text-align:center">
-            <p style="color:#8A8A87;font-size:11px;margin:0 0 6px">© 2026 Be Elite Supplements · beelitesupplements.com · Research use only</p>
-            <p style="color:#8A8A87;font-size:11px;margin:0">Don't want offers like this? <a href="mailto:sales@beelitesupplements.com?subject=Unsubscribe" style="color:#A3A3A0">Unsubscribe</a></p>
+            <p style="color:#8A8A87;font-size:11px;margin:0 0 6px">© 2026 Be Elite Supplements · belitesupplements.com · Research use only</p>
+            <p style="color:#8A8A87;font-size:11px;margin:0">Don't want offers like this? <a href="mailto:sales@belitesupplements.com?subject=Unsubscribe" style="color:#A3A3A0">Unsubscribe</a></p>
           </div>
         </div>
       `,

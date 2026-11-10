@@ -29,8 +29,8 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Be Elite Supplements <sales@beelitesupplements.com>',
-        to: 'sales@beelitesupplements.com',
+        from: 'Be Elite Supplements <sales@belitesupplements.com>',
+        to: 'sales@belitesupplements.com',
         subject: `🏭 Wholesale Enquiry — ${name}${company ? ' (' + company + ')' : ''} — £${parseFloat(total).toFixed(2)}`,
         html: `
           <div style="font-family:Arial,sans-serif;max-width:600px">
@@ -73,7 +73,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Be Elite Supplements <sales@beelitesupplements.com>',
+        from: 'Be Elite Supplements <sales@belitesupplements.com>',
         to: email,
         subject: 'Wholesale Enquiry Received — Be Elite Supplements',
         html: `
@@ -99,10 +99,10 @@ export default async function handler(req, res) {
                   <tr><td colspan="2" style="padding:10px 12px;text-align:right;font-weight:bold">Total</td><td style="padding:10px 12px;text-align:right;font-weight:bold;color:#8C6A1E">£${parseFloat(total).toFixed(2)}</td></tr>
                 </tfoot>
               </table>
-              <p style="color:#666;font-size:13px">Questions in the meantime? Reply to this email or contact <a href="mailto:sales@beelitesupplements.com" style="color:#8C6A1E">sales@beelitesupplements.com</a></p>
+              <p style="color:#666;font-size:13px">Questions in the meantime? Reply to this email or contact <a href="mailto:sales@belitesupplements.com" style="color:#8C6A1E">sales@belitesupplements.com</a></p>
             </div>
             <div style="background:#0E1116;padding:16px;text-align:center">
-              <p style="color:#8A8A87;font-size:11px;margin:0">© 2026 Be Elite Supplements · beelitesupplements.com</p>
+              <p style="color:#8A8A87;font-size:11px;margin:0">© 2026 Be Elite Supplements · belitesupplements.com</p>
             </div>
           </div>
         `,

@@ -124,13 +124,13 @@ async function sendDispatchEmail(orderRef, tracking, supabase) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Be Elite Supplements <sales@beelitesupplements.com>',
+        from: 'Be Elite Supplements <sales@belitesupplements.com>',
         to: order.customer_email,
         subject: `Your Order ${orderRef} Has Been Dispatched 📦`,
         html: `
           <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto">
             <div style="background:#0E1116;padding:24px;text-align:center">
-              <div style="display:inline-block;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:6px"><img src="https://beelitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/></div>
+              <div style="display:inline-block;background:#fff;border-radius:12px;padding:10px 18px;margin-bottom:6px"><img src="https://belitesupplements.com/logo-email.png" alt="Be Elite Supplements" style="height:36px;display:block"/></div>
             </div>
             <div style="background:#fff;padding:32px">
               <h2 style="color:#0E1116">Your Order Is On Its Way! 📦</h2>
@@ -140,7 +140,7 @@ async function sendDispatchEmail(orderRef, tracking, supabase) {
               <p style="color:#666;font-size:12px">All products are supplied for research use only. Not for human consumption.</p>
             </div>
             <div style="background:#0E1116;padding:16px;text-align:center">
-              <p style="color:#8A8A87;font-size:11px;margin:0">© 2026 Be Elite Supplements · beelitesupplements.com</p>
+              <p style="color:#8A8A87;font-size:11px;margin:0">© 2026 Be Elite Supplements · belitesupplements.com</p>
             </div>
           </div>
         `,
