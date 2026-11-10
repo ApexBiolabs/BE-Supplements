@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wholesale — Be Elite Supplements</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" href="/img/favicon.png"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#ffffff;--navy2:#f6f7f9;--navy3:#f2f4f6;
+  --green:#8C6A1E;--green2:#6E5418;--green-l:#8C6A1E;--green-xl:#6E5418;--gold:#8C6A1E;--red:#B42318;
+  --gbg:rgba(140,106,30,0.07);--gborder:rgba(140,106,30,0.32);
+  --text:#0E1116;--text2:#3D4450;--muted:#5B6370;
+  --border:#E4E7EB;--border2:#D5D9DF;
+  --s1:rgba(14,17,22,0.025);--s2:rgba(14,17,22,0.05);
+  --danger:#B42318;--warn:#B45309;--info:#1D4ED8;
+}
+body{background:var(--navy);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh}
+a{color:inherit}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid var(--border)}
+.brand{font-family:'IBM Plex Sans',sans-serif;font-size:1.3rem;letter-spacing:0.06em;color:var(--green-l);text-decoration:none}
+.back-link{font-size:0.85rem;color:var(--muted);text-decoration:none}
+.back-link:hover{color:var(--text)}
+
+.gate-wrap{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 70px);padding:2rem}
+.gate-box{background:var(--navy2);border:1px solid var(--border2);border-radius:14px;padding:2.25rem;width:100%;max-width:380px;text-align:center}
+.gate-title{font-family:'IBM Plex Sans',sans-serif;font-size:1.8rem;letter-spacing:0.04em;margin-bottom:0.3rem}
+.gate-sub{color:var(--muted);font-size:0.85rem;margin-bottom:1.75rem}
+.gate-input{width:100%;padding:12px;background:var(--s1);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:1rem;text-align:center;letter-spacing:0.05em;margin-bottom:1rem;font-family:inherit}
+.gate-input:focus{outline:none;border-color:var(--green)}
+.gate-btn{width:100%;background:var(--green);color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.gate-btn:hover{background:var(--green2)}
+.gate-err{color:var(--danger);font-size:0.82rem;margin-top:0.8rem;min-height:1.1em}
+
+.ws{display:none;max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.ws.show{display:block}
+.ws-title{font-family:'IBM Plex Sans',sans-serif;font-size:2rem;letter-spacing:0.04em}
+.ws-sub{color:var(--muted);font-size:0.88rem;margin-bottom:1.75rem;line-height:1.5}
+
+.legend{background:var(--gbg);border:1px solid var(--gborder);border-radius:10px;padding:0.9rem 1.1rem;font-size:0.82rem;color:var(--text2);margin-bottom:1.75rem;line-height:1.6}
+.legend strong{color:var(--green-l)}
+
+.product-card{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;margin-bottom:0.9rem}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.9rem;flex-wrap:wrap}
+.pc-name{font-weight:700;font-size:1rem}
+.pc-base{color:var(--muted);font-size:0.78rem;margin-top:2px}
+.pc-line-total{font-family:'IBM Plex Sans',sans-serif;font-size:1.35rem;color:var(--green-l);white-space:nowrap}
+
+.pc-controls{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap}
+.qty-group{display:flex;align-items:center;gap:8px}
+.qty-label{font-size:0.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em}
+.qty-btn{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:var(--s1);color:var(--text);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.qty-btn:hover{background:var(--s2)}
+.qty-val{min-width:32px;text-align:center;font-weight:700;font-size:0.92rem}
+
+.addon-toggle{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.82rem;color:var(--text2);user-select:none}
+.addon-toggle input{width:16px;height:16px;accent-color:var(--green)}
+
+.summary-box{background:var(--navy2);border:1px solid var(--border2);border-radius:10px;padding:1.25rem 1.4rem;margin:1.75rem 0;display:flex;justify-content:space-between;align-items:center}
+.summary-label{font-size:0.85rem;color:var(--muted)}
+.summary-total{font-family:'IBM Plex Sans',sans-serif;font-size:2rem;color:var(--green-l)}
+
+.form-section{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1.4rem}
+.form-title{font-size:1.02rem;font-weight:700;margin-bottom:1.1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-bottom:0.9rem}
+.field label{display:block;font-size:0.8rem;font-weight:600;color:var(--text2);margin-bottom:0.4rem}
+.field input,.field textarea{width:100%;padding:10px 12px;background:var(--s1);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.9rem;font-family:inherit}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.field textarea{resize:vertical;min-height:70px}
+
+.submit-btn{width:100%;background:var(--green);color:#fff;border:none;padding:14px;border-radius:8px;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-top:0.6rem}
+.submit-btn:hover{background:var(--green2)}
+.submit-btn:disabled{opacity:0.6;cursor:not-allowed}
+.submit-msg{font-size:0.85rem;text-align:center;margin-top:1rem;min-height:1.1em}
+.submit-msg.error{color:var(--danger)}
+.submit-msg.ok{color:var(--green-l)}
+
+@media(max-width:600px){
+  .topbar{padding:0.9rem 1.2rem}
+  .form-row{grid-template-columns:1fr}
+  .pc-controls{flex-direction:column;align-items:flex-start;gap:0.7rem}
+  .summary-box{flex-direction:column;align-items:flex-start;gap:0.4rem}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="/"><img src="/img/logo.png" alt="Be Elite Supplements" style="height:34px;display:block"/></a>
+  <a class="back-link" href="/">← Back to shop</a>
+</div>
+
+<div class="gate-wrap" id="gateWrap">
+  <div class="gate-box">
+    <div class="gate-title">Wholesale Access</div>
+    <div class="gate-sub">Enter the wholesale password to view pricing</div>
+    <input type="password" class="gate-input" id="gatePass" placeholder="Password" onkeydown="if(event.key==='Enter')unlock()"/>
+    <button class="gate-btn" onclick="unlock()">Enter</button>
+    <div class="gate-err" id="gateErr"></div>
+  </div>
+</div>
+
+<div class="ws" id="ws">
+  <div class="ws-title">Wholesale Ordering</div>
+  <div class="ws-sub">Prices shown are per 10-unit batch. Orders must be placed in multiples of 10 units per product. Submit your order below — we'll confirm pricing and send an invoice for bank transfer.</div>
+
+  <div class="legend">
+    <strong>How pricing works:</strong> each product has a base price per 10 units (vials only, BAC water included). Add <strong>Pens (+£20 per unit)</strong> if you want administration pens included — pens come pre-assembled and labelled — and/or <strong>Boxes (+£10 per unit)</strong> for branded packaging.
+  </div>
+
+  <div id="productList"></div>
+
+  <div class="summary-box">
+    <div class="summary-label">Order Total</div>
+    <div class="summary-total" id="grandTotal">£0.00</div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-title">Delivery & Payment Details</div>
+    <div class="form-row">
+      <div class="field">
+        <label>Contact Name *</label>
+        <input type="text" id="wName" placeholder="Jane Smith"/>
+      </div>
+      <div class="field">
+        <label>Company Name</label>
+        <input type="text" id="wCompany" placeholder="Optional"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label>Email *</label>
+        <input type="email" id="wEmail" placeholder="you@company.com"/>
+      </div>
+      <div class="field">
+        <label>Phone *</label>
+        <input type="tel" id="wPhone" placeholder="07123 456789"/>
+      </div>
+    </div>
+    <div class="field" style="margin-bottom:0.9rem">
+      <label>Address Line 1 *</label>
+      <input type="text" id="wAddr1" placeholder="Unit / Building, Street"/>
+    </div>
+    <div class="field" style="margin-bottom:0.9rem">
+      <label>Address Line 2</label>
+      <input type="text" id="wAddr2" placeholder="Optional"/>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label>City *</label>
+        <input type="text" id="wCity" placeholder="Manchester"/>
+      </div>
+      <div class="field">
+        <label>County</label>
+        <input type="text" id="wCounty" placeholder="Optional"/>
+      </div>
+    </div>
+    <div class="field" style="margin-bottom:1rem">
+      <label>Postcode *</label>
+      <input type="text" id="wPostcode" placeholder="M1 1AE" style="max-width:180px"/>
+    </div>
+    <div class="field" style="margin-bottom:1rem">
+      <label>Order Notes</label>
+      <textarea id="wNotes" placeholder="Anything else we should know..."></textarea>
+    </div>
+    <button class="submit-btn" id="submitBtn" onclick="checkoutOrder()">Pay Now — <span id="btnTotal">£0.00</span></button>
+    <div class="submit-msg" id="submitMsg"></div>
+  </div>
+</div>
+
+<script>
+const WHOLESALE_PASSWORD = 'BE-TRADE'; // change this to the trade password you give wholesale customers
+
+const PRODUCTS = [
+  { key:'bpc157',    name:'BPC-157',           base:320 },
+  { key:'tb500',     name:'TB500',             base:400 },
+  { key:'ghkcu',     name:'GHK-CU 100mg',      base:300 },
+  { key:'nadplus',   name:'NAD+ 500mg',        base:300 },
+  { key:'motc',      name:'MOT-C 40mg',        base:360 },
+  { key:'reta20',    name:'Retatrutide 20mg',  base:350 },
+  { key:'reta40',    name:'Retatrutide 40mg',  base:450 },
+];
+
+const state = {};
+PRODUCTS.forEach(p => state[p.key] = { units: 0, pen: false, box: false });
+
+function unlock() {
+  const pass = document.getElementById('gatePass').value;
+  if (pass === WHOLESALE_PASSWORD) {
+    sessionStorage.setItem('wsAuth', 'true');
+    document.getElementById('gateWrap').style.display = 'none';
+    document.getElementById('ws').classList.add('show');
+    renderProducts();
+  } else {
+    document.getElementById('gateErr').textContent = 'Incorrect password.';
+  }
+}
+
+if (sessionStorage.getItem('wsAuth') === 'true') {
+  document.getElementById('gateWrap').style.display = 'none';
+  document.getElementById('ws').classList.add('show');
+}
+
+function lineTotal(p) {
+  const s = state[p.key];
+  const batches = s.units / 10;
+  let total = p.base * batches;
+  if (s.pen) total += 20 * s.units;
+  if (s.box) total += 10 * s.units;
+  return total;
+}
+
+function grandTotal() {
+  return PRODUCTS.reduce((sum, p) => sum + lineTotal(p), 0);
+}
+
+function changeQty(key, delta) {
+  const s = state[key];
+  s.units = Math.max(0, s.units + delta * 10);
+  renderProducts();
+}
+
+function toggleAddon(key, type) {
+  state[key][type] = !state[key][type];
+  renderProducts();
+}
+
+function renderProducts() {
+  const list = document.getElementById('productList');
+  list.innerHTML = PRODUCTS.map(p => {
+    const s = state[p.key];
+    const total = lineTotal(p);
+    return `
+      <div class="product-card">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">${p.name}</div>
+            <div class="pc-base">£${p.base.toFixed(2)} per 10 units (vials, BAC water included)</div>
+          </div>
+          <div class="pc-line-total">£${total.toFixed(2)}</div>
+        </div>
+        <div class="pc-controls">
+          <div class="qty-group">
+            <span class="qty-label">Units</span>
+            <button class="qty-btn" onclick="changeQty('${p.key}',-1)">−</button>
+            <span class="qty-val">${s.units}</span>
+            <button class="qty-btn" onclick="changeQty('${p.key}',1)">+</button>
+          </div>
+          <label class="addon-toggle">
+            <input type="checkbox" ${s.pen ? 'checked' : ''} onchange="toggleAddon('${p.key}','pen')"/>
+            Pens (+£20/unit)
+          </label>
+          <label class="addon-toggle">
+            <input type="checkbox" ${s.box ? 'checked' : ''} onchange="toggleAddon('${p.key}','box')"/>
+            Boxes (+£10/unit)
+          </label>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('grandTotal').textContent = '£' + grandTotal().toFixed(2);
+  const btnTotalEl = document.getElementById('btnTotal');
+  if (btnTotalEl) btnTotalEl.textContent = '£' + grandTotal().toFixed(2);
+}
+
+function genWholesaleRef() {
+  const c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let r = 'WS-';
+  for (let i = 0; i < 6; i++) r += c[Math.floor(Math.random() * c.length)];
+  return r;
+}
+
+async function checkoutOrder() {
+  const name = document.getElementById('wName').value.trim();
+  const company = document.getElementById('wCompany').value.trim();
+  const email = document.getElementById('wEmail').value.trim();
+  const phone = document.getElementById('wPhone').value.trim();
+  const addr1 = document.getElementById('wAddr1').value.trim();
+  const addr2 = document.getElementById('wAddr2').value.trim();
+  const city = document.getElementById('wCity').value.trim();
+  const county = document.getElementById('wCounty').value.trim();
+  const postcode = document.getElementById('wPostcode').value.trim();
+  const notes = document.getElementById('wNotes').value.trim();
+  const msg = document.getElementById('submitMsg');
+  const btn = document.getElementById('submitBtn');
+
+  const selected = PRODUCTS.filter(p => state[p.key].units > 0);
+
+  if (!name || !email || !phone) {
+    msg.textContent = 'Please enter your name, email and phone number.';
+    msg.className = 'submit-msg error';
+    return;
+  }
+  if (!addr1 || !city || !postcode) {
+    msg.textContent = 'Please enter a full delivery address.';
+    msg.className = 'submit-msg error';
+    return;
+  }
+  if (selected.length === 0) {
+    msg.textContent = 'Please select at least one product.';
+    msg.className = 'submit-msg error';
+    return;
+  }
+
+  btn.disabled = true;
+  msg.textContent = 'Setting up payment...';
+  msg.className = 'submit-msg';
+
+  const orderRef = genWholesaleRef();
+  const total = grandTotal();
+  const itemsDescription = selected.map(p => {
+    const s = state[p.key];
+    const addons = [s.pen ? 'Pens' : null, s.box ? 'Boxes' : null].filter(Boolean).join('+');
+    return `${p.name} x${s.units}${addons ? ' (' + addons + ')' : ''}`;
+  });
+  const fullNotes = company ? `${company}${notes ? ' — ' + notes : ''}` : notes;
+
+  try {
+    const res = await fetch('/api/create-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: total.toFixed(2),
+        orderRef,
+        customerName: name,
+        customerEmail: email,
+        items: itemsDescription,
+        affiliateCode: null,
+        penAdded: false,
+        shippingMethod: 'wholesale',
+        addr1, addr2, city, county, postcode, phone,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.paymentUrl) {
+      window.location.href = data.paymentUrl;
+    } else {
+      msg.textContent = 'Payment setup failed. Please try again or contact us directly.';
+      msg.className = 'submit-msg error';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    msg.textContent = 'Payment setup failed. Please try again or contact us directly.';
+    msg.className = 'submit-msg error';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

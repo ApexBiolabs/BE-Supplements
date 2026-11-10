@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Be Elite Supplements — Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" href="/img/favicon.png"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#ffffff;--navy2:#f6f7f9;--navy3:#f2f4f6;
+  --green:#8C6A1E;--green2:#6E5418;--green-l:#8C6A1E;--green-xl:#6E5418;--gold:#8C6A1E;--red:#B42318;
+  --gbg:rgba(140,106,30,0.07);--gborder:rgba(140,106,30,0.32);
+  --text:#0E1116;--text2:#3D4450;--muted:#5B6370;
+  --border:#E4E7EB;--border2:#D5D9DF;
+  --s1:rgba(14,17,22,0.025);--s2:rgba(14,17,22,0.05);
+  --danger:#B42318;--warn:#B45309;--info:#1D4ED8;
+}
+body{background:var(--navy);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh}
+
+/* LOGIN */
+.login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem}
+.login-box{background:var(--navy2);border:1px solid var(--border2);border-radius:16px;padding:2.5rem;width:100%;max-width:400px;text-align:center}
+.login-logo{font-family:'IBM Plex Sans',sans-serif;font-size:2rem;letter-spacing:0.08em;margin-bottom:0.5rem;color:var(--green-xl)}
+.login-sub{color:var(--muted);font-size:0.85rem;margin-bottom:2rem}
+.login-input{width:100%;padding:12px;background:rgba(13,27,46,0.04);border:1px solid var(--border);color:var(--text);border-radius:8px;font-size:1rem;margin-bottom:1rem}
+.login-input:focus{outline:none;border-color:var(--green)}
+.login-btn{background:var(--green);color:white;border:none;width:100%;padding:14px;border-radius:8px;cursor:pointer;font-weight:700;font-size:1rem}
+.login-btn:hover{background:var(--green-l)}
+.login-error{color:var(--red);font-size:0.85rem;margin-top:0.5rem}
+
+/* LAYOUT */
+.app{display:none;min-height:100vh}
+.app.show{display:flex}
+.sidebar{width:220px;background:var(--navy2);border-right:1px solid var(--border2);padding:1.5rem;flex-shrink:0;display:flex;flex-direction:column}
+.sidebar-logo{font-family:'IBM Plex Sans',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--green-xl);margin-bottom:0.25rem}
+.sidebar-sub{font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;color:var(--text2);font-size:0.9rem;margin-bottom:4px;transition:all 0.2s}
+.nav-item:hover{background:rgba(13,27,46,0.05);color:var(--text)}
+.nav-item.active{background:rgba(61,122,53,0.15);color:var(--green-xl);border:1px solid rgba(61,122,53,0.2)}
+.nav-icon{font-size:1rem;width:20px;text-align:center}
+.sidebar-bottom{margin-top:auto}
+.logout-btn{background:transparent;border:1px solid var(--border);color:var(--muted);width:100%;padding:8px;border-radius:6px;cursor:pointer;font-size:0.8rem}
+.logout-btn:hover{border-color:var(--red);color:var(--red)}
+
+/* MAIN */
+.main{flex:1;overflow-y:auto;padding:2rem}
+.page-title{font-family:'IBM Plex Sans',sans-serif;font-size:2rem;letter-spacing:0.06em;margin-bottom:1.5rem;color:var(--text)}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2rem}
+.stat-card{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
+.stat-label{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem}
+.stat-value{font-family:'IBM Plex Sans',sans-serif;font-size:2rem;letter-spacing:0.04em;color:var(--green-xl)}
+.stat-sub{font-size:0.75rem;color:var(--text2);margin-top:4px}
+
+/* TABLE */
+.table-wrap{background:var(--navy2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:2rem}
+.table-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.table-title{font-weight:700;font-size:1rem}
+.filter-tabs{display:flex;gap:0.5rem}
+.filter-tab{background:transparent;border:1px solid var(--border);color:var(--text2);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:0.8rem;transition:all 0.2s}
+.filter-tab.active{background:var(--green);border-color:var(--green);color:white}
+table{width:100%;border-collapse:collapse}
+th{padding:12px 16px;text-align:left;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);background:rgba(13,27,46,0.02)}
+td{padding:12px 16px;font-size:0.88rem;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(13,27,46,0.02)}
+
+/* BADGES */
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+.badge-pending{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.3)}
+.badge-paid{background:rgba(61,122,53,0.15);color:var(--green-xl);border:1px solid rgba(61,122,53,0.3)}
+.badge-dispatched{background:rgba(37,99,235,0.12);color:#1d4ed8;border:1px solid rgba(96,165,250,0.3)}
+.badge-cancelled{background:rgba(224,82,82,0.15);color:var(--red);border:1px solid rgba(224,82,82,0.3)}
+
+/* BUTTONS */
+.btn{padding:7px 14px;border-radius:6px;border:none;cursor:pointer;font-size:0.8rem;font-weight:600;transition:all 0.2s;display:inline-flex;align-items:center;gap:5px}
+.btn-green{background:var(--green);color:white}
+.btn-green:hover{background:var(--green-l)}
+.btn-blue{background:rgba(37,99,235,0.12);color:#1d4ed8;border:1px solid rgba(96,165,250,0.3)}
+.btn-blue:hover{background:rgba(96,165,250,0.25)}
+.btn-gold{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.3)}
+.btn-gold:hover{background:rgba(201,168,76,0.25)}
+.btn-red{background:rgba(224,82,82,0.15);color:var(--red);border:1px solid rgba(224,82,82,0.3)}
+.btn-red:hover{background:rgba(224,82,82,0.25)}
+.btn-sm{padding:5px 10px;font-size:0.75rem}
+
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center;padding:1rem}
+.modal.open{display:flex}
+.modal-box{background:var(--navy2);border:1px solid var(--border2);border-radius:12px;padding:2rem;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;position:relative}
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(13,27,46,0.08);border:none;color:var(--text);cursor:pointer;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.modal-title{font-family:'IBM Plex Sans',sans-serif;font-size:1.4rem;margin-bottom:1.5rem}
+.detail-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.88rem}
+.detail-row:last-child{border-bottom:none}
+.detail-label{color:var(--muted)}
+.detail-value{color:var(--text);font-weight:500;text-align:right;max-width:60%}
+.form-group{margin-bottom:1rem}
+.form-label{display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;color:var(--text2)}
+.form-input{width:100%;padding:10px;background:rgba(13,27,46,0.04);border:1px solid var(--border);color:var(--text);border-radius:6px;font-family:inherit;font-size:0.9rem}
+.form-input:focus{outline:none;border-color:var(--green)}
+.action-row{display:flex;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap}
+
+/* LOADING */
+.loading-state{text-align:center;padding:3rem;color:var(--muted)}
+.spinner{border:3px solid rgba(13,27,46,0.1);border-top:3px solid var(--green);border-radius:50%;width:32px;height:32px;animation:spin 1s linear infinite;margin:0 auto 1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty-state{text-align:center;padding:3rem;color:var(--muted);font-size:0.9rem}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--navy2);border:1px solid var(--green);border-radius:8px;padding:12px 20px;font-size:0.9rem;z-index:999;transform:translateY(100px);opacity:0;transition:all 0.3s}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.error{border-color:var(--red)}
+
+/* MOBILE */
+@media(max-width:768px){
+  .app{flex-direction:column}
+  .sidebar{width:100%;height:auto;flex-direction:row;padding:0.75rem 1rem;border-right:none;border-bottom:1px solid var(--border2);overflow-x:auto;gap:4px}
+  .sidebar-logo,.sidebar-sub,.sidebar-bottom{display:none}
+  .nav-item{justify-content:center;padding:8px 14px;margin-bottom:0;flex-shrink:0}
+  .nav-label{display:none}
+  .main{padding:1rem}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  #ordersTable th:nth-child(3),#ordersTable th:nth-child(4),#ordersTable th:nth-child(6),#ordersTable td:nth-child(3),#ordersTable td:nth-child(4),#ordersTable td:nth-child(6){display:none}
+  #affiliatesTable th:nth-child(3),#affiliatesTable th:nth-child(4),#affiliatesTable th:nth-child(5),#affiliatesTable th:nth-child(6),#affiliatesTable td:nth-child(3),#affiliatesTable td:nth-child(4),#affiliatesTable td:nth-child(5),#affiliatesTable td:nth-child(6){display:none}
+  #affiliateSalesTable th:nth-child(3),#affiliateSalesTable td:nth-child(3){display:none}
+  table{font-size:0.82rem}
+  td,th{padding:9px 10px}
+  .modal-box{margin:0.5rem;padding:1.5rem;max-height:95vh}
+  .table-header{padding:0.75rem 1rem;flex-direction:column;align-items:flex-start}
+  .filter-tabs{flex-wrap:wrap}
+  .page-title{font-size:1.4rem;margin-bottom:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-box">
+    <img src="/img/logo.png" alt="Be Elite Supplements" style="height:90px;display:block;margin:0 auto 0.75rem"/>
+    <div class="login-sub">Admin Panel · Staff Only</div>
+    <input type="password" class="login-input" id="loginPass" placeholder="Enter password" onkeydown="if(event.key==='Enter')login()">
+    <button class="login-btn" onclick="login()">Login</button>
+    <div class="login-error" id="loginError"></div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <img src="/img/logo.png" alt="Be Elite Supplements" class="sidebar-logo" style="width:150px;display:block;margin-bottom:0.5rem"/>
+    <div class="sidebar-sub">Admin Panel</div>
+    <div class="nav-item active" onclick="showPage('orders')" id="nav-orders">
+      <span class="nav-icon">📦</span><span class="nav-label">Orders</span>
+    </div>
+    <div class="nav-item" onclick="showPage('dashboard')" id="nav-dashboard">
+      <span class="nav-icon">📊</span><span class="nav-label">Dashboard</span>
+    </div>
+    <div class="nav-item" onclick="showPage('affiliates')" id="nav-affiliates">
+      <span class="nav-icon">👥</span><span class="nav-label">Affiliates</span>
+    </div>
+    <div class="sidebar-bottom">
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main" id="mainContent">
+    <!-- ORDERS PAGE -->
+    <div id="page-orders">
+      <div class="page-title">Orders</div>
+      <div class="table-wrap">
+        <div class="table-header">
+          <div class="table-title">All Orders</div>
+          <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterOrders('all',this)">All</button>
+            <button class="filter-tab" onclick="filterOrders('pending',this)">Pending</button>
+            <button class="filter-tab" onclick="filterOrders('paid',this)">Paid</button>
+            <button class="filter-tab" onclick="filterOrders('dispatched',this)">Dispatched</button>
+            <button class="btn btn-gold btn-sm" onclick="cleanupDuplicatePending()" style="margin-left:8px">Clean Up Pending Orders</button>
+          </div>
+        </div>
+        <div id="ordersTable">
+          <div class="loading-state"><div class="spinner"></div>Loading orders...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD PAGE -->
+    <div id="page-dashboard" style="display:none">
+      <div class="page-title">Dashboard</div>
+      <div class="stats-grid" id="statsGrid">
+        <div class="loading-state"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- AFFILIATES PAGE -->
+    <div id="page-affiliates" style="display:none">
+      <div class="page-title">Affiliates</div>
+
+      <div class="table-wrap" style="margin-bottom:1.5rem">
+        <div class="table-header">
+          <div class="table-title">Discount Codes</div>
+          <button class="btn btn-green" onclick="openDiscountModal()">+ Add Discount Code</button>
+        </div>
+        <div id="discountCodesTable">
+          <div class="loading-state"><div class="spinner"></div>Loading...</div>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-bottom:1.5rem">
+        <div class="table-header">
+          <div class="table-title">Manage Affiliates</div>
+          <button class="btn btn-green" onclick="editingAffiliateId=null;document.getElementById('affiliateModalTitle').textContent='Add Affiliate';['affName','affEmail','affCode','affPassword','affDiscount','affCommission'].forEach(id=>document.getElementById(id).value='');document.getElementById('affTier').value='Standard';document.getElementById('affBankDetailsGroup').style.display='none';openModal('newAffiliateModal')">+ Add Affiliate</button>
+        </div>
+        <div id="affiliatesTable">
+          <div class="loading-state"><div class="spinner"></div>Loading...</div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <div class="table-header">
+          <div class="table-title">Affiliate Sales Performance</div>
+        </div>
+        <div id="affiliateSalesTable">
+          <div class="loading-state"><div class="spinner"></div>Loading...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER DETAIL MODAL -->
+<div class="modal" id="orderModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('orderModal')">✕</button>
+    <div class="modal-title" id="modalOrderRef">Order Details</div>
+    <div id="modalOrderContent"></div>
+  </div>
+</div>
+
+<!-- NEW AFFILIATE MODAL -->
+<div class="modal" id="newAffiliateModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('newAffiliateModal')">✕</button>
+    <div class="modal-title" id="affiliateModalTitle">Add Affiliate</div>
+    <div class="form-group">
+      <label class="form-label">Full Name</label>
+      <input type="text" class="form-input" id="affName" placeholder="e.g. James Wilson">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-input" id="affEmail" placeholder="james@email.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Discount Code</label>
+      <input type="text" class="form-input" id="affCode" placeholder="e.g. JAMES20" style="text-transform:uppercase">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Portal Password</label>
+      <input type="text" class="form-input" id="affPassword" placeholder="e.g. james123">
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div class="form-group">
+        <label class="form-label">Discount % (customer gets)</label>
+        <input type="number" class="form-input" id="affDiscount" placeholder="e.g. 20" min="0" max="50">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Commission % (they earn)</label>
+        <input type="number" class="form-input" id="affCommission" placeholder="e.g. 15" min="0" max="50">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Tier</label>
+      <select class="form-input" id="affTier">
+        <option value="Standard">Standard</option>
+        <option value="Partner">Partner</option>
+        <option value="Elite">Elite</option>
+      </select>
+    </div>
+    <div class="form-group" id="affBankDetailsGroup" style="display:none">
+      <label class="form-label">Bank Details (for payout)</label>
+      <div id="affBankDetailsBox" style="background:rgba(13,27,46,0.04);border:1px solid var(--border2,rgba(13,27,46,0.12));border-radius:8px;padding:0.75rem 1rem;font-size:0.85rem;line-height:1.6"></div>
+    </div>
+    <div class="action-row">
+      <button class="btn btn-green" onclick="saveAffiliate()" id="saveAffBtn">Save Affiliate</button>
+      <button class="btn btn-red" onclick="closeModal('newAffiliateModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- DISCOUNT CODE MODAL -->
+<div class="modal" id="newDiscountModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('newDiscountModal')">✕</button>
+    <div class="modal-title" id="discountModalTitle">Add Discount Code</div>
+    <div class="form-group">
+      <label class="form-label">Code</label>
+      <input type="text" class="form-input" id="discCode" placeholder="e.g. SUMMER10" style="text-transform:uppercase">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Label (for your reference only)</label>
+      <input type="text" class="form-input" id="discLabel" placeholder="e.g. Summer Sale 2026">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Discount % (customer gets)</label>
+      <input type="number" class="form-input" id="discPct" placeholder="e.g. 10" min="0" max="50">
+    </div>
+    <div class="action-row">
+      <button class="btn btn-green" onclick="saveDiscountCode()" id="saveDiscBtn">Save Code</button>
+      <button class="btn btn-red" onclick="closeModal('newDiscountModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- DISPATCH MODAL -->
+<div class="modal" id="dispatchModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('dispatchModal')">✕</button>
+    <div class="modal-title">Dispatch Order</div>
+    <div id="dispatchOrderInfo" style="margin-bottom:1.5rem;padding:1rem;background:rgba(13,27,46,0.03);border-radius:8px;font-size:0.88rem"></div>
+    <div class="form-group">
+      <label class="form-label">Tracking Number (optional)</label>
+      <input type="text" class="form-input" id="trackingInput" placeholder="e.g. TT123456785GB">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Royal Mail Service</label>
+      <select class="form-input" id="serviceSelect">
+        <option value="TPS">Tracked 24 (Next Day)</option>
+        <option value="TPL">Tracked 48 (2 Day)</option>
+        <option value="STL1">1st Class</option>
+        <option value="STL2">2nd Class</option>
+      </select>
+    </div>
+    <div class="action-row">
+      <button class="btn btn-gold" onclick="printLabel()" id="printLabelBtn">🖨️ Print Royal Mail Label</button>
+      <button class="btn btn-green" onclick="markDispatched()" id="dispatchBtn">✅ Mark as Dispatched</button>
+    </div>
+    <div id="dispatchStatus" style="margin-top:1rem;font-size:0.85rem;color:var(--text2)"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// The admin password is never stored in this page. It's checked by the server against the ADMIN_KEY setting in Vercel.
+let ADMIN_PASSWORD = sessionStorage.getItem('adminKey') || '';
+
+let allOrders = [];
+let currentOrderRef = null;
+let currentFilter = 'all';
+
+// ── AUTH ──
+async function login() {
+  const pass = document.getElementById('loginPass').value;
+  let ok = false;
+  try { const r = await fetch('/api/orders?check=1', { headers: { 'x-admin-key': pass } }); ok = r.ok; } catch(e) {}
+  if(ok) {
+    ADMIN_PASSWORD = pass;
+    sessionStorage.setItem('adminKey', pass);
+    sessionStorage.setItem('adminAuth', 'true');
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('app').classList.add('show');
+    loadOrders();
+  } else {
+    document.getElementById('loginError').textContent = 'Incorrect password';
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('adminAuth');
+  sessionStorage.removeItem('adminKey');
+  ADMIN_PASSWORD = '';
+  document.getElementById('app').classList.remove('show');
+  document.getElementById('loginWrap').style.display = 'flex';
+  document.getElementById('loginPass').value = '';
+}
+
+// Auto-login if session exists
+if(sessionStorage.getItem('adminAuth') === 'true' && ADMIN_PASSWORD) {
+  document.getElementById('loginWrap').style.display = 'none';
+  document.getElementById('app').classList.add('show');
+  loadOrders();
+}
+
+// ── NAVIGATION ──
+function showPage(page) {
+  ['orders','dashboard','affiliates'].forEach(p => {
+    document.getElementById(`page-${p}`).style.display = p === page ? 'block' : 'none';
+    document.getElementById(`nav-${p}`).classList.toggle('active', p === page);
+  });
+  if(page === 'dashboard') loadDashboard();
+  if(page === 'affiliates') loadAffiliates();
+}
+
+// ── API CALLS ──
+async function apiFetch(path, options={}) {
+  const res = await fetch(path, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      'x-admin-key': ADMIN_PASSWORD,
+      ...options.headers,
+    }
+  });
+  if(!res.ok) throw new Error(`API error ${res.status}`);
+  return res.json();
+}
+
+// ── LOAD ORDERS ──
+async function loadOrders() {
+  try {
+    const orders = await apiFetch('/api/orders');
+    allOrders = orders;
+    renderOrders(allOrders);
+  } catch(err) {
+    console.error(err);
+    document.getElementById('ordersTable').innerHTML = `
+      <div class="empty-state">
+        <div style="font-size:2rem;margin-bottom:0.5rem">📭</div>
+        <div>No orders yet — or unable to connect to database.</div>
+        <div style="margin-top:0.5rem;font-size:0.8rem">Orders will appear here when customers pay via Fena.</div>
+      </div>`;
+  }
+}
+
+function filterOrders(status, btn) {
+  currentFilter = status;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const filtered = status === 'all' ? allOrders : allOrders.filter(o => o.status === status);
+  renderOrders(filtered);
+}
+
+function renderOrders(orders) {
+  if(!orders || orders.length === 0) {
+    document.getElementById('ordersTable').innerHTML = `
+      <div class="empty-state">
+        <div style="font-size:2rem;margin-bottom:0.5rem">📭</div>
+        <div>No orders found.</div>
+      </div>`;
+    return;
+  }
+  const rows = orders.map(o => `
+    <tr>
+      <td><strong>${o.ref}</strong></td>
+      <td>${o.customer_name || '—'}<br><span style="color:var(--muted);font-size:0.75rem">${o.customer_email || ''}</span></td>
+      <td style="color:var(--green-xl);font-weight:700">£${parseFloat(o.amount||0).toFixed(2)}</td>
+      <td>${o.items || '—'}</td>
+      <td>
+        <span class="badge badge-${o.status||'pending'}">${o.status||'pending'}</span>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:6px">
+          <button class="btn btn-blue btn-sm" onclick="viewOrder('${o.ref}')">View</button>
+          ${o.status === 'paid' ? `<button class="btn btn-gold btn-sm" onclick="openDispatch('${o.ref}')">Dispatch</button>` : ''}
+        </div>
+      </td>
+      <td>${formatDate(o.created_at)}</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('ordersTable').innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Order Ref</th>
+          <th>Customer</th>
+          <th>Amount</th>
+          <th>Items</th>
+          <th>Status / Actions</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+// ── VIEW ORDER ──
+function viewOrder(ref) {
+  const order = allOrders.find(o => o.ref === ref);
+  if(!order) return;
+  currentOrderRef = ref;
+  document.getElementById('modalOrderRef').textContent = `Order ${ref}`;
+  const addr = [order.address_line1, order.address_line2, order.city, order.county, order.postcode].filter(Boolean).join(', ');
+  document.getElementById('modalOrderContent').innerHTML = `
+    <div class="detail-row"><span class="detail-label">Status</span><span class="detail-value"><span class="badge badge-${order.status||'pending'}">${order.status||'pending'}</span></span></div>
+    <div class="detail-row"><span class="detail-label">Customer</span><span class="detail-value">${order.customer_name||'—'}</span></div>
+    <div class="detail-row"><span class="detail-label">Email</span><span class="detail-value">${order.customer_email||'—'}</span></div>
+    <div class="detail-row"><span class="detail-label">Phone</span><span class="detail-value">${order.phone||'—'}</span></div>
+    <div class="detail-row"><span class="detail-label" style="vertical-align:top">Address</span><span class="detail-value">${addr||'—'}</span></div>
+    <div class="detail-row"><span class="detail-label">Amount</span><span class="detail-value" style="color:var(--green-xl);font-weight:700">£${parseFloat(order.amount||0).toFixed(2)}</span></div>
+    <div class="detail-row"><span class="detail-label">Items</span><span class="detail-value">${order.items||'—'}</span></div>
+    <div class="detail-row"><span class="detail-label">Shipping</span><span class="detail-value">${order.shipping_method||'Standard'}</span></div>
+    <div class="detail-row"><span class="detail-label">Affiliate Code</span><span class="detail-value">${order.affiliate_code||'None'}</span></div>
+    <div class="detail-row"><span class="detail-label">Commission</span><span class="detail-value">${order.commission ? '£'+parseFloat(order.commission).toFixed(2) : '—'}</span></div>
+    <div class="detail-row"><span class="detail-label">Tracking</span><span class="detail-value">${order.tracking_number||'Not dispatched'}</span></div>
+    <div class="detail-row"><span class="detail-label">Order Date</span><span class="detail-value">${formatDate(order.created_at)}</span></div>
+    ${order.paid_at ? `<div class="detail-row"><span class="detail-label">Paid At</span><span class="detail-value">${formatDate(order.paid_at)}</span></div>` : ''}
+    ${order.dispatched_at ? `<div class="detail-row"><span class="detail-label">Dispatched At</span><span class="detail-value">${formatDate(order.dispatched_at)}</span></div>` : ''}
+    ${order.status === 'paid' ? `
+    <div class="action-row" style="margin-top:1.5rem">
+      <button class="btn btn-gold" onclick="closeModal('orderModal');openDispatch('${ref}')">🖨️ Print Label & Dispatch</button>
+    </div>` : ''}
+    ${order.status !== 'cancelled' ? `
+    <div class="action-row" style="margin-top:0.75rem">
+      <button class="btn btn-red" onclick="cancelOrder('${ref}')">Cancel Order</button>
+    </div>` : ''}
+  `;
+  openModal('orderModal');
+}
+
+async function cancelOrder(ref) {
+  if(!confirm('Cancel this order?\n\nThis removes it from affiliate commission and sales tracking. It does NOT refund any payment already taken — if money was taken, refund it separately through Fena first.')) return;
+  try {
+    await apiFetch('/api/orders', {
+      method: 'PATCH',
+      body: JSON.stringify({ref, status: 'cancelled'}),
+    });
+    closeModal('orderModal');
+    showToast('✅ Order cancelled');
+    loadOrders();
+  } catch(err) {
+    showToast('Failed to cancel order', true);
+  }
+}
+
+// ── DISPATCH ──
+function openDispatch(ref) {
+  const order = allOrders.find(o => o.ref === ref);
+  if(!order) return;
+  currentOrderRef = ref;
+  document.getElementById('dispatchOrderInfo').innerHTML = `
+    <strong>${order.ref}</strong> · ${order.customer_name} · £${parseFloat(order.amount||0).toFixed(2)}<br>
+    <span style="color:var(--muted)">${order.items}</span>
+  `;
+  document.getElementById('trackingInput').value = '';
+  document.getElementById('dispatchStatus').textContent = '';
+  openModal('dispatchModal');
+}
+
+async function printLabel() {
+  if(!currentOrderRef) return;
+  const btn = document.getElementById('printLabelBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Creating label...';
+  document.getElementById('dispatchStatus').textContent = 'Connecting to Royal Mail...';
+
+  try {
+    const res = await fetch('/api/print-label', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','x-admin-key':ADMIN_PASSWORD},
+      body: JSON.stringify({
+        orderRef: currentOrderRef,
+        service: document.getElementById('serviceSelect').value,
+      }),
+    });
+
+    if(!res.ok) throw new Error('Label creation failed');
+    const data = await res.json();
+
+    if(data.labelUrl) {
+      document.getElementById('dispatchStatus').innerHTML = `<span style="color:var(--green-xl)">✅ Label created!</span> <a href="${data.labelUrl}" target="_blank" style="color:var(--green-xl)">Open & Print Label ↗</a>`;
+      if(data.trackingNumber) {
+        document.getElementById('trackingInput').value = data.trackingNumber;
+      }
+    } else {
+      document.getElementById('dispatchStatus').textContent = '✅ Label sent to Click & Drop — check your account to print.';
+    }
+
+    // Reload orders to reflect dispatched status
+    await loadOrders();
+    closeModal('dispatchModal');
+    showToast('✅ Order dispatched!');
+  } catch(err) {
+    document.getElementById('dispatchStatus').innerHTML = `<span style="color:var(--red)">Label creation failed. Mark as dispatched manually.</span>`;
+  }
+
+  btn.disabled = false;
+  btn.textContent = '🖨️ Print Royal Mail Label';
+}
+
+async function markDispatched() {
+  if(!currentOrderRef) return;
+  const tracking = document.getElementById('trackingInput').value.trim();
+  const btn = document.getElementById('dispatchBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Updating...';
+
+  try {
+    await apiFetch('/api/orders', {
+      method: 'PATCH',
+      body: JSON.stringify({ref: currentOrderRef, status:'dispatched', tracking}),
+    });
+
+    const order = allOrders.find(o => o.ref === currentOrderRef);
+    if(order) { order.status = 'dispatched'; order.tracking_number = tracking; }
+
+    closeModal('dispatchModal');
+    renderOrders(currentFilter === 'all' ? allOrders : allOrders.filter(o => o.status === currentFilter));
+    showToast('✅ Order marked as dispatched — customer email sent!');
+  } catch(err) {
+    showToast('Failed to update order', true);
+  }
+
+  btn.disabled = false;
+  btn.textContent = '✅ Mark as Dispatched';
+}
+
+// ── DASHBOARD ──
+async function loadDashboard() {
+  if(allOrders.length === 0) await loadOrders();
+  const paid = allOrders.filter(o => o.status === 'paid' || o.status === 'dispatched');
+  const today = new Date().toDateString();
+  const todayOrders = paid.filter(o => new Date(o.created_at).toDateString() === today);
+  const totalRevenue = paid.reduce((s,o) => s + parseFloat(o.amount||0), 0);
+  const todayRevenue = todayOrders.reduce((s,o) => s + parseFloat(o.amount||0), 0);
+  const pending = allOrders.filter(o => o.status === 'pending').length;
+
+  document.getElementById('statsGrid').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-label">Total Revenue</div>
+      <div class="stat-value">£${totalRevenue.toFixed(2)}</div>
+      <div class="stat-sub">${paid.length} paid orders</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Today's Revenue</div>
+      <div class="stat-value">£${todayRevenue.toFixed(2)}</div>
+      <div class="stat-sub">${todayOrders.length} orders today</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Orders</div>
+      <div class="stat-value">${allOrders.length}</div>
+      <div class="stat-sub">${pending} pending payment</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">To Dispatch</div>
+      <div class="stat-value">${allOrders.filter(o=>o.status==='paid').length}</div>
+      <div class="stat-sub">Awaiting dispatch</div>
+    </div>
+  `;
+}
+
+// ── AFFILIATES ──
+let allAffiliates = [];
+let editingAffiliateId = null;
+let editingDiscountId = null;
+
+async function markCommissionPaid(code) {
+  if(!confirm(`Mark all owed commission for ${code} as paid?`)) return;
+  try {
+    await apiFetch('/api/orders', {
+      method: 'PATCH',
+      body: JSON.stringify({affiliate_code: code, mark_commission_paid: true}),
+    });
+    showToast(`✅ Commission marked as paid for ${code}`);
+    loadAffiliates();
+  } catch(err) {
+    showToast('Failed to update commission status', true);
+  }
+}
+
+async function cleanupDuplicatePending() {
+  if(!confirm('Cancel pending orders that are either:\n\n1) From a customer who already has a paid order elsewhere, or\n2) Older than 4 hours\n\nThis keeps the record but removes it from your Pending list. Anything from the last 4 hours is left alone in case someone is still completing payment.')) return;
+  try {
+    const result = await apiFetch('/api/orders', {
+      method: 'PATCH',
+      body: JSON.stringify({cleanup_duplicate_pending: true}),
+    });
+    showToast(result.cancelled > 0 ? `✅ Cancelled ${result.cancelled} duplicate pending order(s)` : 'No duplicate pending orders found');
+    loadOrders();
+  } catch(err) {
+    showToast('Failed to clean up duplicate orders', true);
+  }
+}
+
+async function loadAffiliates() {
+  try {
+    const res = await fetch('/api/affiliates', {headers:{'x-admin-key':ADMIN_PASSWORD}});
+    if(res.ok) {
+      allAffiliates = await res.json();
+      renderAffiliatesTable();
+      renderDiscountCodesTable();
+    } else {
+      renderAffiliatesEmpty();
+      renderDiscountCodesEmpty();
+    }
+  } catch(err) {
+    renderAffiliatesEmpty();
+    renderDiscountCodesEmpty();
+  }
+
+  try {
+    const orders = await apiFetch('/api/orders');
+    const discountOnlyCodes = new Set(allAffiliates.filter(a => a.is_discount_only).map(a => a.code));
+    const affMap = {};
+    orders.filter(o => o.affiliate_code && !discountOnlyCodes.has(o.affiliate_code) && (o.status==='paid'||o.status==='dispatched')).forEach(o => {
+      const code = o.affiliate_code;
+      if(!affMap[code]) affMap[code] = {code, orders:0, revenue:0, commissionOwed:0, commissionPaid:0};
+      affMap[code].orders++;
+      affMap[code].revenue += parseFloat(o.amount||0);
+      if(o.commission_paid) {
+        affMap[code].commissionPaid += parseFloat(o.commission||0);
+      } else {
+        affMap[code].commissionOwed += parseFloat(o.commission||0);
+      }
+    });
+    const affs = Object.values(affMap);
+    if(affs.length === 0) {
+      document.getElementById('affiliateSalesTable').innerHTML = '<div class="empty-state">No affiliate sales yet.</div>';
+      return;
+    }
+    document.getElementById('affiliateSalesTable').innerHTML = `
+      <table>
+        <thead><tr><th>Code</th><th>Orders</th><th>Revenue</th><th>Commission Owed</th><th>Total Commission to Date</th></tr></thead>
+        <tbody>${affs.map(a=>`
+          <tr>
+            <td>
+              <strong>${a.code}</strong>
+              ${a.commissionOwed > 0 ? `<div style="margin-top:6px"><button class="btn btn-green btn-sm" onclick="markCommissionPaid('${a.code}')">Mark Paid</button></div>` : ''}
+            </td>
+            <td>${a.orders}</td>
+            <td style="color:var(--green-xl)">£${a.revenue.toFixed(2)}</td>
+            <td style="color:var(--gold)">£${a.commissionOwed.toFixed(2)}</td>
+            <td style="color:var(--text2)">£${(a.commissionOwed + a.commissionPaid).toFixed(2)}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>`;
+  } catch(err) {
+    document.getElementById('affiliateSalesTable').innerHTML = '<div class="empty-state">Unable to load sales data.</div>';
+  }
+}
+
+function renderAffiliatesTable() {
+  const realAffiliates = (allAffiliates || []).filter(a => !a.is_discount_only);
+  if(realAffiliates.length === 0) {
+    renderAffiliatesEmpty();
+    return;
+  }
+  document.getElementById('affiliatesTable').innerHTML = `
+    <table>
+      <thead><tr><th>Name</th><th>Code</th><th>Discount</th><th>Commission</th><th>Tier</th><th>Status</th></tr></thead>
+      <tbody>${realAffiliates.map(a=>`
+        <tr>
+          <td>
+            <strong>${a.name}</strong><br><span style="color:var(--muted);font-size:0.75rem">${a.email||''}</span>
+            <div style="display:flex;gap:0.5rem;margin-top:6px">
+              <button class="btn btn-blue btn-sm" onclick="editAffiliate('${a.id}')">Edit</button>
+              <button class="btn btn-red btn-sm" onclick="deleteAffiliate('${a.id}')">Remove</button>
+            </div>
+          </td>
+          <td><code style="background:rgba(13,27,46,0.04);padding:2px 8px;border-radius:4px;font-size:0.85rem">${a.code}</code></td>
+          <td>${a.discount_pct||0}%</td>
+          <td style="color:var(--gold)">${a.commission_pct||0}%</td>
+          <td>${a.tier||'Standard'}</td>
+          <td><span class="badge ${a.status==='active'?'badge-paid':'badge-cancelled'}">${a.status||'active'}</span></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+}
+
+function renderAffiliatesEmpty() {
+  document.getElementById('affiliatesTable').innerHTML = '<div class="empty-state">No affiliates yet. Add one above.</div>';
+}
+
+function renderDiscountCodesEmpty() {
+  document.getElementById('discountCodesTable').innerHTML = '<div class="empty-state">No discount codes yet. Add one above.</div>';
+}
+
+function renderDiscountCodesTable() {
+  const codes = (allAffiliates || []).filter(a => a.is_discount_only);
+  if(codes.length === 0) {
+    renderDiscountCodesEmpty();
+    return;
+  }
+  document.getElementById('discountCodesTable').innerHTML = `
+    <table>
+      <thead><tr><th>Label</th><th>Code</th><th>Discount</th><th>Status</th></tr></thead>
+      <tbody>${codes.map(d=>`
+        <tr>
+          <td>
+            <strong>${d.name}</strong>
+            <div style="display:flex;gap:0.5rem;margin-top:6px">
+              <button class="btn btn-blue btn-sm" onclick="editDiscountCode('${d.id}')">Edit</button>
+              <button class="btn btn-red btn-sm" onclick="deleteAffiliate('${d.id}')">Remove</button>
+            </div>
+          </td>
+          <td><code style="background:rgba(13,27,46,0.04);padding:2px 8px;border-radius:4px;font-size:0.85rem">${d.code}</code></td>
+          <td>${d.discount_pct||0}%</td>
+          <td><span class="badge ${d.status==='active'?'badge-paid':'badge-cancelled'}">${d.status||'active'}</span></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+}
+
+function openDiscountModal() {
+  editingDiscountId = null;
+  document.getElementById('discountModalTitle').textContent = 'Add Discount Code';
+  ['discCode','discLabel','discPct'].forEach(id=>document.getElementById(id).value='');
+  openModal('newDiscountModal');
+}
+
+function editDiscountCode(id) {
+  const d = allAffiliates.find(a => a.id === id);
+  if (!d) return;
+  editingDiscountId = id;
+  document.getElementById('discountModalTitle').textContent = 'Edit Discount Code';
+  document.getElementById('discCode').value = d.code || '';
+  document.getElementById('discLabel').value = d.name || '';
+  document.getElementById('discPct').value = d.discount_pct || '';
+  openModal('newDiscountModal');
+}
+
+async function saveDiscountCode() {
+  const code = document.getElementById('discCode').value.trim().toUpperCase();
+  const label = document.getElementById('discLabel').value.trim();
+  const discount_pct = parseInt(document.getElementById('discPct').value.replace('%','').trim()) || 0;
+
+  if (!code || !discount_pct) {
+    showToast('Please enter a code and discount percentage', true);
+    return;
+  }
+
+  const btn = document.getElementById('saveDiscBtn');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  try {
+    const method = editingDiscountId ? 'PATCH' : 'POST';
+    const res = await fetch('/api/affiliates', {
+      method,
+      headers: {'Content-Type':'application/json','x-admin-key':ADMIN_PASSWORD},
+      body: JSON.stringify({
+        id: editingDiscountId,
+        name: label || code,
+        code,
+        discount_pct,
+        commission_pct: 0,
+        is_discount_only: true,
+      }),
+    });
+
+    if (!res.ok) throw new Error('Save failed');
+
+    closeModal('newDiscountModal');
+    editingDiscountId = null;
+    showToast(method === 'POST' ? '✅ Discount code created!' : '✅ Discount code updated!');
+    loadAffiliates();
+  } catch(err) {
+    showToast('Failed to save discount code', true);
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Save Code';
+}
+
+function editAffiliate(id) {
+  const aff = allAffiliates.find(a => a.id === id);
+  if(!aff) return;
+  editingAffiliateId = id;
+  document.getElementById('affiliateModalTitle').textContent = 'Edit Affiliate';
+  document.getElementById('affName').value = aff.name || '';
+  document.getElementById('affEmail').value = aff.email || '';
+  document.getElementById('affCode').value = aff.code || '';
+  document.getElementById('affPassword').value = aff.password || '';
+  document.getElementById('affDiscount').value = aff.discount_pct || '';
+  document.getElementById('affCommission').value = aff.commission_pct || '';
+  document.getElementById('affTier').value = aff.tier || 'Standard';
+
+  const bankGroup = document.getElementById('affBankDetailsGroup');
+  const bankBox = document.getElementById('affBankDetailsBox');
+  if (aff.bank_account_number && aff.bank_sort_code) {
+    const sortFormatted = String(aff.bank_sort_code).match(/.{1,2}/g)?.join('-') || aff.bank_sort_code;
+    bankBox.innerHTML = `
+      <div><strong>${aff.bank_account_name || '—'}</strong></div>
+      <div style="color:var(--muted)">Sort code: ${sortFormatted}</div>
+      <div style="color:var(--muted)">Account number: ${aff.bank_account_number}</div>
+      ${aff.bank_updated_at ? `<div style="color:var(--muted);font-size:0.75rem;margin-top:4px">Updated ${new Date(aff.bank_updated_at).toLocaleDateString('en-GB')}</div>` : ''}
+    `;
+    bankGroup.style.display = '';
+  } else {
+    bankBox.innerHTML = `<span style="color:var(--muted)">Not provided yet.</span>`;
+    bankGroup.style.display = '';
+  }
+
+  openModal('newAffiliateModal');
+}
+
+async function saveAffiliate() {
+  const name = document.getElementById('affName').value.trim();
+  const email = document.getElementById('affEmail').value.trim();
+  const code = document.getElementById('affCode').value.trim().toUpperCase();
+  const password = document.getElementById('affPassword').value.trim();
+  const discount_pct = parseInt(document.getElementById('affDiscount').value.replace('%','').trim()) || 0;
+  const commission_pct = parseInt(document.getElementById('affCommission').value.replace('%','').trim()) || 0;
+  const tier = document.getElementById('affTier').value;
+
+  if(!name || !email || !code || !password) {
+    showToast('Please fill in all required fields', true);
+    return;
+  }
+
+  const btn = document.getElementById('saveAffBtn');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  try {
+    const method = editingAffiliateId ? 'PATCH' : 'POST';
+    const res = await fetch('/api/affiliates', {
+      method,
+      headers: {'Content-Type':'application/json','x-admin-key':ADMIN_PASSWORD},
+      body: JSON.stringify({id: editingAffiliateId, name, email, code, password, discount_pct, commission_pct, tier}),
+    });
+
+    if(!res.ok) throw new Error('Save failed');
+
+    closeModal('newAffiliateModal');
+    editingAffiliateId = null;
+    document.getElementById('affiliateModalTitle').textContent = 'Add Affiliate';
+    ['affName','affEmail','affCode','affPassword','affDiscount','affCommission'].forEach(id => document.getElementById(id).value = '');
+    showToast(method === 'POST' ? '✅ Affiliate added! Welcome email sent.' : '✅ Affiliate updated!');
+    loadAffiliates();
+  } catch(err) {
+    showToast('Failed to save affiliate', true);
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Save Affiliate';
+}
+
+async function deleteAffiliate(id) {
+  if(!confirm('Remove this entry?')) return;
+  try {
+    await fetch('/api/affiliates', {
+      method: 'DELETE',
+      headers: {'Content-Type':'application/json','x-admin-key':ADMIN_PASSWORD},
+      body: JSON.stringify({id}),
+    });
+    loadAffiliates();
+    showToast('Removed');
+  } catch(err) {
+    showToast('Failed to remove affiliate', true);
+  }
+}
+
+// ── HELPERS ──
+function formatDate(str) {
+  if(!str) return '—';
+  return new Date(str).toLocaleString('en-GB', {day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+}
+
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+function showToast(msg, error=false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (error?' error':'');
+  setTimeout(() => t.className = 'toast', 3000);
+}
+
+// Close modals on overlay click
+document.querySelectorAll('.modal').forEach(m => {
+  m.addEventListener('click', e => { if(e.target === m) m.classList.remove('open'); });
+});
+</script>
+</body>
+</html>

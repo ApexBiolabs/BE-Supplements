@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Be Elite Supplements — Affiliate Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" href="/img/favicon.png"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#ffffff;--navy2:#f6f7f9;--navy3:#f2f4f6;
+  --green:#8C6A1E;--green2:#6E5418;--green-l:#8C6A1E;--green-xl:#6E5418;--gold:#8C6A1E;--red:#B42318;
+  --gbg:rgba(140,106,30,0.07);--gborder:rgba(140,106,30,0.32);
+  --text:#0E1116;--text2:#3D4450;--muted:#5B6370;
+  --border:#E4E7EB;--border2:#D5D9DF;
+  --s1:rgba(14,17,22,0.025);--s2:rgba(14,17,22,0.05);
+  --danger:#B42318;--warn:#B45309;--info:#1D4ED8;
+}
+body{background:var(--navy);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh}
+.hidden{display:none!important}
+
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;background:var(--navy2)}
+.login-card{background:var(--navy2);border:1px solid var(--border2);border-radius:16px;padding:2.5rem;width:100%;max-width:380px;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,0.5)}
+.login-logo{height:50px;margin-bottom:1.5rem}
+.login-title{font-family:'IBM Plex Sans',sans-serif;font-size:1.6rem;font-weight:900;text-transform:uppercase;margin-bottom:4px}
+.login-sub{font-size:0.8rem;color:var(--muted);margin-bottom:2rem}
+.login-field{margin-bottom:1rem;text-align:left}
+.login-field label{font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.login-field input{width:100%;background:var(--navy);border:1px solid var(--border2);color:var(--text);padding:11px 14px;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-size:0.88rem;outline:none;transition:border .18s}
+.login-field input:focus{border-color:var(--green)}
+.login-field input::placeholder{color:var(--muted)}
+.login-btn{width:100%;background:var(--green);color:#fff;font-weight:700;font-size:0.9rem;padding:13px;border-radius:8px;border:none;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-top:0.5rem;transition:all .2s}
+.login-btn:hover{background:var(--green2)}
+.login-err{font-size:0.75rem;color:var(--danger);margin-top:0.75rem}
+.login-hint{font-size:0.72rem;color:var(--muted);margin-top:1.5rem;line-height:1.6;background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:left}
+
+/* APP */
+nav{background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:10}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:36px}
+.nav-brand{font-family:'IBM Plex Sans',sans-serif;font-size:0.9rem;font-weight:800}
+.nav-brand span{color:var(--green-l)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-user{font-size:0.8rem;color:var(--muted);font-weight:600}
+.logout-btn{background:none;border:1px solid var(--border2);color:var(--muted);padding:7px 14px;border-radius:6px;cursor:pointer;font-size:0.78rem;font-family:'IBM Plex Sans',sans-serif;transition:all .18s}
+.logout-btn:hover{border-color:var(--danger);color:var(--danger)}
+
+.wrap{max-width:960px;margin:0 auto;padding:2.5rem 2rem}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:2rem}
+.stat-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
+.stat-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.stat-val{font-family:'IBM Plex Sans',sans-serif;font-size:1.9rem;font-weight:900;line-height:1}
+.stat-sub{font-size:0.7rem;color:var(--muted);margin-top:4px}
+.green{color:var(--green-l)}.warn{color:var(--warn)}.info{color:var(--info)}
+
+.section-title{font-family:'IBM Plex Sans',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;margin-bottom:1rem}
+
+/* LINK CARD */
+.link-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+.link-card-title{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.link-row{display:flex;gap:10px;margin-bottom:1rem}
+.link-input{flex:1;background:var(--navy);border:1px solid var(--border2);color:var(--text);padding:10px 14px;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-size:0.85rem;font-weight:600}
+.copy-btn{background:var(--green);color:#fff;font-weight:700;font-size:0.78rem;padding:10px 16px;border-radius:7px;border:none;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;white-space:nowrap;transition:all .18s}
+.copy-btn:hover{background:var(--green2)}
+.code-display{display:flex;align-items:center;gap:12px;background:var(--navy);border:1px solid var(--gborder);border-radius:10px;padding:1rem 1.25rem}
+.code-big{font-family:'IBM Plex Sans',sans-serif;font-size:2rem;font-weight:900;color:var(--green-l);letter-spacing:0.1em}
+.code-info{font-size:0.75rem;color:var(--muted);line-height:1.6}
+.code-info strong{color:var(--text)}
+
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:2rem}
+.how-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center}
+.how-num{font-family:'IBM Plex Sans',sans-serif;font-size:2rem;font-weight:900;color:var(--green-l);margin-bottom:6px}
+.how-title{font-size:0.82rem;font-weight:700;margin-bottom:4px}
+.how-desc{font-size:0.72rem;color:var(--muted);line-height:1.5}
+
+/* ORDERS TABLE */
+.card{background:var(--s1);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse}
+th{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;background:var(--s2);border-bottom:1px solid var(--border)}
+td{padding:11px 16px;font-size:0.82rem;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+.badge-pill{font-size:0.62rem;font-weight:700;padding:3px 10px;border-radius:20px}
+.pill-green{background:var(--gbg);color:var(--green-l);border:1px solid var(--gborder)}
+.pill-yellow{background:rgba(245,158,11,0.1);color:var(--warn);border:1px solid rgba(245,158,11,0.3)}
+.empty-state{text-align:center;padding:3rem;color:var(--muted);font-size:0.85rem}
+.empty-icon{font-size:2.5rem;margin-bottom:0.75rem}
+
+/* PAYOUT */
+.payout-card{background:linear-gradient(135deg,rgba(140,106,30,0.1),rgba(140,106,30,0.04));border:1px solid var(--gborder);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.payout-amount{font-family:'IBM Plex Sans',sans-serif;font-size:2.5rem;font-weight:900;color:var(--green-l)}
+.payout-label{font-size:0.72rem;color:var(--muted);margin-bottom:4px}
+.payout-note{font-size:0.75rem;color:var(--text2);line-height:1.6;max-width:300px}
+.request-btn{background:var(--green);color:#fff;font-weight:700;font-size:0.88rem;padding:12px 24px;border-radius:8px;border:none;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:all .2s;white-space:nowrap}
+.request-btn:hover{background:var(--green2)}
+.request-btn:disabled{opacity:0.6;cursor:not-allowed}
+
+/* BANK DETAILS */
+.bank-field{margin-bottom:1rem;text-align:left}
+.bank-field label{font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.bank-field input{width:100%;background:var(--navy);border:1px solid var(--border2);color:var(--text);padding:11px 14px;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-size:0.88rem;outline:none;transition:border .18s}
+.bank-field input:focus{border-color:var(--green)}
+.bank-field input::placeholder{color:var(--muted)}
+.bank-status{font-size:0.75rem;color:var(--muted);line-height:1.6;margin-bottom:1.25rem}
+.bank-status.set{color:var(--green-l)}
+.bank-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.bank-row{grid-template-columns:1fr}}
+
+@media(max-width:600px){.how-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.wrap{padding:1.5rem 1rem}nav{padding:0 1rem}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-wrap">
+    <div class="login-card">
+      <img src="/img/logo.png" class="login-logo" alt="Be Elite Supplements"/>
+      <div class="login-title">Affiliate Portal</div>
+      <div class="login-sub">beelitesupplements.com</div>
+      <div class="login-field"><label>Your Discount Code</label><input id="aff-code-input" placeholder="Enter your code" style="text-transform:uppercase" onkeydown="if(event.key==='Enter')affLogin()"/></div>
+      <div class="login-field"><label>Password</label><div style="position:relative"><input type="password" id="aff-pass-input" placeholder="Your password" onkeydown="if(event.key==='Enter')affLogin()" style="width:100%;padding-right:44px"/><button type="button" onclick="const i=document.getElementById('aff-pass-input');i.type=i.type==='password'?'text':'password';this.textContent=i.type==='password'?'👁':'🙈'" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1rem;color:var(--muted)">👁</button></div></div>
+      <button class="login-btn" onclick="affLogin()">Sign In →</button>
+      <div class="login-err hidden" id="aff-err">Incorrect code or password</div>
+
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="app-screen" class="hidden">
+  <nav>
+    <div class="nav-logo">
+      <img src="/img/logo.png" alt="Be Elite Supplements"/>
+      <div><div style="font-size:0.8rem;font-weight:600;color:var(--muted)">Affiliate portal</div></div>
+    </div>
+    <div class="nav-right">
+      <span class="nav-user" id="nav-user"></span>
+      <button class="logout-btn" onclick="affLogout()">Sign Out</button>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <!-- STATS -->
+    <div class="stats-grid" id="aff-stats"></div>
+
+    <!-- PAYOUT -->
+    <div class="payout-card">
+      <div>
+        <div class="payout-label">Unpaid Commission</div>
+        <div class="payout-amount" id="payout-amount">£0.00</div>
+      </div>
+      <div class="payout-note">Commissions are paid monthly via bank transfer. Click below to request your payout and we'll process it within 3 working days.</div>
+      
+    </div>
+
+    <!-- YOUR LINKS -->
+    <div class="link-card">
+      <div class="link-card-title">Your Referral Links & Code</div>
+      <div class="code-display" style="margin-bottom:1rem">
+        <div>
+          <div style="font-size:0.65rem;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.08em">Your Discount Code</div>
+          <div class="code-big" id="code-display"></div>
+        </div>
+        <div class="code-info">Customers get <strong id="disc-pct"></strong>% off · You earn <strong id="comm-pct" style="color:var(--warn)"></strong>% commission on every sale</div>
+      </div>
+      <div class="link-card-title">Referral Link (auto-applies your code)</div>
+      <div class="link-row">
+        <input class="link-input" id="ref-link" readonly/>
+        <button class="copy-btn" onclick="copyLink()">Copy Link</button>
+      </div>
+      <div class="link-card-title">Share on Social</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button onclick="shareWhatsApp()" style="background:#25D366;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:700;font-size:0.78rem;font-family:'IBM Plex Sans',sans-serif">📱 WhatsApp</button>
+        <button onclick="shareEmail()" style="background:var(--s2);border:1px solid var(--border2);color:var(--text2);padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:700;font-size:0.78rem;font-family:'IBM Plex Sans',sans-serif">✉️ Email</button>
+        <button onclick="copyCode()" style="background:var(--gbg);border:1px solid var(--gborder);color:var(--green-l);padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:700;font-size:0.78rem;font-family:'IBM Plex Sans',sans-serif">📋 Copy Code Only</button>
+      </div>
+    </div>
+
+    <!-- BANK DETAILS -->
+    <div class="link-card">
+      <div class="link-card-title">Bank Details for Payout</div>
+      <div class="bank-status" id="bank-details-status">Loading...</div>
+      <div class="bank-field">
+        <label>Account Holder Name</label>
+        <input type="text" id="bank-name" placeholder="e.g. James Wilson"/>
+      </div>
+      <div class="bank-row">
+        <div class="bank-field">
+          <label>Sort Code</label>
+          <input type="text" id="bank-sort" placeholder="00-00-00" maxlength="8" inputmode="numeric" oninput="formatSortCodeInput(this)"/>
+        </div>
+        <div class="bank-field">
+          <label>Account Number</label>
+          <input type="text" id="bank-account" placeholder="12345678" maxlength="8" inputmode="numeric"/>
+        </div>
+      </div>
+      <button class="request-btn" onclick="saveBankDetails()" id="save-bank-btn">Save Bank Details</button>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="section-title">How It Works</div>
+    <div class="how-grid" style="margin-bottom:2rem">
+      <div class="how-card"><div class="how-num">1</div><div class="how-title">Share Your Link</div><div class="how-desc">Send your referral link or code to your audience. They get an instant discount.</div></div>
+      <div class="how-card"><div class="how-num">2</div><div class="how-title">They Order</div><div class="how-desc">When they buy using your code, the sale is tracked and commission is added to your balance.</div></div>
+      <div class="how-card"><div class="how-num">3</div><div class="how-title">You Get Paid</div><div class="how-desc">Request your payout any time. We pay via bank transfer within 3 working days.</div></div>
+    </div>
+
+    <!-- WEEKLY BREAKDOWN -->
+    <div class="section-title">Weekly Breakdown</div>
+    <div class="card">
+      <table>
+        <thead><tr><th>Week</th><th>Sales</th><th>Revenue</th><th>Commission</th></tr></thead>
+        <tbody id="aff-weekly-table"></tbody>
+      </table>
+    </div>
+
+    <!-- ORDERS -->
+    <div class="section-title">Your Sales</div>
+    <div class="card">
+      <table>
+        <thead><tr><th>Order Ref</th><th>Amount</th><th>Commission</th><th>Date</th></tr></thead>
+        <tbody id="aff-orders-table"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentAffiliate = null;
+
+async function affLogin() {
+  const code = document.getElementById('aff-code-input').value.trim().toUpperCase();
+  const pass = document.getElementById('aff-pass-input').value.trim();
+  const errEl = document.getElementById('aff-err');
+  errEl.textContent = '';
+
+  if (!code || !pass) { errEl.textContent = 'Please enter your code and password.'; errEl.classList.remove('hidden'); return; }
+
+  try {
+    const res = await fetch('/api/affiliates', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'login', code, password: pass }) });
+    if (!res.ok) { errEl.textContent = 'Incorrect code or password.'; errEl.classList.remove('hidden'); return; }
+    const aff = await res.json();
+    aff.password = pass; // kept in this browser tab only, for the bank-details form
+
+    currentAffiliate = aff;
+    sessionStorage.setItem('aff_session', JSON.stringify(aff));
+    showDashboard(aff);
+  } catch(err) {
+    errEl.textContent = 'Login failed. Please try again.'; errEl.classList.remove('hidden');
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('aff_session');
+  currentAffiliate = null;
+  document.getElementById('login-screen').classList.remove('hidden');
+  document.getElementById('app-screen').classList.add('hidden');
+}
+
+async function showDashboard(aff) {
+  document.getElementById('login-screen').classList.add('hidden');
+  document.getElementById('app-screen').classList.remove('hidden');
+
+  const navUser = document.getElementById('nav-user');
+  if (navUser) navUser.textContent = aff.name;
+
+  const codeEl = document.getElementById('code-display');
+  if (codeEl) codeEl.textContent = aff.code;
+
+  const discEl = document.getElementById('disc-pct');
+  if (discEl) discEl.textContent = aff.discount_pct;
+
+  const commEl = document.getElementById('comm-pct');
+  if (commEl) commEl.textContent = aff.commission_pct;
+
+  const linkEl = document.getElementById('ref-link');
+  if (linkEl) linkEl.value = `${location.origin}/?ref=${aff.code}`;
+
+  await loadStats(aff);
+  await loadBankDetails();
+}
+
+async function loadBankDetails() {
+  const statusEl = document.getElementById('bank-details-status');
+  if (!currentAffiliate) return;
+  try {
+    const res = await fetch(`/api/affiliate-bank-details?code=${encodeURIComponent(currentAffiliate.code)}&password=${encodeURIComponent(currentAffiliate.password)}`);
+    if (!res.ok) { statusEl.textContent = 'Unable to load bank details right now.'; return; }
+    const data = await res.json();
+    if (data.has_bank_details) {
+      statusEl.classList.add('set');
+      statusEl.textContent = `On file: ${data.bank_account_name} · Sort code ${data.bank_sort_code} · Account ${data.bank_account_number}. Update below if anything's changed.`;
+      document.getElementById('bank-name').value = data.bank_account_name || '';
+    } else {
+      statusEl.classList.remove('set');
+      statusEl.textContent = "No bank details on file yet — add them below so we can pay your commission.";
+    }
+  } catch (err) {
+    statusEl.textContent = 'Unable to load bank details right now.';
+  }
+}
+
+function formatSortCodeInput(el) {
+  const digits = el.value.replace(/[^0-9]/g, '').slice(0, 6);
+  el.value = digits.match(/.{1,2}/g)?.join('-') || digits;
+}
+
+async function saveBankDetails() {
+  const name = document.getElementById('bank-name').value.trim();
+  const sort = document.getElementById('bank-sort').value.replace(/[^0-9]/g, '');
+  const account = document.getElementById('bank-account').value.replace(/[^0-9]/g, '');
+
+  if (!name) { showToast('Please enter the account holder name', true); return; }
+  if (sort.length !== 6) { showToast('Sort code must be 6 digits', true); return; }
+  if (account.length !== 8) { showToast('Account number must be 8 digits', true); return; }
+
+  const btn = document.getElementById('save-bank-btn');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  try {
+    const res = await fetch('/api/affiliate-bank-details', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        code: currentAffiliate.code,
+        password: currentAffiliate.password,
+        bank_account_name: name,
+        bank_sort_code: sort,
+        bank_account_number: account,
+      }),
+    });
+    if (!res.ok) throw new Error('Save failed');
+    showToast('✅ Bank details saved');
+    document.getElementById('bank-sort').value = '';
+    document.getElementById('bank-account').value = '';
+    await loadBankDetails();
+  } catch (err) {
+    showToast('Failed to save bank details', true);
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Save Bank Details';
+}
+
+async function loadStats(aff) {
+  try {
+    const res = await fetch(`/api/orders?affiliate_code=${aff.code}`);
+    let orders = [];
+    if (res.ok) {
+      orders = await res.json();
+    }
+
+    const totalRevenue = orders.reduce((s, o) => s + parseFloat(o.amount || 0), 0);
+    const totalCommission = orders
+      .filter(o => !o.commission_paid)
+      .reduce((s, o) => s + parseFloat(o.commission || 0), 0);
+
+    const statsEl = document.getElementById('aff-stats');
+    if (statsEl) {
+      statsEl.innerHTML = `
+        <div class="stat-card"><div class="stat-label">Total Sales</div><div class="stat-val green">${orders.length}</div></div>
+        <div class="stat-card"><div class="stat-label">Revenue Generated</div><div class="stat-val green">£${totalRevenue.toFixed(2)}</div></div>
+        <div class="stat-card"><div class="stat-label">Commission Owed</div><div class="stat-val warn">£${totalCommission.toFixed(2)}</div></div>
+      `;
+    }
+
+    const payoutEl = document.getElementById('payout-amount');
+    if (payoutEl) payoutEl.textContent = '£' + totalCommission.toFixed(2);
+
+    const tbody = document.getElementById('aff-orders-table');
+    if (tbody) {
+      if (orders.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:2rem">No sales yet — share your code!</td></tr>';
+      } else {
+        tbody.innerHTML = orders.map(o => `
+          <tr>
+            <td>${o.ref}</td>
+            <td>£${parseFloat(o.amount || 0).toFixed(2)}</td>
+            <td style="color:${o.commission_paid ? 'var(--muted)' : 'var(--warn)'}">£${parseFloat(o.commission || 0).toFixed(2)}${o.commission_paid ? ' <span style="font-size:0.7rem">(paid)</span>' : ''}</td>
+            <td>${new Date(o.created_at).toLocaleDateString('en-GB')}</td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    renderWeeklyBreakdown(orders);
+  } catch(err) {
+    console.error('Stats error:', err);
+  }
+}
+
+function getWeekStart(dateStr) {
+  const d = new Date(dateStr);
+  const day = d.getDay();
+  const diff = (day === 0 ? -6 : 1) - day;
+  const monday = new Date(d);
+  monday.setDate(d.getDate() + diff);
+  monday.setHours(0, 0, 0, 0);
+  return monday;
+}
+
+function renderWeeklyBreakdown(orders) {
+  const weeklyEl = document.getElementById('aff-weekly-table');
+  if (!weeklyEl) return;
+
+  if (!orders || orders.length === 0) {
+    weeklyEl.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:2rem">No sales yet</td></tr>';
+    return;
+  }
+
+  const weeks = {};
+  orders.forEach(o => {
+    const start = getWeekStart(o.created_at);
+    const key = start.toISOString().split('T')[0];
+    if (!weeks[key]) weeks[key] = { start, count: 0, revenue: 0, commission: 0 };
+    weeks[key].count++;
+    weeks[key].revenue += parseFloat(o.amount || 0);
+    weeks[key].commission += parseFloat(o.commission || 0);
+  });
+
+  const sorted = Object.values(weeks).sort((a, b) => b.start - a.start);
+
+  weeklyEl.innerHTML = sorted.map(w => {
+    const end = new Date(w.start);
+    end.setDate(end.getDate() + 6);
+    const label = w.start.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) + ' – ' + end.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+    return `
+      <tr>
+        <td>${label}</td>
+        <td>${w.count}</td>
+        <td>£${w.revenue.toFixed(2)}</td>
+        <td style="color:var(--warn)">£${w.commission.toFixed(2)}</td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function copyCode() {
+  const code = document.getElementById('code-display').textContent;
+  navigator.clipboard.writeText(code);
+  showToast('Code copied!');
+}
+
+function copyLink() {
+  const link = document.getElementById('ref-link').value;
+  navigator.clipboard.writeText(link);
+  showToast('Link copied!');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:2rem;right:2rem;background:#3d7a35;color:white;padding:12px 20px;border-radius:8px;font-size:0.9rem;z-index:999';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2500);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = sessionStorage.getItem('aff_session');
+  if (saved) {
+    currentAffiliate = JSON.parse(saved);
+    showDashboard(currentAffiliate);
+  }
+  const passInput = document.getElementById('aff-pass-input');
+  if (passInput) passInput.addEventListener('keydown', e => { if (e.key === 'Enter') affLogin(); });
+});
+</script></script>
+</body>
+</html>

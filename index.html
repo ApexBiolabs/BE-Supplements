@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Be Elite Supplements — Research Grade Peptides</title>
+<meta name="description" content="Be Elite Supplements: UK supplier of independently tested, lyophilised research peptides. Research use only."/>
+<link rel="icon" href="img/favicon.png"/>
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFFFF;--bg2:#F6F7F9;--bg3:#F2F4F6;
+  --ink:#0E1116;--ink2:#3D4450;--muted:#5B6370;
+  --line:#E4E7EB;--line2:#D5D9DF;--line3:#C9CED6;
+  --gold:#8C6A1E;--gold-d:#6E5418;--gold-l:#C9A44C;--gold-t:#F7F1E3;
+  --ok:#0B7A4B;--ok-t:#E8F5EE;--danger:#B42318;--danger-t:#FEF3F2;
+  --r:8px;--r2:12px;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.page{display:none}.page.active{display:block}
+.wrap{max-width:1280px;margin:0 auto;padding-left:24px;padding-right:24px}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.link-btn{background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer;text-align:left}
+.link-btn:hover{color:var(--gold)}
+.link-btn.strong{font-weight:600}
+
+/* Buttons */
+.btn-p,.add-btn,.pd-add-btn,.checkout-btn,.place-order-btn,.pay-now-btn,.disc-agree{background:var(--gold);color:#fff;border:0;border-radius:6px;font-weight:600;cursor:pointer;transition:background .15s;font-family:var(--sans)}
+.btn-p:hover,.add-btn:hover,.pd-add-btn:hover:not(:disabled),.checkout-btn:hover,.place-order-btn:hover:not(:disabled),.pay-now-btn:hover:not(:disabled),.disc-agree:hover{background:var(--gold-d)}
+.btn-p{padding:14px 24px;font-size:16px;text-decoration:none;display:inline-block}
+.btn-s,.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line3);border-radius:6px;font-weight:600;cursor:pointer;padding:13px 22px;font-size:16px;text-decoration:none;display:inline-block;transition:border-color .15s}
+.btn-s:hover,.btn-ghost:hover{border-color:var(--ink)}
+.btn-ghost.sm{padding:7px 14px;font-size:14px}
+button:disabled{opacity:.45;cursor:not-allowed}
+
+/* Utility bar + nav */
+.util{background:var(--bg2);border-bottom:1px solid var(--line);font-size:13px;color:var(--ink2)}
+.util .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-top:8px;padding-bottom:8px}
+.util strong{color:var(--ink);font-weight:600}
+.util-r{display:flex;flex-wrap:wrap;gap:4px 20px}
+nav.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:16px 28px;min-height:72px}
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo img{height:38px;width:auto;display:block}
+.nav-links{display:flex;gap:2px 22px;font-size:15px;font-weight:500}
+.nav-link{background:none;border:0;color:var(--ink);text-decoration:none;padding:10px 0;cursor:pointer;font-size:15px;font-weight:500;box-shadow:inset 0 -2px 0 transparent}
+.nav-link:hover{color:var(--gold)}
+.nav-link.active{color:var(--gold);box-shadow:inset 0 -2px 0 var(--gold)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search{display:flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:6px;padding:0 12px;min-height:42px;width:230px}
+.search input{border:0;outline:none;font:inherit;font-size:14px;width:100%;background:transparent;color:var(--ink)}
+.search input::placeholder{color:#6B7280}
+.icon-btn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:6px;color:var(--ink);text-decoration:none;background:none;border:0;cursor:pointer}
+.icon-btn:hover{background:var(--bg2)}
+.hamburger-btn{display:none}
+.cart-btn{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:6px;padding:0 16px;min-height:44px;font-size:14px;font-weight:600;cursor:pointer}
+.cart-btn:hover{background:#2A2F37}
+.cart-count{background:var(--gold-l);color:var(--ink);font-family:var(--mono);font-size:12px;font-weight:500;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+.mobile-menu{display:none;border-bottom:1px solid var(--line);background:#fff;padding:8px 24px 16px;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu .nav-link{text-align:left;padding:12px 0;border-bottom:1px solid var(--line);box-shadow:none}
+.mobile-menu .search{width:100%;margin:8px 0}
+
+/* Home */
+.hero{border-bottom:1px solid var(--line)}
+.hero .wrap{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:72px;padding-bottom:72px}
+.hero-copy{flex:999 1 520px;min-width:0}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:13px;color:var(--gold);background:var(--gold-t);padding:6px 12px;border-radius:4px;margin-bottom:20px}
+.hero h1{font-size:clamp(38px,5vw,60px);line-height:1.08;font-weight:600;letter-spacing:-.02em;max-width:640px}
+.hero-sub{margin-top:22px;max-width:540px;font-size:18px;line-height:1.65;color:var(--ink2)}
+.hero-btns{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
+.hero-stats{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:560px}
+.hero-stats div{border-left:2px solid var(--line);padding-left:16px}
+.hero-stats dt{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.hero-stats dd{margin-top:4px;font-size:22px;font-weight:600}
+.hero-visual{flex:1 1 400px;min-width:0;position:relative;background:var(--bg3);border-radius:var(--r2);min-height:460px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-visual img.v1{width:80%;max-width:380px}
+.spec-card{position:absolute;right:18px;bottom:18px;width:240px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:0 8px 24px rgba(14,17,22,.08)}
+.spec-card-h{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600}
+.pill-ok{font-family:var(--mono);font-size:11px;color:var(--ok);background:var(--ok-t);padding:2px 6px;border-radius:3px}
+.spec-card dl{margin-top:12px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-family:var(--mono);font-size:12px}
+.spec-card dt{color:var(--muted)}.spec-card dd{text-align:right}
+.trust{background:var(--bg2);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding-top:28px;padding-bottom:28px}
+.trust-item{display:flex;gap:14px;align-items:flex-start}
+.trust-item svg{width:24px;height:24px;flex-shrink:0;color:var(--gold)}
+.trust-item strong{display:block;font-weight:600}
+.trust-item span{font-size:14px;color:var(--muted)}
+.sec{border-bottom:1px solid var(--line)}
+.sec>.wrap{padding-top:80px;padding-bottom:80px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:28px}
+.sec-h{font-size:32px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.sec-p{margin-top:8px;color:var(--muted);font-size:16px}
+.sec-link{font-size:15px;font-weight:600;color:var(--gold);background:none;border:0;cursor:pointer}
+.sec-link:hover{color:var(--gold-d)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.cat-card{text-align:left;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:8px;min-height:160px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.cat-card:hover{border-color:var(--gold-l);box-shadow:0 6px 20px rgba(14,17,22,.06)}
+.cat-count{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase}
+.cat-name{font-size:20px;font-weight:600}
+.cat-list{font-size:14px;color:var(--muted);line-height:1.55}
+.cat-go{margin-top:auto;font-size:14px;font-weight:600;color:var(--gold)}
+.table-box{position:relative;overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+.ptable{width:100%;min-width:820px;border-collapse:collapse;font-size:15px}
+.ptable thead tr{background:var(--bg2);text-align:left}
+.ptable th[scope=col]{padding:13px 18px;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink2);text-transform:uppercase}
+.ptable td,.ptable th[scope=row]{padding:12px 18px;border-top:1px solid var(--line);text-align:left}
+.ptable td{color:var(--ink2)}
+.ptable td.num{color:var(--ink);font-weight:600;white-space:nowrap}
+.ptable td.act{text-align:right}
+.finder{background:var(--bg2);border-radius:var(--r2);padding:44px;display:flex;flex-wrap:wrap;gap:44px}
+.finder-intro{flex:1 1 300px;min-width:0}
+.finder-intro .sec-h{font-size:28px}
+.finder-progress{display:flex;gap:6px;margin-top:24px;max-width:300px}
+.finder-dot{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.finder-dot.done,.finder-dot.active{background:var(--gold)}
+.finder-body{flex:999 1 520px;min-width:0}
+.finder-q-title{font-size:18px;font-weight:600;margin-bottom:16px}
+.finder-options{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.finder-opt{text-align:left;cursor:pointer;background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:16px 18px;min-height:76px;color:var(--ink);transition:border-color .15s}
+.finder-opt:hover{border-color:var(--gold)}
+.finder-opt strong{display:block;font-size:15px;font-weight:600}
+.finder-opt span{display:block;margin-top:4px;font-size:13px;color:var(--muted)}
+.finder-back,.finder-retake{margin-top:18px}
+.finder-back button,.finder-retake button{background:none;border:1px solid var(--line3);border-radius:6px;padding:9px 16px;cursor:pointer;font-size:14px;color:var(--ink2)}
+.finder-back button:hover,.finder-retake button:hover{border-color:var(--ink)}
+.finder-result-card{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:10px}
+.finder-result-img{width:72px;height:86px;border-radius:6px;overflow:hidden;flex-shrink:0;background:var(--bg3)}
+.finder-result-img img{width:100%;height:100%;object-fit:cover}
+.finder-result-info{flex:1;min-width:0}
+.finder-result-name{font-weight:600}
+.finder-result-reason{font-size:14px;color:var(--ink2);margin:2px 0 10px}
+.finder-result-actions{display:flex;gap:8px;flex-wrap:wrap}
+.finder-result-actions .btn-p,.finder-result-actions .btn-s{padding:8px 14px!important;font-size:14px!important}
+.finder-result-price{font-weight:600;font-size:18px;white-space:nowrap}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:36px}
+.steps li{border:1px solid var(--line);border-radius:10px;padding:28px}
+.steps .n{font-family:var(--mono);font-size:13px;color:var(--gold)}
+.steps h3{margin-top:12px;font-size:19px;font-weight:600}
+.steps p{margin-top:8px;color:var(--ink2);font-size:15px;line-height:1.6}
+.about-grid{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}
+.about-grid>div{flex:1 1 360px;min-width:0}
+.about-grid p{color:var(--ink2);font-size:17px;line-height:1.7}
+.about-grid p+p{margin-top:14px}
+.trade{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.trade-card{background:var(--bg2);border-radius:var(--r2);padding:36px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.trade-card h2{font-size:24px;font-weight:600}
+.trade-card p{color:var(--ink2);line-height:1.6}
+
+/* Shop */
+.shop-head{padding-top:28px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs .link-btn{color:var(--muted)}
+.crumbs span{color:var(--ink)}
+.page-title{margin-top:14px;font-size:38px;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.page-sub{margin-top:6px;color:var(--ink2)}
+.shop-layout{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start;padding-top:28px;padding-bottom:88px}
+.shop-side{flex:1 1 240px;max-width:280px;min-width:0}
+.side-box{border:1px solid var(--line);border-radius:10px;padding:20px}
+.side-h{font-size:14px;font-weight:600;margin-bottom:10px}
+.side-rule{height:1px;background:var(--line);margin:18px 0}
+.side-note{font-size:13px;color:var(--muted);margin-top:8px}
+.seg{display:flex;border:1px solid var(--line2);border-radius:6px;padding:3px;gap:3px}
+.seg-btn{flex:1;min-height:38px;border:0;border-radius:4px;background:none;cursor:pointer;font-weight:600;font-size:14px;color:var(--ink2)}
+.seg-btn.on{background:var(--ink);color:#fff}
+.side-list{display:flex;flex-direction:column;gap:2px}
+.side-opt{display:flex;justify-content:space-between;align-items:center;min-height:42px;padding:0 10px;border:0;border-radius:6px;background:none;cursor:pointer;font-size:15px;color:var(--ink2);text-align:left}
+.side-opt:hover{background:var(--bg2)}
+.side-opt.on{background:var(--gold-t);color:var(--ink);font-weight:600}
+.side-n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.side-opt.on .side-n{color:var(--gold)}
+.side-check{display:flex;align-items:center;gap:10px;min-height:40px;font-size:15px;color:var(--ink2);cursor:pointer}
+.side-check input{width:18px;height:18px;accent-color:var(--gold)}
+.side-finder{display:block;width:100%;margin-top:14px;text-align:left;background:var(--bg2);border:0;border-radius:10px;padding:16px 18px;font-size:14px;line-height:1.5;color:var(--ink2);cursor:pointer}
+.side-finder strong{display:block;color:var(--ink);font-weight:600}
+.side-finder:hover{background:var(--gold-t)}
+.shop-main{flex:999 1 560px;min-width:0}
+.shop-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;font-size:15px;color:var(--ink2)}
+.shop-bar strong{color:var(--ink)}
+.sort{display:flex;align-items:center;gap:10px;font-size:14px}
+.sort select{font:inherit;font-size:14px;min-height:40px;padding:0 10px;border:1px solid var(--line2);border-radius:6px;background:#fff;color:var(--ink)}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.product-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;background:#fff;transition:box-shadow .15s,border-color .15s}
+.product-card:hover{border-color:var(--line3);box-shadow:0 8px 24px rgba(14,17,22,.06)}
+.card-img-wrap{position:relative;display:block;width:100%;border:0;padding:0;background:var(--bg3);cursor:pointer;aspect-ratio:5/6;overflow:hidden}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{font-family:var(--mono);font-size:11px;font-weight:500;padding:3px 8px;border-radius:4px;background:#fff;border:1px solid var(--line);color:var(--gold)}
+.badge.abs{position:absolute;top:12px;left:12px}
+.card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card-cat{font-size:13px;color:var(--muted)}
+.card-name{font-size:18px;font-weight:600;line-height:1.3}
+.card-size{font-weight:400;color:var(--muted)}
+.card-sub{font-size:13px;color:var(--muted)}
+.card-specs{margin-top:8px;display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-family:var(--mono);font-size:12px}
+.card-specs dt{color:var(--muted)}.card-specs dd{text-align:right}
+.card-footer{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card-price{font-size:20px;font-weight:600}
+.add-btn{padding:10px 14px;font-size:14px}
+.sold-out{font-size:14px;color:var(--muted)}
+.empty-results{grid-column:1/-1;border:1px dashed var(--line3);border-radius:10px;padding:40px;text-align:center;color:var(--ink2)}
+.empty-results .link-btn{color:var(--gold);font-weight:600}
+
+/* Product page */
+.pd-wrap{padding-top:28px;padding-bottom:20px}
+.pd-hero{display:flex;flex-wrap:wrap;gap:56px;margin-top:24px}
+.pd-img-wrap{flex:1 1 440px;min-width:0;background:var(--bg3);border-radius:var(--r2);overflow:hidden;align-self:flex-start;position:relative}
+.pd-img-wrap img{width:100%;display:block;aspect-ratio:5/6;object-fit:cover}
+.pd-info{flex:1 1 420px;min-width:0}
+.pd-cat{font-size:14px;font-weight:600;color:var(--gold)}
+.pd-name{margin-top:6px;font-size:clamp(32px,4vw,44px);line-height:1.1;font-weight:600;letter-spacing:-.02em}
+.pd-sub{margin-top:6px;color:var(--muted)}
+.pd-price-row{margin-top:22px;display:flex;align-items:center;gap:12px}
+.pd-price{font-size:34px;font-weight:600}
+.pd-stock{margin-top:6px;font-size:14px;color:var(--ok);display:flex;align-items:center;gap:8px}
+.pd-stock::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.pd-stock.out{color:var(--muted)}
+.pd-switch{margin-top:10px;font-size:15px;color:var(--ink2);min-height:1.2em}
+.pd-switch .link-btn{color:var(--gold);font-weight:600;text-decoration:underline}
+.spec-table{margin-top:22px;width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:15px}
+.spec-table th{text-align:left;font-weight:500;color:var(--muted);padding:12px 16px;background:var(--bg2);width:40%}
+.spec-table td{padding:12px 16px;font-family:var(--mono)}
+.spec-table tr+tr{border-top:1px solid var(--line)}
+.pd-add-btn{margin-top:22px;width:100%;min-height:54px;font-size:16px}
+.pd-note{margin-top:12px;font-size:14px;color:var(--muted)}
+.ruo{margin-top:16px;background:var(--gold-t);border-radius:var(--r);padding:14px 16px;font-size:14px;line-height:1.6;color:var(--ink2)}
+.ruo strong{color:var(--ink);font-weight:600}
+.pd-sections{border-top:1px solid var(--line);margin-top:56px}
+.pd-section{padding:36px 0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 48px}
+.pd-section h2{flex:1 1 220px;font-size:22px;font-weight:600}
+.pd-section .pd-body{flex:999 1 520px;min-width:0;max-width:760px}
+.pd-text{color:var(--ink2);font-size:16px;line-height:1.75}
+.pd-research-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.pd-research-list li{display:flex;gap:12px;color:var(--ink2);line-height:1.55}
+.pd-research-list li::before{content:"";width:6px;height:6px;margin-top:9px;border-radius:50%;background:var(--gold-l);flex-shrink:0}
+
+/* Cart drawer */
+.cart-overlay{position:fixed;inset:0;z-index:300;display:none;justify-content:flex-end}
+.cart-overlay.open{display:flex}
+.cart-backdrop{position:absolute;inset:0;background:rgba(14,17,22,.4);cursor:pointer}
+.cart-panel{position:relative;z-index:1;width:420px;max-width:100vw;background:#fff;display:flex;flex-direction:column;height:100%;box-shadow:-12px 0 40px rgba(14,17,22,.12)}
+.cart-hdr{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.cart-title{font-size:20px;font-weight:600}
+.cart-x{width:40px;height:40px;border-radius:6px;background:none;border:0;cursor:pointer;font-size:18px;color:var(--ink2)}
+.cart-x:hover{background:var(--bg2)}
+.cart-body{flex:1;padding:18px 24px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
+.cart-item{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.ci-inner{display:flex}
+.ci-vial-wrap{width:76px;background:var(--bg3);flex-shrink:0}
+.ci-vial-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.ci-info{flex:1;padding:12px 14px;min-width:0}
+.ci-name{font-weight:600}
+.ci-meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+.ci-footer{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.qty-wrap{display:flex;align-items:center;gap:6px}
+.qty-btn{width:32px;height:32px;border:1px solid var(--line3);border-radius:6px;background:#fff;cursor:pointer;font-size:16px;color:var(--ink)}
+.qty-btn:hover{border-color:var(--ink)}
+.qty-n{font-family:var(--mono);min-width:20px;text-align:center}
+.rm-btn{background:none;border:0;color:var(--danger);font-size:13px;cursor:pointer;margin-left:6px}
+.ci-price{font-weight:600}
+.cart-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);text-align:center}
+.cart-ft{padding:18px 24px 24px;border-top:1px solid var(--line)}
+.stack-hint{font-size:13px;color:var(--ink2);background:var(--bg2);border-radius:6px;padding:9px 12px;margin-bottom:14px}
+.stack-hint.on{background:var(--gold-t);color:var(--gold-d);font-weight:600}
+.cart-subtotal-row,.grand-total-row{display:flex;justify-content:space-between;align-items:baseline}
+.cart-subtotal-lbl{color:var(--ink2)}
+.cart-subtotal-val{font-weight:600}
+.cart-ship-line{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin:6px 0 12px}
+.grand-total-row{padding-top:12px;border-top:1px solid var(--line);margin-bottom:16px}
+.grand-lbl{font-weight:600}
+.grand-val{font-size:24px;font-weight:600}
+.checkout-btn{width:100%;min-height:52px;font-size:16px}
+.checkout-note{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
+.free-ship-bar{display:none!important}
+
+/* Checkout */
+#page-checkout{background:var(--bg2)}
+.checkout-wrap{max-width:1280px;margin:0 auto;padding:36px 24px 88px}
+.back-link{background:none;border:0;cursor:pointer;color:var(--ink2);font-size:14px;padding:6px 0}
+.back-link:hover{color:var(--gold)}
+.checkout-grid{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;margin-top:20px}
+.checkout-left{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.co-section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px}
+.co-section-title{font-size:18px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.co-step{font-family:var(--mono);font-size:12px;width:24px;height:24px;border-radius:50%;background:var(--gold-t);color:var(--gold);display:flex;align-items:center;justify-content:center}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-row.full{grid-template-columns:1fr}
+.form-row:last-child{margin-bottom:0}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:14px;font-weight:500}
+.field input,.field select,.discount-input,#collection-code-input{background:#fff;border:1px solid var(--line3);color:var(--ink);padding:12px 14px;border-radius:6px;font:inherit;font-size:16px;width:100%}
+.field input:focus,.field select:focus,.discount-input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-t)}
+.field input::placeholder,.discount-input::placeholder{color:#8A929E}
+.ship-options{display:flex;flex-direction:column;gap:10px}
+.ship-opt{display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px solid var(--line3);border-radius:var(--r);cursor:pointer;background:#fff}
+.ship-opt.selected{border:2px solid var(--gold);padding:14px 16px;background:var(--gold-t)}
+.ship-opt input[type=radio]{accent-color:var(--gold);width:18px;height:18px;flex-shrink:0}
+.ship-opt-info{flex:1}
+.ship-opt-label{font-weight:600;font-size:15px}
+.ship-opt-desc{font-size:14px;color:var(--muted)}
+.ship-opt-price{font-weight:600}
+.unlock-row{display:flex;gap:8px}
+.unlock-row button,.apply-code-btn{background:#fff;border:1px solid var(--line3);border-radius:6px;padding:0 18px;min-height:46px;font-weight:600;font-size:14px;cursor:pointer;color:var(--ink)}
+.unlock-row button:hover,.apply-code-btn:hover{border-color:var(--ink)}
+.discount-row{display:flex;gap:8px}
+.discount-input{flex:1;text-transform:uppercase}
+.discount-msg{font-size:14px;margin-top:8px;min-height:20px}
+.discount-msg.valid{color:var(--ok)}.discount-msg.invalid{color:var(--danger)}
+.ob-box{background:var(--bg2);border-radius:var(--r);padding:16px 18px;display:flex;gap:14px}
+.ob-box svg{width:24px;height:24px;color:var(--gold);flex-shrink:0}
+.ob-box strong{display:block;font-weight:600;margin-bottom:4px}
+.ob-box p{font-size:14px;color:var(--ink2);line-height:1.6}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chips span{font-family:var(--mono);font-size:12px;color:var(--ink2);border:1px solid var(--line);padding:4px 10px;border-radius:20px}
+.disclaimer-check{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 24px;font-size:14px;line-height:1.6;color:var(--ink2);cursor:pointer}
+.disclaimer-check input{width:20px;height:20px;margin-top:2px;flex-shrink:0;accent-color:var(--gold)}
+.disclaimer-check strong{color:var(--ink);font-weight:600}
+.place-order-btn{width:100%;min-height:56px;font-size:16px}
+.order-summary-box{flex:1 1 340px;min-width:0;background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:10px;padding:26px;position:sticky;top:96px}
+.os-title{font-size:18px;font-weight:600;margin-bottom:18px}
+.os-items{display:flex;flex-direction:column;gap:12px;max-height:320px;overflow-y:auto}
+.os-item{display:flex;gap:12px;align-items:center}
+.os-vial{width:48px;height:56px;border-radius:6px;overflow:hidden;background:var(--bg3);flex-shrink:0}
+.os-vial img{width:100%;height:100%;object-fit:cover}
+.os-item-name{font-weight:600;font-size:15px}
+.os-item-qty{color:var(--muted);font-weight:400}
+.os-item-meta{font-size:13px;color:var(--muted)}
+.os-item-price{white-space:nowrap}
+.os-divider{height:1px;background:var(--line);margin:18px 0}
+.os-line{display:flex;justify-content:space-between;font-size:15px;color:var(--ink2);margin-bottom:8px}
+.saving-line{color:var(--ok)!important}
+.os-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;padding-top:14px;border-top:1px solid var(--line);font-weight:600}
+.os-total-val{font-size:28px}
+
+/* Payment modal */
+.pay-modal-overlay{position:fixed;inset:0;z-index:400;background:rgba(14,17,22,.5);display:none;align-items:center;justify-content:center;padding:24px}
+.pay-modal-overlay.open{display:flex}
+.pay-modal{background:#fff;border-radius:14px;max-width:480px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 30px 70px rgba(14,17,22,.25)}
+.pay-modal-header{padding:28px 28px 22px;text-align:center;border-bottom:1px solid var(--line);border-top:4px solid var(--gold)}
+.pay-modal-logo{height:40px;margin-bottom:14px}
+.pay-modal-title{font-size:18px;font-weight:600}
+.pay-modal-amount{font-size:40px;font-weight:600;margin-top:4px}
+.pay-modal-ref{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:4px}
+.pay-modal-body{padding:24px 28px 28px}
+.ob-title{font-weight:600;text-align:center;margin-bottom:16px}
+.ob-banks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.bank-btn{background:#fff;border:1px solid var(--line3);border-radius:var(--r);padding:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:72px}
+.bank-btn:hover{border-color:var(--ink)}
+.bank-btn.selected{border:2px solid var(--gold);padding:11px;background:var(--gold-t)}
+.bank-icon{width:22px;height:22px;color:var(--gold)}
+.bank-icon svg{width:100%;height:100%}
+.bank-name{font-size:15px;font-weight:600;color:var(--ink)}
+.bank-type{font-size:12px;color:var(--muted)}
+.ob-divider{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ob-divider-line{flex:1;height:1px;background:var(--line)}
+.ob-divider-text{font-size:13px;color:var(--muted)}
+.ob-other{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px solid var(--line3);border-radius:var(--r);min-height:48px;font-weight:600;font-size:15px;cursor:pointer;margin-bottom:14px;color:var(--ink)}
+.ob-other svg{width:18px;height:18px;color:var(--gold)}
+.ob-other.selected{border:2px solid var(--gold);background:var(--gold-t)}
+.pay-now-btn{width:100%;min-height:54px;font-size:16px;margin-bottom:12px}
+.ob-security{text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ob-cancel{display:block;width:100%;margin-top:10px;background:none;border:0;color:var(--ink2);font-size:14px;cursor:pointer;min-height:40px}
+.ob-cancel:hover{color:var(--ink)}
+.bank-redirect{padding:40px 28px;text-align:center;display:none}
+.bank-redirect.show{display:block}
+.bank-redirect-icon{width:44px;height:44px;margin:0 auto 14px;color:var(--gold)}
+.bank-redirect-icon svg{width:100%;height:100%}
+.bank-redirect-title{font-size:20px;font-weight:600;margin-bottom:16px}
+.bank-redirect-spinner{width:36px;height:36px;border:3px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 18px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bank-redirect-sub{font-size:15px;color:var(--ink2);line-height:1.65}
+
+/* Success */
+.success-wrap{max-width:600px;margin:0 auto;padding:88px 24px;text-align:center}
+.success-icon{width:56px;height:56px;margin:0 auto 20px;color:var(--ok)}
+.success-title{font-size:36px;font-weight:600;letter-spacing:-.01em}
+.success-ref{font-family:var(--mono);color:var(--muted);margin:8px 0 24px}
+.success-details:empty{display:none}
+.success-sub{color:var(--ink2);line-height:1.7;margin-bottom:28px}
+
+/* Entry gate */
+.disclaimer-overlay{position:fixed;inset:0;z-index:9999;background:var(--bg2);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.disclaimer-box{position:relative;background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:12px;max-width:600px;width:100%;padding:40px 44px;box-shadow:0 24px 60px rgba(14,17,22,.10)}
+.disc-logo{height:40px;width:auto;display:block}
+.disc-badge{margin-top:28px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--gold)}
+.disc-title{margin-top:8px;font-size:28px;line-height:1.2;font-weight:600;letter-spacing:-.01em}
+.disc-points{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px;font-size:15px;color:var(--ink2)}
+.disc-points li{display:flex;gap:10px}
+.disc-points svg{width:18px;height:18px;color:var(--gold);flex-shrink:0;margin-top:2px}
+.disc-confirm{margin-top:22px;background:var(--gold-t);border-radius:var(--r);padding:14px 16px;font-size:14px;line-height:1.6;color:var(--ink2)}
+.disc-confirm strong{color:var(--ink);font-weight:600}
+.disc-buttons{margin-top:26px;display:flex;gap:12px}
+.disc-agree{flex:1;min-height:52px;font-size:16px}
+.disc-disagree{background:#fff;border:1px solid var(--line3);border-radius:6px;padding:0 24px;min-height:52px;font-weight:600;font-size:16px;cursor:pointer;color:var(--ink)}
+.disc-disagree:hover{border-color:var(--ink)}
+
+/* Footer */
+footer{background:var(--bg2);border-top:1px solid var(--line)}
+footer .wrap{padding-top:56px;padding-bottom:32px}
+.foot-top{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between}
+.foot-brand{flex:1 1 280px}
+.foot-brand img{height:44px;width:auto;display:block}
+.foot-brand p{margin-top:18px;color:var(--ink2);font-size:14px;line-height:1.7}
+.foot-cols{display:flex;flex-wrap:wrap;gap:56px;font-size:14px}
+.foot-col{display:flex;flex-direction:column;gap:10px}
+.foot-col span{font-weight:600}
+.foot-col a,.foot-col button{color:var(--ink2);text-decoration:none;background:none;border:0;padding:0;font:inherit;font-size:14px;cursor:pointer;text-align:left}
+.foot-col a:hover,.foot-col button:hover{color:var(--gold)}
+.foot-legal{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.6}
+.wa-btn{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.2);z-index:250}
+.wa-btn[hidden]{display:none}
+
+@media(max-width:1060px){.search.desk{display:none}}
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger-btn{display:flex}
+  .order-summary-box{position:static}
+}
+@media(max-width:640px){
+  .wrap{padding-left:16px;padding-right:16px}
+  .util .util-r{display:none}
+  nav.top .wrap{gap:8px;min-height:64px}
+  .nav-logo img{height:30px}
+  .cart-btn .cart-label{display:none}
+  .cart-btn{padding:0 12px}
+  .hero .wrap{padding-top:40px;padding-bottom:48px;gap:32px}
+  .hero-visual{min-height:360px}
+  .hero-stats{gap:12px}.hero-stats dd{font-size:18px}
+  .sec>.wrap{padding-top:56px;padding-bottom:56px}
+  .sec-h{font-size:26px}
+  .finder{padding:24px}
+  .finder-result-card{flex-wrap:wrap}
+  .shop-side{max-width:none;flex-basis:100%}
+  .form-row{grid-template-columns:1fr}
+  .co-section{padding:20px}
+  .disclaimer-box{padding:28px 22px}
+  .disc-buttons{flex-direction:column-reverse}
+  .pay-modal-overlay{padding:0;align-items:flex-end}
+  .pay-modal{border-radius:14px 14px 0 0}
+  .page-title{font-size:30px}
+}
+</style>
+</head>
+<body>
+
+<!-- ENTRY GATE -->
+<div class="disclaimer-overlay" id="disclaimer-overlay">
+  <div class="disclaimer-box" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <img src="img/logo.png" class="disc-logo" alt="Be Elite Supplements"/>
+    <p class="disc-badge">IMPORTANT NOTICE</p>
+    <h1 class="disc-title" id="gate-title">This site supplies research compounds only</h1>
+    <ul class="disc-points">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Not intended for human or veterinary use, administration or consumption</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Not for medical, diagnostic, therapeutic or cosmetic purposes</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>We do not provide guidance on human or animal use</li>
+    </ul>
+    <p class="disc-confirm">By entering you confirm you are accessing a supplier of <strong>research-grade reagents only</strong>, that you are <strong>18 or older</strong>, <strong>UK-based</strong>, and purchasing solely for <strong>scientific research</strong>.</p>
+    <div class="disc-buttons">
+      <button type="button" class="disc-disagree" onclick="disclaimerDisagree()">Exit</button>
+      <button type="button" class="disc-agree" onclick="disclaimerAgree()">I agree, enter site</button>
+    </div>
+  </div>
+</div>
+
+<div class="util"><div class="wrap">
+  <span><strong>Research use only.</strong> Not for human or veterinary use.</span>
+  <span class="util-r"><span>UK dispatch within 48h</span><span>Every batch tested</span><span>Stored at 2–8°C</span></span>
+</div></div>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="nav-logo" href="/" onclick="showPage('home');return false" aria-label="Be Elite Supplements home"><img src="img/logo.png" alt="Be Elite Supplements"/></a>
+    <div class="nav-links">
+      <button type="button" class="nav-link active" onclick="showPage('home')">Home</button>
+      <button type="button" class="nav-link" onclick="currentCat='All';showPage('shop')">Shop all</button>
+      <button type="button" class="nav-link" onclick="goSection('quality')">Quality</button>
+      <button type="button" class="nav-link" onclick="goSection('about')">About</button>
+      <a class="nav-link" href="/wholesale">Wholesale</a>
+      <button type="button" class="nav-link" onclick="goSection('contact')">Contact</button>
+    </div>
+    <div class="nav-right">
+      <label class="search desk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6370" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="sr">Search compounds</span><input type="search" class="search-input" placeholder="Search compounds" oninput="onSearch(this.value)"/></label>
+      <a class="icon-btn" href="/account" aria-label="My account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+      <button type="button" class="icon-btn hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu" aria-controls="mobileMenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <button type="button" class="cart-btn" onclick="toggleCart()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Basket</span><span class="cart-count" id="cart-count" style="display:none">0</span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6370" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="sr">Search compounds</span><input type="search" class="search-input" placeholder="Search compounds" oninput="onSearch(this.value)"/></label>
+    <button type="button" class="nav-link" onclick="showPage('home')">Home</button>
+    <button type="button" class="nav-link" onclick="currentCat='All';showPage('shop')">Shop all</button>
+    <button type="button" class="nav-link" onclick="goSection('quality')">Quality</button>
+    <button type="button" class="nav-link" onclick="goSection('about')">About</button>
+    <a class="nav-link" href="/wholesale">Wholesale</a>
+    <button type="button" class="nav-link" onclick="goSection('contact')">Contact</button>
+    <a class="nav-link" href="/account">My account</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<main id="page-home" class="page active">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">UK supplier · Lyophilised research peptides</p>
+        <h1>Research peptides, independently verified.</h1>
+        <p class="hero-sub">High-purity compounds for qualified researchers. Every batch is third-party tested for purity before it goes on sale.</p>
+        <div class="hero-btns">
+          <button type="button" class="btn-p" onclick="currentCat='All';showPage('shop')">Browse catalogue</button>
+          <button type="button" class="btn-s" onclick="goSection('quality')">Our testing process</button>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>PURITY</dt><dd>≥98.4%</dd></div>
+          <div><dt>METHOD</dt><dd>HPLC</dd></div>
+          <div><dt>DISPATCH</dt><dd>48 hours</dd></div>
+        </dl>
+      </div>
+      <div class="hero-visual">
+        <img class="v1" src="img/vial-bpc157.svg" alt="Be Elite BPC-157 20mg research vial"/>
+        <div class="spec-card">
+          <div class="spec-card-h"><span>BPC-157 · 20mg</span><span class="pill-ok">IN STOCK</span></div>
+          <dl><dt>Purity</dt><dd>99.1%</dd><dt>Method</dt><dd>HPLC</dd><dt>Storage</dt><dd>2–8°C</dd></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Standards"><div class="wrap">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/></svg><div><strong>Research use only</strong><span>Not for human consumption</span></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.8V4a2 2 0 1 0-4 0v10.8a4 4 0 1 0 4 0z"/></svg><div><strong>Cold storage</strong><span>Kept at 2°C – 8°C</span></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M10 14l2 2 4-4"/></svg><div><strong>Batch tested</strong><span>Purity tested by HPLC</span></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><div><strong>Fast UK dispatch</strong><span>Within 48 hours</span></div></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sec-head"><h2 class="sec-h">Shop by research area</h2><button type="button" class="sec-link" onclick="currentCat='All';showPage('shop')">View all compounds →</button></div>
+    <div class="cat-grid" id="home-cats"></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sec-head"><div><h2 class="sec-h">Price list</h2><p class="sec-p">Research grade. Pen and vial prices side by side.</p></div><button type="button" class="sec-link" onclick="currentCat='All';showPage('shop')">Open full catalogue →</button></div>
+    <div class="table-box">
+      <table class="ptable">
+        <thead><tr><th scope="col">Compound</th><th scope="col">Research area</th><th scope="col">Strength</th><th scope="col">Purity</th><th scope="col">Pen</th><th scope="col">Vial</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
+        <tbody id="home-price-rows"></tbody>
+      </table>
+    </div>
+  </div></section>
+
+  <section class="sec" id="finderSection"><div class="wrap">
+    <div class="finder">
+      <div class="finder-intro">
+        <h2 class="sec-h">Find the right compound</h2>
+        <p class="sec-p">Answer three quick questions and we'll narrow the catalogue to your research focus.</p>
+        <div class="finder-progress" id="finderProgress" aria-hidden="true"></div>
+      </div>
+      <div class="finder-body" id="finderBody"></div>
+    </div>
+  </div></section>
+
+  <section class="sec" id="quality"><div class="wrap">
+    <h2 class="sec-h">Our testing process</h2>
+    <p class="sec-p" style="max-width:640px;font-size:17px;color:var(--ink2)">Purity isn't a claim on a label. Each batch is analysed before it's listed, and stored correctly until it leaves us.</p>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Independent analysis</h3><p>Every batch goes to a third-party lab for HPLC testing before sale.</p></li>
+      <li><span class="n">02</span><h3>Purity on every listing</h3><p>The tested purity is shown on each product page.</p></li>
+      <li><span class="n">03</span><h3>Cold storage</h3><p>Compounds are kept at 2–8°C right up to dispatch.</p></li>
+    </ol>
+  </div></section>
+
+  <section class="sec" id="about"><div class="wrap">
+    <div class="about-grid">
+      <div><h2 class="sec-h">About Be Elite</h2></div>
+      <div>
+        <p>Be Elite Supplements is a UK-based supplier of lyophilised research peptides for qualified researchers and research institutions.</p>
+        <p>Every compound is supplied strictly for in vitro laboratory research. We don't provide guidance on human or animal use.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sec" id="trade" style="border-bottom:0"><div class="wrap">
+    <div class="trade">
+      <div class="trade-card"><h2>Wholesale accounts</h2><p>Volume pricing and dedicated support for research institutions and resellers.</p><a class="btn-p" href="/wholesale">Wholesale enquiries</a></div>
+      <div class="trade-card"><h2>Affiliate programme</h2><p>Your own discount code, live order tracking and commission on every referred order.</p><a class="btn-s" href="/affiliate">Affiliate portal</a></div>
+    </div>
+  </div></section>
+</main>
+
+<!-- SHOP -->
+<main id="page-shop" class="page"><div id="catalogue-shop"></div></main>
+
+<!-- PRODUCT -->
+<main id="page-product" class="page">
+  <div class="wrap pd-wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><button type="button" class="link-btn" onclick="showPage('home')">Home</button> / <button type="button" class="link-btn" onclick="currentCat='All';showPage('shop')">Shop</button> / <button type="button" class="link-btn" id="pd-crumb-cat" onclick="goCategory(this.textContent)"></button> / <span id="pd-crumb-name"></span></nav>
+    <div class="pd-hero">
+      <div class="pd-img-wrap"><img id="pd-img" src="" alt=""/><span id="pd-badge"></span></div>
+      <div class="pd-info">
+        <p class="pd-cat" id="pd-cat"></p>
+        <h1 class="pd-name" id="pd-name"></h1>
+        <p class="pd-sub" id="pd-sub"></p>
+        <div class="pd-price-row"><span class="pd-price" id="pd-price"></span></div>
+        <p class="pd-stock" id="pd-stock"></p>
+        <p class="pd-switch" id="pd-switch"></p>
+        <table class="spec-table">
+          <caption class="sr">Specifications</caption>
+          <tbody>
+            <tr><th scope="row">Strength</th><td id="pd-size"></td></tr>
+            <tr><th scope="row">Purity (HPLC)</th><td id="pd-purity"></td></tr>
+            <tr><th scope="row">Format</th><td id="pd-format"></td></tr>
+            <tr><th scope="row">Form</th><td>Lyophilised powder</td></tr>
+            <tr><th scope="row">Storage</th><td id="pd-storage"></td></tr>
+          </tbody>
+        </table>
+        <button type="button" class="pd-add-btn" id="pd-add-btn" onclick="addToCartFromPage()">Add to basket</button>
+        <p class="pd-note">Buy two or more different compounds and save 10%.</p>
+        <p class="ruo"><strong>Research use only.</strong> Intended exclusively for laboratory research. Not for human or veterinary use.</p>
+      </div>
+    </div>
+    <div class="pd-sections">
+      <section class="pd-section"><h2>What is it</h2><div class="pd-body"><p class="pd-text" id="pd-whatisit"></p></div></section>
+      <section class="pd-section"><h2>How it's studied</h2><div class="pd-body"><p class="pd-text" id="pd-mechanism"></p></div></section>
+      <section class="pd-section" style="border-bottom:0"><h2>Research applications</h2><div class="pd-body"><ul class="pd-research-list" id="pd-research"></ul></div></section>
+    </div>
+  </div>
+</main>
+
+<!-- CHECKOUT -->
+<main id="page-checkout" class="page">
+  <div class="checkout-wrap">
+    <button type="button" class="back-link" onclick="showPage('shop')">← Continue shopping</button>
+    <h1 class="page-title" style="margin-top:6px">Checkout</h1>
+    <div class="checkout-grid">
+      <div class="checkout-left">
+        <section class="co-section">
+          <h2 class="co-section-title"><span class="co-step">1</span>Contact details</h2>
+          <div class="form-row">
+            <div class="field"><label for="f-first">First name</label><input id="f-first" autocomplete="given-name"/></div>
+            <div class="field"><label for="f-last">Last name</label><input id="f-last" autocomplete="family-name"/></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email" placeholder="you@example.com"/></div>
+            <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" type="tel" autocomplete="tel"/></div>
+          </div>
+        </section>
+        <section class="co-section">
+          <h2 class="co-section-title"><span class="co-step">2</span>Delivery address</h2>
+          <div class="form-row full"><div class="field"><label for="f-addr1">Address line 1</label><input id="f-addr1" autocomplete="address-line1"/></div></div>
+          <div class="form-row full"><div class="field"><label for="f-addr2">Address line 2 (optional)</label><input id="f-addr2" autocomplete="address-line2"/></div></div>
+          <div class="form-row">
+            <div class="field"><label for="f-city">City / town</label><input id="f-city" autocomplete="address-level2"/></div>
+            <div class="field"><label for="f-county">County (optional)</label><input id="f-county" autocomplete="address-level1"/></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="f-post">Postcode</label><input id="f-post" autocomplete="postal-code"/></div>
+            <div class="field"><label for="f-country">Country</label><select id="f-country"><option>United Kingdom</option></select></div>
+          </div>
+        </section>
+        <section class="co-section">
+          <h2 class="co-section-title"><span class="co-step">3</span>Shipping method</h2>
+          <div class="ship-options">
+            <label class="ship-opt selected" id="ship-standard" onclick="selectShipping('standard')">
+              <input type="radio" name="ship" checked/>
+              <div class="ship-opt-info"><div class="ship-opt-label">Standard delivery</div><div class="ship-opt-desc">3–5 working days</div></div>
+              <div class="ship-opt-price">£3.99</div>
+            </label>
+            <label class="ship-opt" id="ship-express" onclick="selectShipping('express')">
+              <input type="radio" name="ship"/>
+              <div class="ship-opt-info"><div class="ship-opt-label">Express delivery</div><div class="ship-opt-desc">1–2 working days</div></div>
+              <div class="ship-opt-price">£7.99</div>
+            </label>
+            <label class="ship-opt" id="ship-collection" onclick="selectShipping('collection')" style="opacity:.6">
+              <input type="radio" name="ship" disabled/>
+              <div class="ship-opt-info"><div class="ship-opt-label">Collection (prearranged)</div><div class="ship-opt-desc" id="collection-desc">Arranged with us in advance. Enter your code to unlock.</div></div>
+              <div class="ship-opt-price">Free</div>
+            </label>
+            <div class="unlock-row" id="collection-unlock-row">
+              <label class="sr" for="collection-code-input">Collection code</label>
+              <input type="text" id="collection-code-input" placeholder="Collection code" onkeydown="if(event.key==='Enter')unlockCollection()"/>
+              <button type="button" onclick="unlockCollection()">Unlock</button>
+            </div>
+          </div>
+        </section>
+        <section class="co-section">
+          <h2 class="co-section-title"><span class="co-step">4</span>Discount code</h2>
+          <div class="discount-row">
+            <label class="sr" for="disc-code-input">Discount code</label>
+            <input class="discount-input" id="disc-code-input" placeholder="Affiliate or discount code"/>
+            <button type="button" class="apply-code-btn" onclick="applyDiscountCode()">Apply</button>
+          </div>
+          <div class="discount-msg" id="disc-msg" aria-live="polite"></div>
+        </section>
+        <section class="co-section">
+          <h2 class="co-section-title"><span class="co-step">5</span>Payment</h2>
+          <div class="ob-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg>
+            <div><strong>Open Banking: pay direct from your bank</strong><p>You'll be securely redirected to your bank's app or website to approve the payment. No card details needed.</p></div>
+          </div>
+          <div class="chips"><span>FCA regulated</span><span>Instant settlement</span><span>No card needed</span></div>
+        </section>
+        <label class="disclaimer-check">
+          <input type="checkbox" id="agree-check" onchange="checkForm()"/>
+          <span>I confirm these products are for <strong>research purposes only</strong>, not for human consumption, and that I am a qualified researcher or acting on behalf of a registered research institution. I agree to the <strong>Terms &amp; Conditions</strong> and <strong>Research Use Policy</strong>.</span>
+        </label>
+        <button type="button" class="place-order-btn" id="place-order-btn" disabled onclick="openPayModal()">Complete all fields to continue</button>
+      </div>
+      <aside class="order-summary-box" aria-label="Order summary">
+        <h2 class="os-title">Order summary</h2>
+        <div class="os-items" id="os-items"></div>
+        <div class="os-divider"></div>
+        <div class="os-line"><span>Subtotal</span><span id="os-subtotal">£0.00</span></div>
+        <div class="os-line saving-line" id="os-saving-row" style="display:none"><span>Discount code</span><span id="os-saving"></span></div>
+        <div class="os-line saving-line" id="os-stack-row" style="display:none"><span>Stack discount (10%)</span><span id="os-stack-saving"></span></div>
+        <div class="os-line"><span>Shipping</span><span id="os-ship">£3.99</span></div>
+        <div class="os-line" id="os-pen-row" style="display:none"><span>Add-on</span><span>£24.99</span></div>
+        <div class="os-total"><span>Total</span><span class="os-total-val" id="os-total">£0.00</span></div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- SUCCESS -->
+<main id="page-success" class="page">
+  <div class="success-wrap">
+    <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
+    <h1 class="success-title">Order confirmed</h1>
+    <p class="success-ref" id="success-ref"></p>
+    <div class="success-details" id="success-details"></div>
+    <p class="success-sub">Your payment has been received and your order is confirmed. A confirmation email is on its way, and your order will be dispatched within 48 hours.</p>
+    <button type="button" class="btn-p" onclick="showPage('home')">Back to home</button>
+  </div>
+</main>
+
+<!-- legacy quick-view modal (kept for compatibility, not shown) -->
+<div class="modal-overlay" id="product-modal" hidden><div><span id="modal-img"></span><span id="modal-cat"></span><span id="modal-name"></span><span id="modal-sub"></span><span id="modal-desc"></span><span id="modal-size"></span><span id="modal-purity"></span><span id="modal-storage"></span><span id="modal-price"></span><span id="modal-price-note"></span><span id="modal-badge"></span><button id="modal-add-btn"></button></div></div>
+
+<!-- BASKET -->
+<div class="cart-overlay" id="cart-overlay">
+  <div class="cart-backdrop" onclick="toggleCart()"></div>
+  <div class="cart-panel" role="dialog" aria-modal="true" aria-label="Your basket">
+    <div class="cart-hdr"><h2 class="cart-title">Your basket</h2><button type="button" class="cart-x" onclick="toggleCart()" aria-label="Close basket">✕</button></div>
+    <div class="cart-body" id="cart-body"><div class="cart-empty"><div>Your basket is empty</div></div></div>
+    <div class="cart-ft" id="cart-ft" style="display:none">
+      <div class="free-ship-bar" id="free-ship-bar"><span id="free-ship-msg"></span><div class="prog"><div class="prog-fill" id="prog-fill"></div></div></div>
+      <p class="stack-hint" id="stack-hint"></p>
+      <div class="cart-subtotal-row"><span class="cart-subtotal-lbl">Subtotal</span><span class="cart-subtotal-val" id="cart-subtotal">£0.00</span></div>
+      <div class="cart-ship-line"><span>Shipping</span><span id="cart-ship-est">from £3.99</span></div>
+      <div class="grand-total-row"><span class="grand-lbl">Estimated total</span><span class="grand-val" id="cart-grand">£0.00</span></div>
+      <button type="button" class="checkout-btn" onclick="goCheckout()">Proceed to checkout</button>
+      <p class="checkout-note">Secure checkout · Open Banking</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT -->
+<div class="pay-modal-overlay" id="pay-modal">
+  <div class="pay-modal" role="dialog" aria-modal="true" aria-label="Complete your payment">
+    <div id="pay-bank-select">
+      <div class="pay-modal-header">
+        <img src="img/logo.png" class="pay-modal-logo" alt="Be Elite Supplements"/>
+        <div class="pay-modal-title">Complete your payment</div>
+        <div class="pay-modal-amount" id="pay-amount">£0.00</div>
+        <div class="pay-modal-ref" id="pay-ref">Order ref: —</div>
+      </div>
+      <div class="pay-modal-body">
+        <p class="ob-title">Select your bank to pay securely</p>
+        <div class="ob-banks">
+          <button type="button" class="bank-btn" onclick="selectBank(this,'Barclays')"><span class="bank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg></span><span class="bank-name">Barclays</span><span class="bank-type">Personal &amp; Business</span></button>
+          <button type="button" class="bank-btn" onclick="selectBank(this,'HSBC')"><span class="bank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg></span><span class="bank-name">HSBC</span><span class="bank-type">Personal &amp; Business</span></button>
+          <button type="button" class="bank-btn" onclick="selectBank(this,'Lloyds')"><span class="bank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg></span><span class="bank-name">Lloyds</span><span class="bank-type">Personal &amp; Business</span></button>
+          <button type="button" class="bank-btn" onclick="selectBank(this,'NatWest')"><span class="bank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg></span><span class="bank-name">NatWest</span><span class="bank-type">Personal &amp; Business</span></button>
+          <button type="button" class="bank-btn" onclick="selectBank(this,'Monzo')"><span class="bank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg></span><span class="bank-name">Monzo</span><span class="bank-type">Personal</span></button>
+          <button type="button" class="bank-btn" onclick="selectBank(this,'Starling')"><span class="bank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg></span><span class="bank-name">Starling</span><span class="bank-type">Personal &amp; Business</span></button>
+          <button type="button" class="bank-btn" onclick="selectBank(this,'Santander')"><span class="bank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg></span><span class="bank-name">Santander</span><span class="bank-type">Personal &amp; Business</span></button>
+          <button type="button" class="bank-btn" onclick="selectBank(this,'Halifax')"><span class="bank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg></span><span class="bank-name">Halifax</span><span class="bank-type">Personal</span></button>
+        </div>
+        <div class="ob-divider"><div class="ob-divider-line"></div><div class="ob-divider-text">or search all banks</div><div class="ob-divider-line"></div></div>
+        <button type="button" class="ob-other bank-btn-other" onclick="selectBank(this,'Other Bank')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Choose another bank</button>
+        <button type="button" class="pay-now-btn" id="pay-now-btn" disabled onclick="redirectToBank()">Continue to bank</button>
+        <p class="ob-security">256-bit encrypted · FCA regulated · PSD2 compliant</p>
+        <button type="button" class="ob-cancel" onclick="closePayModal()">Cancel and go back</button>
+      </div>
+    </div>
+    <div id="pay-redirect" class="bank-redirect">
+      <div class="bank-redirect-icon" id="redirect-icon"></div>
+      <div class="bank-redirect-title">Redirecting to <span id="redirect-bank-name">your bank</span></div>
+      <div class="bank-redirect-spinner"></div>
+      <p class="bank-redirect-sub">You're being securely redirected to your bank to authorise this payment. Please don't close this window. Once authorised, you'll be returned here automatically.</p>
+    </div>
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="img/logo.png" alt="Be Elite Supplements"/>
+        <p><a href="mailto:info@beelitesupplements.com">info@beelitesupplements.com</a><br/>UK dispatch within 48 hours</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><span>Shop</span><button type="button" onclick="currentCat='All';showPage('shop')">All compounds</button><button type="button" onclick="goSection('finderSection')">Compound finder</button><a href="/wholesale">Wholesale</a></div>
+        <div class="foot-col"><span>Company</span><button type="button" onclick="goSection('about')">About</button><button type="button" onclick="goSection('quality')">Quality</button><a href="/affiliate">Affiliate portal</a><a href="/account">My account</a></div>
+        <div class="foot-col"><span>Staff</span><a href="/admin">Admin</a></div>
+      </div>
+    </div>
+    <p class="foot-legal">All products sold by Be Elite Supplements are intended solely for in vitro laboratory research. Not approved for human or veterinary use. © 2026 Be Elite Supplements Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+<a id="wa-btn" class="wa-btn" hidden target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="30" height="30" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.652a11.96 11.96 0 005.71 1.454h.006c6.585 0 11.946-5.36 11.949-11.945a11.9 11.9 0 00-3.487-8.416z"/></svg></a>
+
+<script>
+
+// ── SITE SETTINGS ── change these in one place
+const SITE={
+  name:"Be Elite Supplements",
+  domain:"beelitesupplements.com",
+  email:"info@beelitesupplements.com",
+  whatsapp:"" // e.g. "447700900123" (no + or spaces). Leave empty to hide the WhatsApp button.
+};
+function pimg(p){if(!p)return"";const k=p.vialImg||p.key;return "img/"+(p.format==="vial"?"vial-":"pen-")+k+".svg";}
+
+
+const PRODUCTS=[
+  {id:5,key:"retatutride",name:"Retatrutide",subtitle:"Lyophilised Peptide",category:"Metabolic",price:129.99,size:"20mg",badge:"Popular",description:"Triple GIP, GLP-1, and glucagon receptor agonist. Novel research compound under investigation for metabolic and body composition studies.",purity:"98.8%",storage:"2°C–8°C"},
+  {id:9,key:"retatutride",name:"Retatrutide 40mg",vialImg:"retatutride40",subtitle:"Lyophilised Peptide",category:"Metabolic",price:179.99,vialPrice:159.99,size:"40mg",badge:null,description:"Triple GIP, GLP-1, and glucagon receptor agonist. Novel research compound under investigation for metabolic and body composition studies. Higher-strength presentation.",purity:"98.8%",storage:"2°C–8°C"},
+  {id:1,key:"bpc157",name:"BPC-157",subtitle:"Lyophilised Peptide",category:"Healing & Recovery",price:52.99,size:"20mg",badge:"Popular",description:"Body Protection Compound-157. Extensively studied for tissue repair, gut health, and angiogenesis in research settings.",purity:"99.1%",storage:"2°C–8°C"},
+  {id:2,key:"tb500",name:"TB500",subtitle:"Lyophilised Peptide",category:"Healing & Recovery",price:79.99,size:"20mg",badge:null,description:"Thymosin Beta-4 fragment. Research indicates roles in actin regulation, wound healing, and anti-inflammatory pathways.",purity:"98.7%",storage:"2°C–8°C"},
+  {id:3,key:"ghkcu",name:"GHK-CU",subtitle:"Lyophilised Peptide",category:"Regenerative",price:39.99,size:"50mg",badge:null,description:"Copper peptide. Research compound studied for wound healing, anti-inflammatory effects, and collagen synthesis stimulation.",purity:"98.9%",storage:"2°C–8°C"},
+  {id:4,key:"nadplus",name:"NAD+",subtitle:"Lyophilised Peptide",category:"Metabolic",price:139.99,size:"1000mg",badge:"Premium",description:"Nicotinamide Adenine Dinucleotide. Researched for roles in energy production, DNA repair, and sirtuin activation.",purity:"99.3%",storage:"2°C–8°C"},
+  
+  {id:6,key:"motc",name:"MOT-C",subtitle:"Lyophilised Peptide",category:"Metabolic",price:34.99,size:"10mg",badge:"New",description:"Mitochondria-targeting peptide. Research compound studied for mitochondrial biogenesis, cellular energy regulation, and metabolic function.",purity:"98.5%",storage:"2°C–8°C"},
+  {id:7,key:"tirzepatide",name:"Tirzepatide",subtitle:"Lyophilised Peptide",category:"Metabolic",price:139.99,size:"60mg",badge:null,description:"Dual GIP and GLP-1 receptor agonist. Novel research compound under investigation for metabolic regulation and glycaemic research.",purity:"98.6%",storage:"2°C–8°C",soldOut:true},
+  {id:8,key:"tesamorelin",name:"Tesamorelin",subtitle:"Lyophilised Peptide",category:"Growth & Performance",price:89.99,size:"20mg",badge:null,description:"Synthetic analogue of growth hormone releasing hormone (GHRH). Studied for GH secretion, body composition, and metabolic research.",purity:"98.4%",storage:"2°C–8°C",soldOut:true},
+];
+
+PRODUCTS.forEach(p=>p.format="pen");
+PRODUCTS.push(...PRODUCTS.map(p=>({...p,id:p.id+100,format:"vial",name:p.name+" Vial",price:(p.vialPrice!=null?p.vialPrice:Math.round((p.price-10)*100)/100),subtitle:"Lyophilised Vial · BAC Water Included"})));
+const CATS=["All","Healing & Recovery","Regenerative","Metabolic","Growth & Performance"];
+
+const PEPTIDE_INFO = {
+  retatutride: {
+    quizReason: "Widely studied triple-pathway compound for metabolic and weight-related research.",
+    whatIsIt: "Retatrutide is a novel triple-agonist peptide engineered to activate three distinct metabolic receptors simultaneously: GLP-1, GIP, and glucagon. It represents one of the most closely studied compounds in current metabolic research, developed to explore multi-receptor approaches to energy balance and glucose regulation.",
+    mechanism: "By acting on all three receptor pathways at once, retatrutide research explores a broader mechanism than single or dual-receptor agonists. GLP-1 receptor activity is studied for its role in appetite signalling and insulin secretion, GIP receptor activity for its involvement in fat metabolism and insulin sensitivity, and glucagon receptor activity for its contribution to energy expenditure. Researchers are particularly interested in how the combination of these three pathways may produce effects distinct from any single pathway alone.",
+    research: ["Body composition and fat mass regulation studies","Glycaemic control and insulin sensitivity research","Energy expenditure and metabolic rate investigations","Comparative studies against single and dual-receptor agonists"]
+  },
+  bpc157: {
+    quizReason: "One of the most researched peptides for tissue and tendon repair.",
+    whatIsIt: "BPC-157 (Body Protection Compound-157) is a synthetic pentadecapeptide, a stable fragment derived from a protein naturally found in human gastric juice. It has become one of the most widely studied peptides in tissue repair research due to its apparent stability and broad activity across multiple tissue types in laboratory models.",
+    mechanism: "Research suggests BPC-157 interacts with several pathways associated with tissue repair, including the upregulation of growth factor receptors such as VEGFR2, studied for their role in angiogenesis — the formation of new blood vessels that supply healing tissue. It has also been investigated for interactions with the FAK-paxillin pathway, implicated in cell migration during wound healing, and modulation of the nitric oxide system.",
+    research: ["Tendon, ligament, and muscle repair studies","Gastrointestinal tissue protection and healing research","Angiogenesis and blood vessel formation studies","Anti-inflammatory pathway investigations"]
+  },
+  tb500: {
+    quizReason: "Studied for cellular migration and tissue recovery support.",
+    whatIsIt: "TB-500 is a synthetic version of a naturally occurring peptide fragment derived from Thymosin Beta-4, a protein present in nearly all human and animal cells. It is studied extensively for its role in cellular structure and movement, particularly in the context of tissue repair.",
+    mechanism: "TB-500's primary studied mechanism relates to its interaction with actin, a protein essential for cell structure and movement. By binding to actin, TB-500 is thought to help facilitate the migration of cells to sites of injury — a process fundamental to wound healing. Research has also explored its role in reducing inflammatory markers and promoting the formation of new blood vessels in damaged tissue.",
+    research: ["Cell migration and actin regulation studies","Cardiac and soft tissue repair research","Angiogenesis and wound healing investigations","Anti-inflammatory response studies"]
+  },
+  ghkcu: {
+    quizReason: "Naturally occurring peptide studied for skin structure and collagen synthesis.",
+    whatIsIt: "GHK-Cu is a naturally occurring copper-binding tripeptide first identified in human plasma. Levels of GHK-Cu are known to decline significantly with age, which has made it a focus of research into tissue remodelling, skin biology, and the ageing process at a cellular level.",
+    mechanism: "GHK-Cu's studied mechanisms centre on its ability to bind copper and influence gene expression — research has identified thousands of genes potentially modulated by GHK-Cu exposure in laboratory studies. It is investigated for its role in stimulating collagen and elastin synthesis, regulating matrix metalloproteinases involved in tissue remodelling, and exhibiting antioxidant and anti-inflammatory activity.",
+    research: ["Skin structure and collagen synthesis studies","Wound healing and tissue remodelling research","Antioxidant and anti-inflammatory pathway investigations","Gene expression modulation studies"]
+  },
+  nadplus: {
+    quizReason: "Central to cellular energy production and longevity research.",
+    whatIsIt: "NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme found in every living cell, essential to hundreds of metabolic processes. It plays a central role in converting nutrients into cellular energy and has become a major focus of longevity and cellular ageing research, given that NAD+ levels are known to decline with age.",
+    mechanism: "NAD+ functions as an electron carrier in cellular respiration, and is also a required substrate for sirtuins and PARP enzymes — two protein families heavily studied in the context of DNA repair, cellular stress response, and ageing. Research into NAD+ in laboratory models explores whether restoring cellular NAD+ levels can support these pathways and mitochondrial function more broadly.",
+    research: ["Mitochondrial function and cellular energy research","DNA repair pathway (sirtuin and PARP) studies","Cellular ageing and longevity investigations","Metabolic health and oxidative stress research"]
+  },
+  motc: {
+    quizReason: "Mitochondrial-derived peptide studied for metabolic and energy pathways.",
+    whatIsIt: "MOTS-c (Mitochondrial Open Reading Frame of the 12S rRNA-c) is a peptide encoded within mitochondrial DNA, discovered through research into the mitochondrial genome's role beyond energy production. It is one of a growing class of mitochondrial-derived peptides under active scientific investigation.",
+    mechanism: "MOTS-c is studied for its activation of AMPK (AMP-activated protein kinase), a central regulator of cellular energy balance. Through this pathway, research has explored MOTS-c's role in glucose uptake, metabolic regulation, and communication between mitochondria and the cell nucleus — a relatively recently identified signalling axis of significant interest in metabolic science.",
+    research: ["AMPK pathway activation and energy metabolism studies","Insulin sensitivity and glucose regulation research","Exercise physiology and mitochondrial biogenesis investigations","Age-related metabolic decline studies"]
+  },
+  tirzepatide: {
+    quizReason: "Extensively studied dual-pathway compound for metabolic research.",
+    whatIsIt: "Tirzepatide is a dual-receptor agonist peptide engineered to activate both GLP-1 and GIP receptors simultaneously. It is among the most extensively published peptides in current metabolic research, with a substantial body of literature examining its dual-pathway mechanism.",
+    mechanism: "By combining GLP-1 receptor activity, studied for appetite regulation and insulin secretion, with GIP receptor activity, studied for its role in lipid metabolism and insulin sensitivity, tirzepatide research explores whether dual-pathway activation produces more pronounced metabolic effects than GLP-1 activation alone — a central question in current incretin-based research.",
+    research: ["Glycaemic control and insulin sensitivity studies","Body weight and fat mass regulation research","Comparative studies against single-receptor GLP-1 agonists","Lipid metabolism investigations"]
+  },
+  tesamorelin: {
+    quizReason: "Studied for its role in the growth hormone / IGF-1 axis.",
+    whatIsIt: "Tesamorelin is a synthetic analogue of Growth Hormone Releasing Hormone (GHRH), engineered for enhanced stability. It stimulates the pituitary gland's natural growth hormone release pathway, and is one of the more established peptides in GH-axis research.",
+    mechanism: "Rather than introducing growth hormone directly, tesamorelin research focuses on stimulating the body's own GHRH receptors in the pituitary gland, prompting a naturally pulsatile release of growth hormone. This is studied as a mechanistically distinct approach compared to direct growth hormone administration, of particular interest in research examining the downstream IGF-1 axis and body composition.",
+    research: ["Growth hormone / IGF-1 axis studies","Visceral fat and body composition research","Pituitary function and GHRH receptor studies","Metabolic and lipid profile investigations"]
+  },
+};
+const FREE_MIN=999999;
+const COLLECTION_CODE="BE-COLLECT";
+let collectionUnlocked=false;
+let cart=[],currentFormat="pen",currentCat="All",currentProduct=null,currentShipping="standard",selectedBank=null,currentOrderRef="";
+
+function genRef(){const c="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";let r="BE-";for(let i=0;i<6;i++)r+=c[Math.floor(Math.random()*c.length)];return r;}
+
+// PAGES
+function showPage(name){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page-"+name).classList.add("active");
+  document.querySelectorAll(".nav-link").forEach(l=>l.classList.remove("active"));
+  if(name==="home")document.querySelectorAll(".nav-link")[0].classList.add("active");
+  if(name==="shop")document.querySelectorAll(".nav-link")[1].classList.add("active");
+  window.scrollTo(0,0);
+  if(name==="home"||name==="shop")renderCatalogue(name);
+  closeMobileMenu();
+  if(name==="checkout")renderCheckout();
+  if(name==="product")renderProductPage();
+}
+
+// CATALOGUE
+function badgeHTML(b,abs=false){if(!b)return"";const cls=b==="Popular"?"b-pop":b==="New"?"b-new":"b-pre";return`<span class="badge${abs?" abs":""} ${cls}">${b}</span>`;}
+
+// PRODUCT DETAIL PAGE
+function openProductPage(id){
+  id=parseInt(id);
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p)return;
+  currentProduct=p;
+  showPage('product');
+  const url=new URL(window.location);
+  url.searchParams.set('product', p.id);
+  window.history.pushState({product:p.id}, '', url);
+}
+
+function renderProductPage(){
+  const p=currentProduct;
+  if(!p)return;
+  const info=PEPTIDE_INFO[p.key]||{};
+  document.getElementById('pd-img').src=pimg(p);
+  document.getElementById('pd-img').alt=p.name;
+  document.getElementById('pd-cat').textContent=p.category;
+  document.getElementById('pd-crumb-cat').textContent=p.category;
+  document.getElementById('pd-crumb-name').textContent=p.name;
+  const st=document.getElementById('pd-stock');st.className='pd-stock'+(p.soldOut?' out':'');st.textContent=p.soldOut?'Out of stock':'In stock · dispatched within 48 hours';
+  const fmt=document.getElementById('pd-format');if(fmt)fmt.textContent=p.format==='vial'?'Vial · BAC water included':'Pen';
+  document.getElementById('pd-name').textContent=p.name;
+  document.getElementById('pd-sub').textContent=p.subtitle;
+  document.getElementById('pd-price').textContent="£"+p.price.toFixed(2);
+  document.getElementById('pd-badge').innerHTML=badgeHTML(p.badge,true);
+  document.getElementById('pd-size').textContent=p.size;
+  document.getElementById('pd-purity').textContent=p.purity;
+  document.getElementById('pd-storage').textContent=p.storage;
+  document.getElementById('pd-whatisit').textContent=info.whatIsIt||p.description;
+  document.getElementById('pd-mechanism').textContent=info.mechanism||'';
+  document.getElementById('pd-research').innerHTML=(info.research||[]).map(r=>`<li>${r}</li>`).join('');
+
+  const addBtn=document.getElementById('pd-add-btn');
+  if(p.soldOut){
+    addBtn.textContent='Sold Out';
+    addBtn.disabled=true;
+  } else {
+    addBtn.textContent='Add to basket · £'+p.price.toFixed(2);
+    addBtn.disabled=false;
+  }
+
+  const siblingId = p.format==='pen' ? p.id+100 : p.id-100;
+  const sibling = PRODUCTS.find(x=>x.id===siblingId);
+  const switchEl=document.getElementById('pd-switch');
+  if(sibling){
+    const label = sibling.format==='pen' ? 'Pen' : 'Vial';
+    switchEl.innerHTML = `Also available as a <button type="button" class="link-btn" onclick="openProductPage(${sibling.id})">${label.toLowerCase()} · £${sibling.price.toFixed(2)}</button>`;
+  } else {
+    switchEl.innerHTML='';
+  }
+
+  window.scrollTo(0,0);
+}
+
+function addToCartFromPage(){
+  if(currentProduct && !currentProduct.soldOut){
+    addToCart(currentProduct.id);
+  }
+}
+
+// PEPTIDE FINDER QUIZ
+const FINDER_CATEGORIES = {
+  metabolic: ['retatutride','tirzepatide'],
+  recovery: ['bpc157','tb500'],
+  longevity: ['nadplus','motc'],
+  skin: ['ghkcu'],
+  growth: ['tesamorelin'],
+};
+
+const FINDER_Q1 = [
+  {key:'metabolic', label:'Weight Management & Metabolic Health', sub:'Fat loss, glycaemic and metabolic research'},
+  {key:'recovery', label:'Muscle, Tendon & Tissue Recovery', sub:'Healing, repair and recovery research'},
+  {key:'skin', label:'Skin, Hair & Visible Ageing', sub:'Collagen and tissue remodelling research'},
+  {key:'longevity', label:'Energy, Longevity & Cellular Health', sub:'Mitochondrial and ageing research'},
+  {key:'growth', label:'Growth & Body Composition', sub:'GH axis and body composition research'},
+];
+
+const FINDER_Q2 = [
+  {key:'', label:'No secondary interest', sub:'Just show my primary recommendation'},
+  {key:'recovery', label:'Add Recovery Support', sub:'Tissue and tendon repair research'},
+  {key:'metabolic', label:'Add Metabolic Support', sub:'Weight and glycaemic research'},
+  {key:'longevity', label:'Add Longevity Support', sub:'Cellular energy and ageing research'},
+  {key:'skin', label:'Add Skin & Regenerative Support', sub:'Collagen and tissue research'},
+];
+
+const FINDER_Q3 = [
+  {key:'pen', label:'Pens', sub:'Pre-assembled, ready to use'},
+  {key:'vial', label:'Vials', sub:'Lab standard, BAC water included'},
+  {key:'pen', label:'Not sure yet', sub:'Show me either format'},
+];
+
+let finderStep=0;
+let finderAnswers={q1:null,q2:null,q3:null};
+
+function finderGetCategoryKeys(catKey, excludeKeys){
+  const opts=FINDER_CATEGORIES[catKey];
+  if(!opts)return [];
+  return opts.filter(k=>!excludeKeys.includes(k));
+}
+
+function finderRenderProgress(){
+  const shown = Math.min(finderStep,3);
+  document.getElementById('finderProgress').innerHTML = Array.from({length:3}).map((_,i)=>{
+    const done = i < shown;
+    const active = i === finderStep;
+    return `<div class="finder-dot ${done?'done':''} ${active&&finderStep<3?'active':''}"></div>`;
+  }).join('');
+}
+
+function finderStart(){
+  finderStep=0;
+  finderAnswers={q1:null,q2:null,q3:null};
+  finderRenderStep();
+}
+
+function finderRenderStep(){
+  finderRenderProgress();
+  const body=document.getElementById('finderBody');
+  if(finderStep===0){
+    body.innerHTML=`
+      <div class="finder-q-title">What's your primary research interest?</div>
+      <div class="finder-options">${FINDER_Q1.map((o,i)=>`<button type="button" class="finder-opt" onclick="finderAnswer('q1',${i})"><strong>${o.label}</strong><span>${o.sub}</span></button>`).join('')}</div>
+    `;
+  } else if(finderStep===1){
+    body.innerHTML=`
+      <div class="finder-q-title">Any secondary area of interest?</div>
+      <div class="finder-options">${FINDER_Q2.map((o,i)=>`<button type="button" class="finder-opt" onclick="finderAnswer('q2',${i})"><strong>${o.label}</strong><span>${o.sub}</span></button>`).join('')}</div>
+      <div class="finder-back"><button onclick="finderBack()">← Back</button></div>
+    `;
+  } else if(finderStep===2){
+    body.innerHTML=`
+      <div class="finder-q-title">Which format do you prefer?</div>
+      <div class="finder-options">${FINDER_Q3.map((o,i)=>`<button type="button" class="finder-opt" onclick="finderAnswer('q3',${i})"><strong>${o.label}</strong><span>${o.sub}</span></button>`).join('')}</div>
+      <div class="finder-back"><button onclick="finderBack()">← Back</button></div>
+    `;
+  } else {
+    finderRenderResults();
+  }
+}
+
+function finderAnswer(q, idx){
+  const source = q==='q1'?FINDER_Q1 : q==='q2'?FINDER_Q2 : FINDER_Q3;
+  finderAnswers[q] = source[idx].key;
+  finderStep++;
+  finderRenderStep();
+}
+
+function finderBack(){
+  if(finderStep>0){finderStep--;finderRenderStep();}
+}
+
+function finderRenderResults(){
+  finderRenderProgress();
+
+  const primaryKeys = finderGetCategoryKeys(finderAnswers.q1, []);
+  let secondaryKeys = finderAnswers.q2 ? finderGetCategoryKeys(finderAnswers.q2, primaryKeys) : [];
+  const remainingSlots = Math.max(0, 3 - primaryKeys.length);
+  secondaryKeys = secondaryKeys.slice(0, remainingSlots);
+  const format = finderAnswers.q3 || 'pen';
+  const keys = [...primaryKeys, ...secondaryKeys];
+
+  const results = keys.map(key => PRODUCTS.find(p => p.key===key && (p.format||'pen')===format)).filter(Boolean);
+
+  const body=document.getElementById('finderBody');
+  if(results.length===0){
+    body.innerHTML = `<div style="text-align:center;color:var(--muted)">No matching products found. <button class="link-btn" onclick="finderStart()">Try again</button></div>`;
+    return;
+  }
+
+  body.innerHTML = `
+    <div class="finder-q-title">Based on your answers, here's what we recommend</div>
+    <div class="finder-results">
+      ${results.map(p=>{
+        const info = PEPTIDE_INFO[p.key]||{};
+        return `
+        <div class="finder-result-card">
+          <div class="finder-result-img"><img src="${pimg(p)}" alt="${p.name}"/></div>
+          <div class="finder-result-info">
+            <div class="finder-result-name">${p.name}</div>
+            <div class="finder-result-reason">${info.quizReason||p.description}</div>
+            <div class="finder-result-actions">
+              <button class="btn-p" style="padding:8px 16px;font-size:0.8rem" onclick="openProductPage(${p.id})">View Product</button>
+              <button class="btn-s" style="padding:8px 16px;font-size:0.8rem" onclick="addToCart(${p.id})">Add to Basket</button>
+            </div>
+          </div>
+          <div class="finder-result-price">£${p.price.toFixed(2)}</div>
+        </div>`;
+      }).join('')}
+    </div>
+    <div class="finder-retake"><button onclick="finderStart()">Retake Quiz</button></div>
+  `;
+}
+
+let currentSearch="",currentSort="popular",inStockOnly=false;
+const CAT_BLURB={"Metabolic":"Retatrutide, Tirzepatide, MOT-C, NAD+","Healing & Recovery":"BPC-157, TB500","Regenerative":"GHK-Cu","Growth & Performance":"Tesamorelin"};
+function money(n){return "£"+n.toFixed(2);}
+function sortProducts(list){
+  const l=[...list];
+  if(currentSort==="price-asc")l.sort((a,b)=>a.price-b.price);
+  else if(currentSort==="price-desc")l.sort((a,b)=>b.price-a.price);
+  else if(currentSort==="name")l.sort((a,b)=>a.name.localeCompare(b.name));
+  else l.sort((a,b)=>(a.soldOut?1:0)-(b.soldOut?1:0)||(b.badge==="Popular"?1:0)-(a.badge==="Popular"?1:0));
+  return l;
+}
+function renderHome(){
+  const pens=PRODUCTS.filter(p=>p.format==="pen");
+  document.getElementById("home-cats").innerHTML=CATS.filter(c=>c!=="All").map(c=>{
+    const n=new Set(pens.filter(p=>p.category===c).map(p=>p.key)).size;
+    return `<button type="button" class="cat-card" onclick="goCategory('${c}')"><span class="cat-count">${n} ${n===1?"compound":"compounds"}</span><span class="cat-name">${c}</span><span class="cat-list">${CAT_BLURB[c]||""}</span><span class="cat-go">Browse →</span></button>`;
+  }).join("");
+  document.getElementById("home-price-rows").innerHTML=pens.map(p=>{
+    const v=PRODUCTS.find(x=>x.id===p.id+100);
+    return `<tr><th scope="row"><button type="button" class="link-btn strong" onclick="openProductPage(${p.id})">${p.name.replace(/ \d+mg$/,"")}</button></th><td>${p.category}</td><td class="mono">${p.size}</td><td class="mono">${p.purity}</td><td class="num">${p.soldOut?'<span class="muted">Out of stock</span>':money(p.price)}</td><td class="num">${v?(v.soldOut?'<span class="muted">Out of stock</span>':money(v.price)):"—"}</td><td class="act"><button type="button" class="btn-ghost sm" onclick="openProductPage(${p.id})">View</button></td></tr>`;
+  }).join("");
+}
+function goCategory(c){currentCat=c;currentSearch="";syncSearch();showPage("shop");}
+function syncSearch(){document.querySelectorAll(".search-input").forEach(i=>{if(i.value!==currentSearch)i.value=currentSearch;});}
+function onSearch(v){currentSearch=v;syncSearch();if(!document.getElementById("page-shop").classList.contains("active"))showPage("shop");else renderCatalogue("shop");}
+function renderCatalogue(page){
+  if(page==="home"){renderHome();return;}
+  const q=currentSearch.trim().toLowerCase();
+  const inFmt=PRODUCTS.filter(p=>(p.format||"pen")===currentFormat);
+  const base=q?inFmt.filter(p=>(p.name+" "+p.category+" "+p.description).toLowerCase().includes(q)):inFmt;
+  let filtered=currentCat==="All"?base:base.filter(p=>p.category===currentCat);
+  if(inStockOnly)filtered=filtered.filter(p=>!p.soldOut);
+  filtered=sortProducts(filtered);
+  const catBtns=CATS.map(c=>{const n=c==="All"?base.length:base.filter(p=>p.category===c).length;const on=c===currentCat;
+    return `<button type="button" role="radio" aria-checked="${on}" class="side-opt${on?" on":""}" onclick="filterCat('${c}','shop')"><span>${c==="All"?"All compounds":c}</span><span class="side-n">${n}</span></button>`;}).join("");
+  const grid=filtered.length?filtered.map(p=>`
+    <article class="product-card">
+      <button type="button" class="card-img-wrap" onclick="openProductPage(${p.id})" aria-label="View ${p.name}"><img src="${pimg(p)}" alt="" loading="lazy"/>${badgeHTML(p.badge,true)}</button>
+      <div class="card-body">
+        <div class="card-cat">${p.category}</div>
+        <h2 class="card-name"><button type="button" class="link-btn" onclick="openProductPage(${p.id})">${p.name} <span class="card-size">${p.format==="vial"?p.size:""}</span></button></h2>
+        <div class="card-sub">${p.subtitle}</div>
+        <dl class="card-specs"><dt>Strength</dt><dd>${p.size}</dd><dt>Purity</dt><dd>${p.purity}</dd><dt>Storage</dt><dd>${p.storage}</dd></dl>
+        <div class="card-footer">
+          <div class="card-price">${money(p.price)}</div>
+          ${p.soldOut?`<span class="sold-out">Out of stock</span>`:`<button type="button" class="add-btn" onclick="addToCart(${p.id})">Add to basket</button>`}
+        </div>
+      </div>
+    </article>`).join(""):`<div class="empty-results">No compounds match${q?` “${currentSearch.replace(/[<>&"]/g,"")}”`:""}. <button type="button" class="link-btn" onclick="currentSearch='';currentCat='All';inStockOnly=false;syncSearch();renderCatalogue('shop')">Clear filters</button></div>`;
+  document.getElementById("catalogue-shop").innerHTML=`
+  <div class="wrap shop-head">
+    <nav class="crumbs" aria-label="Breadcrumb"><button type="button" class="link-btn" onclick="showPage('home')">Home</button> / <span>Shop</span></nav>
+    <h1 class="page-title">${currentCat==="All"?"All compounds":currentCat}</h1>
+    <p class="page-sub">Lyophilised research peptides, available as pens or vials. Every batch independently tested.</p>
+  </div>
+  <div class="wrap shop-layout">
+    <aside class="shop-side" aria-label="Filters">
+      <div class="side-box">
+        <h2 class="side-h">Format</h2>
+        <div class="seg" role="radiogroup" aria-label="Format">
+          <button type="button" role="radio" aria-checked="${currentFormat==="pen"}" class="seg-btn${currentFormat==="pen"?" on":""}" onclick="setFormat('pen','shop')">Pens</button>
+          <button type="button" role="radio" aria-checked="${currentFormat==="vial"}" class="seg-btn${currentFormat==="vial"?" on":""}" onclick="setFormat('vial','shop')">Vials</button>
+        </div>
+        <p class="side-note">${currentFormat==="vial"?"Lab-standard vials. BAC water included.":"Pre-assembled pens."}</p>
+        <div class="side-rule"></div>
+        <h2 class="side-h">Research area</h2>
+        <div role="radiogroup" aria-label="Research area" class="side-list">${catBtns}</div>
+        <div class="side-rule"></div>
+        <h2 class="side-h">Availability</h2>
+        <label class="side-check"><input type="checkbox" ${inStockOnly?"checked":""} onchange="inStockOnly=this.checked;renderCatalogue('shop')"/>In stock only</label>
+      </div>
+      <button type="button" class="side-finder" onclick="showPage('home');setTimeout(()=>document.getElementById('finderSection').scrollIntoView({behavior:'smooth'}),50)"><strong>Not sure where to start?</strong>Use the 3-question compound finder →</button>
+    </aside>
+    <div class="shop-main">
+      <div class="shop-bar">
+        <p aria-live="polite">Showing <strong>${filtered.length}</strong> ${filtered.length===1?"compound":"compounds"}</p>
+        <label class="sort">Sort by
+          <select onchange="currentSort=this.value;renderCatalogue('shop')">
+            <option value="popular"${currentSort==="popular"?" selected":""}>Popularity</option>
+            <option value="price-asc"${currentSort==="price-asc"?" selected":""}>Price: low to high</option>
+            <option value="price-desc"${currentSort==="price-desc"?" selected":""}>Price: high to low</option>
+            <option value="name"${currentSort==="name"?" selected":""}>Name A–Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="product-grid">${grid}</div>
+    </div>
+  </div>`;
+}
+
+function filterCat(cat,page){currentCat=cat;renderCatalogue(page);}
+function setFormat(f,page){currentFormat=f;currentCat="All";renderCatalogue(page);}
+
+// PRODUCT MODAL
+function openProduct(id){
+  id=parseInt(id);const p=PRODUCTS.find(x=>x.id===id);currentProduct=p;
+  document.getElementById("modal-img").src=pimg(p);
+  document.getElementById("modal-cat").textContent=p.category;
+  document.getElementById("modal-name").textContent=p.name;
+  document.getElementById("modal-sub").textContent=p.subtitle;
+  document.getElementById("modal-desc").textContent=p.description;
+  document.getElementById("modal-size").textContent=p.size;
+  document.getElementById("modal-purity").textContent=p.purity;
+  document.getElementById("modal-storage").textContent=p.storage;
+  document.getElementById("modal-price").textContent="£"+p.price.toFixed(2);
+  document.getElementById("modal-price-note").textContent="per "+p.size+" · "+p.subtitle;
+  document.getElementById("modal-badge").innerHTML=badgeHTML(p.badge);
+  const mBtn=document.getElementById("modal-add-btn");
+  if(p.soldOut){mBtn.textContent="Sold Out";mBtn.disabled=true;mBtn.style.opacity="0.4";mBtn.style.cursor="not-allowed";}
+  else{mBtn.textContent="Add to Basket — £"+p.price.toFixed(2);mBtn.disabled=false;mBtn.style.opacity="1";mBtn.style.cursor="pointer";}
+  document.getElementById("product-modal").classList.add("open");
+}
+function closeProductModal(){document.getElementById("product-modal").classList.remove("open");currentProduct=null;}
+function closeModal(e){if(e.target===document.getElementById("product-modal"))closeProductModal();}
+function addToCartFromModal(){if(currentProduct&&!currentProduct.soldOut){addToCart(currentProduct.id);closeProductModal();}}
+
+// CART
+function addToCart(id){
+  id=parseInt(id);const p=PRODUCTS.find(x=>x.id===id);
+  if(!p||p.soldOut)return;
+  const ex=cart.find(i=>i.id===id);
+  if(ex)ex.qty++;else cart.push({...p,qty:1});
+  updateCartUI();openCartDrawer();
+}
+function updateQty(id,d){const i=cart.find(x=>x.id===id);if(!i)return;i.qty=Math.max(0,i.qty+d);if(i.qty===0)cart=cart.filter(x=>x.id!==id);updateCartUI();}
+function removeItem(id){cart=cart.filter(i=>i.id!==id);updateCartUI();}
+
+function updateCartUI(){
+  const count=cart.reduce((a,b)=>a+b.qty,0),sub=cart.reduce((a,b)=>a+b.price*b.qty,0);
+  const qual=sub>=FREE_MIN,toFree=Math.max(0,FREE_MIN-sub),ship=qual?0:(currentShipping==="collection"?0:(currentShipping==="express"?7.99:3.99)),grand=sub+ship;
+  const badge=document.getElementById("cart-count");
+  badge.textContent=count;badge.style.display=count>0?"flex":"none";
+  const body=document.getElementById("cart-body"),ft=document.getElementById("cart-ft");
+  if(!cart.length){body.innerHTML='<div class="cart-empty"><div style="display:flex;justify-content:center;margin-bottom:0.5rem"><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\' style=\'width:40px;height:40px;color:var(--muted)\'><path d=\'M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z\'/><path d=\'M3 6h18\'/><path d=\'M16 10a4 4 0 0 1-8 0\'/></svg></div><div>Your basket is empty</div></div>';ft.style.display="none";return;}
+  // free ship bar removed
+  body.innerHTML=cart.map(item=>`
+    <div class="cart-item"><div class="ci-inner">
+      <div class="ci-vial-wrap"><img src="${pimg(item)}" alt="${item.name}"/></div>
+      <div class="ci-info">
+        <div class="ci-name">${item.name}</div><div class="ci-meta">${item.size} · ${item.subtitle}</div>
+        <div class="ci-footer">
+          <div class="qty-wrap">
+            <button class="qty-btn" onclick="updateQty(${item.id},-1)">−</button>
+            <span class="qty-n">${item.qty}</span>
+            <button class="qty-btn" onclick="updateQty(${item.id},1)">+</button>
+            <button class="rm-btn" onclick="removeItem(${item.id})">Remove</button>
+          </div>
+          <div class="ci-price">£${(item.price*item.qty).toFixed(2)}</div>
+        </div>
+      </div>
+    </div></div>`).join("");
+  const keys=new Set(cart.map(i=>i.key)).size;const sh=document.getElementById("stack-hint");if(sh){sh.className="stack-hint"+(keys>=2?" on":"");sh.textContent=keys>=2?"Stack discount: 10% off applied at checkout":"Add a second compound to save 10%";}
+  document.getElementById("cart-subtotal").textContent="£"+sub.toFixed(2);
+  document.getElementById("cart-ship-est").textContent=qual?"Free":"from £3.99";
+  document.getElementById("cart-grand").textContent="£"+(calcDiscounts().sub+(qual?0:3.99)).toFixed(2);
+  ft.style.display="block";
+}
+
+function toggleCart(){document.getElementById("cart-overlay").classList.toggle("open");}
+function toggleMobileMenu(){document.getElementById("mobileMenu").classList.toggle("open");}
+function closeMobileMenu(){document.getElementById("mobileMenu").classList.remove("open");}
+function openCartDrawer(){document.getElementById("cart-overlay").classList.add("open");}
+
+// CHECKOUT
+function goCheckout(){document.getElementById("cart-overlay").classList.remove("open");showPage("checkout");}
+
+function calcDiscounts(){
+  const rawSub=cart.reduce((a,b)=>a+b.price*b.qty,0);
+  const codeDiscountPct=appliedAffiliate?appliedAffiliate.discountPct:0;
+  const distinctKeys=new Set(cart.map(i=>i.key)).size;
+  const isStack=distinctKeys>=2;
+  const stackDiscountPct=isStack?10:0;
+  const totalDiscountPct=codeDiscountPct+stackDiscountPct;
+  const sub=totalDiscountPct>0?Math.round(rawSub*(1-totalDiscountPct/100)*100)/100:rawSub;
+  const codeSavings=Math.round(rawSub*codeDiscountPct)/100;
+  const stackSavings=Math.round(rawSub*stackDiscountPct)/100;
+  return {rawSub,sub,codeDiscountPct,stackDiscountPct,isStack,codeSavings,stackSavings};
+}
+
+function renderCheckout(){
+  const {rawSub,sub,codeSavings,stackSavings}=calcDiscounts();
+  const penCost=penAdded?24.99:0;
+  const qual=sub>=FREE_MIN,ship=qual?0:(currentShipping==="collection"?0:(currentShipping==="express"?7.99:3.99)),grand=sub+ship+penCost;
+  // free shipping option removed
+  document.getElementById("os-items").innerHTML=cart.map(item=>`
+    <div class="os-item">
+      <div class="os-vial"><img src="${pimg(item)}" alt="${item.name}"/></div>
+      <div style="flex:1"><div class="os-item-name">${item.name} <span class="os-item-qty">×${item.qty}</span></div><div class="os-item-meta">${item.size} · ${item.subtitle}</div></div>
+      <div class="os-item-price">£${(item.price*item.qty).toFixed(2)}</div>
+    </div>`).join("");
+  const savLine=document.getElementById("os-saving-row");
+  if(codeSavings>0&&savLine){savLine.style.display="flex";document.getElementById("os-saving").textContent="-£"+codeSavings.toFixed(2);}
+  else if(savLine){savLine.style.display="none";}
+  const stackLine=document.getElementById("os-stack-row");
+  if(stackSavings>0&&stackLine){stackLine.style.display="flex";document.getElementById("os-stack-saving").textContent="-£"+stackSavings.toFixed(2);}
+  else if(stackLine){stackLine.style.display="none";}
+  document.getElementById("os-subtotal").textContent="£"+rawSub.toFixed(2);
+  document.getElementById("os-ship").textContent=ship===0?"Free":"£"+ship.toFixed(2);
+  const penRow=document.getElementById("os-pen-row");
+  if(penRow){penRow.style.display=penAdded?"flex":"none";}
+  document.getElementById("os-total").textContent="£"+grand.toFixed(2);
+  checkForm();
+}
+
+function selectShipping(type){
+  const qual=cart.reduce((a,b)=>a+b.price*b.qty,0)>=FREE_MIN;if(qual)return;
+  if(type==='collection'&&!collectionUnlocked)return;
+  currentShipping=type;document.querySelectorAll(".ship-opt").forEach(o=>o.classList.remove("selected"));
+  document.getElementById("ship-"+type).classList.add("selected");renderCheckout();
+}
+
+function unlockCollection(){
+  const input=document.getElementById('collection-code-input');
+  const code=input.value.trim().toUpperCase();
+  if(code===COLLECTION_CODE){
+    collectionUnlocked=true;
+    const opt=document.getElementById('ship-collection');
+    opt.style.opacity='1';
+    opt.querySelector('input[type="radio"]').disabled=false;
+    document.getElementById('collection-desc').textContent='Collect in person — no delivery charge';
+    document.getElementById('collection-unlock-row').style.display='none';
+    selectShipping('collection');
+  } else {
+    input.style.borderColor='var(--danger)';
+    input.placeholder='Incorrect code';
+    input.value='';
+  }
+}
+
+function checkForm(){
+  const fields=["f-first","f-last","f-email","f-addr1","f-city","f-post"];
+  const ok=fields.every(id=>document.getElementById(id).value.trim()!=="")&&document.getElementById("agree-check").checked;
+  const btn=document.getElementById("place-order-btn");
+  btn.disabled=!ok;btn.textContent=ok?"Pay Now — £"+document.getElementById("os-total").textContent.replace("£","")+" →":"Complete all fields to continue";
+}
+
+// OPEN BANKING PAYMENT
+function openPayModal(){
+  currentOrderRef=genRef();
+  const grand=document.getElementById("os-total").textContent;
+  document.getElementById("pay-amount").textContent=grand;
+  document.getElementById("pay-ref").textContent="Order ref: "+currentOrderRef;
+  selectedBank=null;
+  document.querySelectorAll(".bank-btn").forEach(b=>b.classList.remove("selected"));
+  document.getElementById("pay-now-btn").disabled=true;
+  document.getElementById("pay-bank-select").style.display="block";
+  document.getElementById("pay-redirect").classList.remove("show");
+  document.getElementById("pay-modal").classList.add("open");
+}
+
+function closePayModal(){document.getElementById("pay-modal").classList.remove("open");}
+
+function selectBank(el,name){
+  document.querySelectorAll(".bank-btn,.ob-other").forEach(b=>b.classList.remove("selected"));
+  el.classList.add("selected");selectedBank=name;
+  document.getElementById("pay-now-btn").disabled=false;
+  document.getElementById("pay-now-btn").textContent="Continue to "+name+" →";
+}
+
+async function redirectToBank(){
+  if(!selectedBank)return;
+  document.getElementById("pay-bank-select").style.display="none";
+  document.getElementById("redirect-bank-name").textContent=selectedBank;
+  document.getElementById("redirect-icon").innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M9 21V9"/><path d="M15 21V9"/><path d="M19 21V9"/><path d="M2 9l10-6 10 6"/></svg>';
+  document.getElementById("pay-redirect").classList.add("show");
+  const {sub:discountedSub}=calcDiscounts();
+  const ship=discountedSub>=FREE_MIN?0:(currentShipping==="collection"?0:(currentShipping==="express"?7.99:3.99));
+  const grand=discountedSub+ship;
+  const first=document.getElementById("f-first").value;
+  const last=document.getElementById("f-last").value;
+  const email=document.getElementById("f-email").value;
+  const addr1=document.getElementById("f-addr1")?.value||'';
+  const addr2=document.getElementById("f-addr2")?.value||'';
+  const city=document.getElementById("f-city")?.value||'';
+  const county=document.getElementById("f-county")?.value||'';
+  const postcode=document.getElementById("f-post")?.value||'';
+  const phone=document.getElementById("f-phone")?.value||'';
+  try {
+    const res=await fetch("/api/create-payment",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        amount:grand.toFixed(2),
+        orderRef:currentOrderRef,
+        customerName:first+" "+last,
+        customerEmail:email,
+        items:cart.map(i=>i.name+"("+i.qty+")"),
+        affiliateCode:appliedAffiliate?appliedAffiliate.code:null,
+        penAdded:false,
+        shippingMethod:currentShipping,
+        bank:selectedBank,
+        addr1,addr2,city,county,postcode,phone,
+      })
+    });
+    const data=await res.json();
+    if(data.paymentUrl){
+      window.location.href=data.paymentUrl;
+    } else {
+      alert("Payment setup failed. Please try again.");
+      document.getElementById("pay-redirect").classList.remove("show");
+      document.getElementById("pay-bank-select").style.display="block";
+    }
+  } catch(err){
+    alert("Payment setup failed. Please try again.");
+    document.getElementById("pay-redirect").classList.remove("show");
+    document.getElementById("pay-bank-select").style.display="block";
+  }
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const urlParams=new URLSearchParams(window.location.search);
+  const refCode=urlParams.get('ref');
+  if(refCode){
+    const di=document.getElementById('disc-code-input');
+    if(di){di.value=refCode.toUpperCase();setTimeout(()=>{if(typeof applyDiscountCode==='function')applyDiscountCode();},800);}
+  }
+  const productParam=urlParams.get('product');
+  if(productParam){
+    const pid=parseInt(productParam);
+    const p=PRODUCTS.find(x=>x.id===pid);
+    if(p){currentProduct=p;showPage('product');}
+  }
+  ["f-first","f-last","f-email","f-addr1","f-city","f-post"].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.addEventListener("input",checkForm);
+  });
+  renderCatalogue("home");
+  finderStart();
+  if(SITE.whatsapp){const w=document.getElementById("wa-btn");w.href="https://wa.me/"+SITE.whatsapp+"?text="+encodeURIComponent("Hi "+SITE.name+", I'd like to ask about...");w.hidden=false;}
+  const params=new URLSearchParams(window.location.search);
+  const fenaOrder=params.get("order");
+  const fenaStatus=params.get("status");
+  if(fenaOrder&&fenaStatus==="executed"){
+    document.getElementById("success-ref").textContent="Order ref: "+fenaOrder;
+    cart=[];updateCartUI();showPage("success");
+    window.history.replaceState({},document.title,window.location.pathname);
+  } else if(fenaOrder&&fenaStatus==="rejected"){
+    alert("Payment was not completed. Please try again.");
+    window.history.replaceState({},document.title,window.location.pathname);
+  }
+});
+
+let appliedAffiliate=null;
+async function applyDiscountCode(){
+  const code=document.getElementById('disc-code-input').value.trim().toUpperCase();
+  const email=(document.getElementById('f-email')?.value||'').trim();
+  const msg=document.getElementById('disc-msg');
+  if(!code){msg.textContent='Please enter a code';msg.className='discount-msg invalid';return;}
+  msg.textContent='Checking code...';msg.className='discount-msg';
+  try {
+    let url='/api/affiliates?code='+encodeURIComponent(code);
+    if(email) url+='&email='+encodeURIComponent(email);
+    const res=await fetch(url);
+    if(res.ok){
+      const aff=await res.json();
+      if(aff&&aff.code){
+        appliedAffiliate={...aff,discountPct:aff.discount_pct||aff.discountPct||0,commissionPct:aff.commission_pct||aff.commissionPct||0};
+        msg.textContent='✓ Code applied — '+appliedAffiliate.discountPct+'% discount!';
+        msg.className='discount-msg valid';
+      } else {
+        msg.textContent='Invalid or inactive code';msg.className='discount-msg invalid';appliedAffiliate=null;
+      }
+    } else if(res.status===409){
+      msg.textContent="You've already used this code";msg.className='discount-msg invalid';appliedAffiliate=null;
+    } else if(res.status===404){
+      msg.textContent='Invalid or inactive code';msg.className='discount-msg invalid';appliedAffiliate=null;
+    } else {
+      msg.textContent='Could not check code right now — please try again';msg.className='discount-msg invalid';appliedAffiliate=null;
+    }
+  } catch(e){
+    msg.textContent='Could not check code right now — please try again';msg.className='discount-msg invalid';appliedAffiliate=null;
+  }
+  renderCheckout();
+}
+
+
+// ── DISCLAIMER ──
+function disclaimerAgree(){
+  sessionStorage.setItem('be_disclaimer','agreed');
+  document.getElementById('disclaimer-overlay').style.display='none';
+}
+function disclaimerDisagree(){
+  window.location.href='https://www.google.com';
+}
+// Check session on load
+(function(){
+  if(sessionStorage.getItem('be_disclaimer')==='agreed'){
+    document.getElementById('disclaimer-overlay').style.display='none';
+  }
+})();
+
+// ── PEN ADD-ON ──
+let penAdded=false;
+function togglePen(){
+  const cb=document.getElementById('pen-checkbox');
+  const label=document.getElementById('pen-addon-label');
+  // Toggle (called from label click, so checkbox may not have flipped yet)
+  setTimeout(()=>{
+    penAdded=cb.checked;
+    label.classList.toggle('selected',penAdded);
+    renderCheckout();
+    checkForm();
+  },0);
+}
+
+
+function goSection(id){if(!document.getElementById("page-home").classList.contains("active"))showPage("home");closeMobileMenu();setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth"});},30);}
+</script>
+</body>
+</html>

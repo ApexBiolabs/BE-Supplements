@@ -1,0 +1,14 @@
+{
+  "name": "be-elite-supplements",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'No build needed'"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.26.0"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

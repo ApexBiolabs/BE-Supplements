@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "crons": [
+    {
+      "path": "/api/abandoned-cart",
+      "schedule": "0 10 * * *"
+    },
+    {
+      "path": "/api/winback-campaign",
+      "schedule": "0 11 * * *"
+    }
+  ]
+}
