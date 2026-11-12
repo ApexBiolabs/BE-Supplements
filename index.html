@@ -86,9 +86,9 @@ nav.top .wrap{display:flex;align-items:center;gap:16px 28px;min-height:72px}
 .hero-stats div{border-left:2px solid var(--line);padding-left:16px}
 .hero-stats dt{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .hero-stats dd{margin-top:4px;font-size:22px;font-weight:600}
-.hero-visual{flex:1 1 400px;min-width:0;position:relative;background:var(--bg3);border-radius:var(--r2);min-height:460px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-visual img.v1{width:80%;max-width:380px}
-.spec-card{position:absolute;right:18px;bottom:18px;width:240px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:0 8px 24px rgba(14,17,22,.08)}
+.hero-visual{flex:1 1 400px;min-width:0;position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r2);min-height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:28px 20px;overflow:hidden}
+.hero-visual img.v1{height:340px;width:auto;max-width:90%;object-fit:contain}
+.spec-card{width:260px;max-width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:0 8px 24px rgba(14,17,22,.08)}
 .spec-card-h{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600}
 .pill-ok{font-family:var(--mono);font-size:11px;color:var(--ok);background:var(--ok-t);padding:2px 6px;border-radius:3px}
 .spec-card dl{margin-top:12px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-family:var(--mono);font-size:12px}
@@ -138,8 +138,8 @@ nav.top .wrap{display:flex;align-items:center;gap:16px 28px;min-height:72px}
 .finder-back button,.finder-retake button{background:none;border:1px solid var(--line3);border-radius:6px;padding:9px 16px;cursor:pointer;font-size:14px;color:var(--ink2)}
 .finder-back button:hover,.finder-retake button:hover{border-color:var(--ink)}
 .finder-result-card{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:10px}
-.finder-result-img{width:72px;height:86px;border-radius:6px;overflow:hidden;flex-shrink:0;background:var(--bg3)}
-.finder-result-img img{width:100%;height:100%;object-fit:cover}
+.finder-result-img{width:72px;height:86px;border-radius:6px;overflow:hidden;flex-shrink:0;background:#fff;border:1px solid var(--line)}
+.finder-result-img img{width:100%;height:100%;object-fit:contain;padding:4px}
 .finder-result-info{flex:1;min-width:0}
 .finder-result-name{font-weight:600}
 .finder-result-reason{font-size:14px;color:var(--ink2);margin:2px 0 10px}
@@ -195,8 +195,8 @@ nav.top .wrap{display:flex;align-items:center;gap:16px 28px;min-height:72px}
 .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .product-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;background:#fff;transition:box-shadow .15s,border-color .15s}
 .product-card:hover{border-color:var(--line3);box-shadow:0 8px 24px rgba(14,17,22,.06)}
-.card-img-wrap{position:relative;display:block;width:100%;border:0;padding:0;background:var(--bg3);cursor:pointer;aspect-ratio:5/6;overflow:hidden}
-.card-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.card-img-wrap{position:relative;display:block;width:100%;border:0;border-bottom:1px solid var(--line);padding:0;background:#fff;cursor:pointer;aspect-ratio:5/6;overflow:hidden}
+.card-img-wrap img{width:100%;height:100%;object-fit:contain;padding:14px;display:block}
 .badge{font-family:var(--mono);font-size:11px;font-weight:500;padding:3px 8px;border-radius:4px;background:#fff;border:1px solid var(--line);color:var(--gold)}
 .badge.abs{position:absolute;top:12px;left:12px}
 .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
@@ -216,8 +216,8 @@ nav.top .wrap{display:flex;align-items:center;gap:16px 28px;min-height:72px}
 /* Product page */
 .pd-wrap{padding-top:28px;padding-bottom:20px}
 .pd-hero{display:flex;flex-wrap:wrap;gap:56px;margin-top:24px}
-.pd-img-wrap{flex:1 1 440px;min-width:0;background:var(--bg3);border-radius:var(--r2);overflow:hidden;align-self:flex-start;position:relative}
-.pd-img-wrap img{width:100%;display:block;aspect-ratio:5/6;object-fit:cover}
+.pd-img-wrap{flex:1 1 440px;min-width:0;background:#fff;border:1px solid var(--line);border-radius:var(--r2);overflow:hidden;align-self:flex-start;position:relative}
+.pd-img-wrap img{width:100%;display:block;aspect-ratio:5/6;object-fit:contain;padding:24px}
 .pd-info{flex:1 1 420px;min-width:0}
 .pd-cat{font-size:14px;font-weight:600;color:var(--gold)}
 .pd-name{margin-top:6px;font-size:clamp(32px,4vw,44px);line-height:1.1;font-weight:600;letter-spacing:-.02em}
@@ -258,8 +258,8 @@ nav.top .wrap{display:flex;align-items:center;gap:16px 28px;min-height:72px}
 .cart-body{flex:1;padding:18px 24px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
 .cart-item{border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .ci-inner{display:flex}
-.ci-vial-wrap{width:76px;background:var(--bg3);flex-shrink:0}
-.ci-vial-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.ci-vial-wrap{width:76px;background:#fff;border-right:1px solid var(--line);flex-shrink:0}
+.ci-vial-wrap img{width:100%;height:100%;object-fit:contain;padding:6px;display:block}
 .ci-info{flex:1;padding:12px 14px;min-width:0}
 .ci-name{font-weight:600}
 .ci-meta{font-size:13px;color:var(--muted);margin-bottom:10px}
@@ -332,8 +332,8 @@ nav.top .wrap{display:flex;align-items:center;gap:16px 28px;min-height:72px}
 .os-title{font-size:18px;font-weight:600;margin-bottom:18px}
 .os-items{display:flex;flex-direction:column;gap:12px;max-height:320px;overflow-y:auto}
 .os-item{display:flex;gap:12px;align-items:center}
-.os-vial{width:48px;height:56px;border-radius:6px;overflow:hidden;background:var(--bg3);flex-shrink:0}
-.os-vial img{width:100%;height:100%;object-fit:cover}
+.os-vial{width:48px;height:56px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.os-vial img{width:100%;height:100%;object-fit:contain;padding:3px}
 .os-item-name{font-weight:600;font-size:15px}
 .os-item-qty{color:var(--muted);font-weight:400}
 .os-item-meta{font-size:13px;color:var(--muted)}
@@ -528,7 +528,7 @@ footer .wrap{padding-top:56px;padding-bottom:32px}
         </dl>
       </div>
       <div class="hero-visual">
-        <img class="v1" src="img/vial-bpc157.svg" alt="Be Elite BPC-157 20mg research vial"/>
+        <img class="v1" src="img/vial-bpc157.jpg" alt="Be Elite BPC-157 20mg research vial"/>
         <div class="spec-card">
           <div class="spec-card-h"><span>BPC-157 · 20mg</span><span class="pill-ok">IN STOCK</span></div>
           <dl><dt>Purity</dt><dd>99.1%</dd><dt>Method</dt><dd>HPLC</dd><dt>Storage</dt><dd>2–8°C</dd></dl>
@@ -830,7 +830,7 @@ const SITE={
   email:"info@belitesupplements.com",
   whatsapp:"" // e.g. "447700900123" (no + or spaces). Leave empty to hide the WhatsApp button.
 };
-function pimg(p){if(!p)return"";const k=p.vialImg||p.key;return "img/"+(p.format==="vial"?"vial-":"pen-")+k+".svg";}
+function pimg(p){if(!p)return"";const k=p.vialImg||p.key;return "img/"+(p.format==="vial"?"vial-":"pen-")+k+".jpg";}
 
 
 const PRODUCTS=[
