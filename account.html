@@ -139,7 +139,21 @@ a{color:inherit}
     </div>
 
     <button class="auth-btn" id="authBtn" onclick="submitAuth()">Sign In</button>
+    <button type="button" id="forgotLink" onclick="forgotPassword()" style="display:block;margin:14px auto 0;background:none;border:0;color:var(--green);font:inherit;font-size:0.9rem;font-weight:600;cursor:pointer;text-decoration:underline">Forgot password?</button>
     <div class="auth-msg" id="authMsg"></div>
+  </div>
+</div>
+
+<div class="auth-wrap" id="resetWrap" style="display:none">
+  <div class="auth-box">
+    <div class="auth-title">Set a new password</div>
+    <div class="auth-sub">Choose a new password for your account</div>
+    <div class="field">
+      <label for="newPassInput">New password</label>
+      <input type="password" id="newPassInput" placeholder="At least 6 characters" autocomplete="new-password" onkeydown="if(event.key==='Enter')saveNewPassword()"/>
+    </div>
+    <button class="auth-btn" id="resetBtn" onclick="saveNewPassword()">Save new password</button>
+    <div class="auth-msg" id="resetMsg"></div>
   </div>
 </div>
 
@@ -206,6 +220,7 @@ function setMode(m) {
   document.getElementById('tabSignup').classList.toggle('active', m === 'signup');
   document.getElementById('nameField').style.display = m === 'signup' ? 'block' : 'none';
   document.getElementById('authBtn').textContent = m === 'signup' ? 'Create Account' : 'Sign In';
+  document.getElementById('forgotLink').style.display = m === 'signup' ? 'none' : 'block';
   document.getElementById('authMsg').textContent = '';
 }
 
@@ -395,9 +410,47 @@ async function deleteReminder(id) {
   await loadReminders();
 }
 
+// ── Forgot / reset password ──
+async function forgotPassword() {
+  const email = document.getElementById('emailInput').value.trim();
+  const msg = document.getElementById('authMsg');
+  if (!email) { msg.textContent = 'Enter your email above, then click "Forgot password?" again.'; msg.className = 'auth-msg error'; return; }
+  const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + '/account' });
+  if (error) { msg.textContent = error.message; msg.className = 'auth-msg error'; return; }
+  msg.textContent = "If there's an account for that email, we've sent a link to reset your password. Check your inbox (and junk folder).";
+  msg.className = 'auth-msg ok';
+}
+
+function showResetForm() {
+  document.getElementById('authWrap').style.display = 'none';
+  document.getElementById('dash').classList.remove('show');
+  document.getElementById('resetWrap').style.display = 'flex';
+  document.getElementById('newPassInput').focus();
+}
+
+async function saveNewPassword() {
+  const pass = document.getElementById('newPassInput').value;
+  const msg = document.getElementById('resetMsg');
+  const btn = document.getElementById('resetBtn');
+  if (pass.length < 6) { msg.textContent = 'Password must be at least 6 characters.'; msg.className = 'auth-msg error'; return; }
+  btn.disabled = true;
+  const { error } = await sb.auth.updateUser({ password: pass });
+  btn.disabled = false;
+  if (error) { msg.textContent = error.message; msg.className = 'auth-msg error'; return; }
+  history.replaceState(null, '', window.location.pathname);
+  document.getElementById('resetWrap').style.display = 'none';
+  await showDashboard();
+}
+
+let inRecovery = /type=recovery/.test(window.location.hash + window.location.search);
+sb.auth.onAuthStateChange((event) => {
+  if (event === 'PASSWORD_RECOVERY') { inRecovery = true; showResetForm(); }
+});
+
 // Restore session on page load
 (async () => {
   const { data: { session } } = await sb.auth.getSession();
+  if (inRecovery) { showResetForm(); return; }
   if (session) await showDashboard();
 })();
 </script>
