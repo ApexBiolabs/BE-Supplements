@@ -848,6 +848,9 @@ const PRODUCTS=[
 
 PRODUCTS.forEach(p=>p.format="pen");
 PRODUCTS.push(...PRODUCTS.map(p=>({...p,id:p.id+100,format:"vial",name:p.name+" Vial",price:(p.vialPrice!=null?p.vialPrice:Math.round((p.price-10)*100)/100),subtitle:"Lyophilised Vial · BAC Water Included"})));
+// TEST ORDER: hidden 50p item for checking payments. Not shown in the shop.
+// Open it at /?product=999. Delete this line once payments are confirmed working.
+PRODUCTS.push({id:999,key:"test",vialImg:"motc",name:"Test order",subtitle:"Payment test (not a product)",category:"Test",price:0.50,size:"n/a",badge:null,description:"50p test item for checking that payments, emails and the admin panel work. Not a real product.",purity:"n/a",storage:"n/a",format:"vial",hidden:true});
 const CATS=["All","Healing & Recovery","Regenerative","Metabolic","Growth & Performance"];
 
 const PEPTIDE_INFO = {
@@ -1147,7 +1150,7 @@ function onSearch(v){currentSearch=v;syncSearch();if(!document.getElementById("p
 function renderCatalogue(page){
   if(page==="home"){renderHome();return;}
   const q=currentSearch.trim().toLowerCase();
-  const inFmt=PRODUCTS.filter(p=>(p.format||"pen")===currentFormat);
+  const inFmt=PRODUCTS.filter(p=>!p.hidden&&(p.format||"pen")===currentFormat);
   const base=q?inFmt.filter(p=>(p.name+" "+p.category+" "+p.description).toLowerCase().includes(q)):inFmt;
   let filtered=currentCat==="All"?base:base.filter(p=>p.category===currentCat);
   if(inStockOnly)filtered=filtered.filter(p=>!p.soldOut);
