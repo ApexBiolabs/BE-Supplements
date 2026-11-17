@@ -69,7 +69,7 @@ export default async function handler(req, res) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Be Elite Supplements <sales@belitesupplements.com>',
+          from: 'Be Elite Supplements <info@belitesupplements.com>',
           to: customer.customer_email,
           subject: 'We miss you — 10% off your next order 🧪',
           html: `
@@ -94,11 +94,11 @@ export default async function handler(req, res) {
                 <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px;margin-bottom:20px">
                   <p style="margin:0;color:#7a5c00;font-size:12px"><strong>⚠ Research Use Only.</strong> All products are supplied strictly for in vitro laboratory research purposes only. Not for human or veterinary use.</p>
                 </div>
-                <p style="color:#666;font-size:13px">Any questions? Just reply to this email or contact <a href="mailto:sales@belitesupplements.com" style="color:#8C6A1E">sales@belitesupplements.com</a></p>
+                <p style="color:#666;font-size:13px">Any questions? Just reply to this email or contact <a href="mailto:info@belitesupplements.com" style="color:#8C6A1E">info@belitesupplements.com</a></p>
               </div>
               <div style="background:#0E1116;padding:16px;text-align:center">
                 <p style="color:#8A8A87;font-size:11px;margin:0 0 6px">© 2026 Be Elite Supplements · belitesupplements.com · Research use only</p>
-                <p style="color:#8A8A87;font-size:11px;margin:0">Don't want offers like this? <a href="mailto:sales@belitesupplements.com?subject=Unsubscribe" style="color:#A3A3A0">Unsubscribe</a></p>
+                <p style="color:#8A8A87;font-size:11px;margin:0">Don't want offers like this? <a href="mailto:info@belitesupplements.com?subject=Unsubscribe" style="color:#A3A3A0">Unsubscribe</a></p>
               </div>
             </div>
           `,

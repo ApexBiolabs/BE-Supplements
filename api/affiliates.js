@@ -99,7 +99,7 @@ export default async function handler(req, res) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Be Elite Supplements <sales@belitesupplements.com>',
+          from: 'Be Elite Supplements <info@belitesupplements.com>',
           to: email,
           subject: 'Welcome to the Be Elite Supplements Affiliate Programme!',
           html: `
@@ -119,7 +119,7 @@ export default async function handler(req, res) {
                   <p style="margin:0;color:#555;font-size:14px"><strong>Your Password:</strong> ${password}</p>
                 </div>
                 <p style="color:#444;font-size:14px;margin:0 0 16px">Share your code with your audience — every time someone uses it at checkout, they get a discount and you earn commission.</p>
-                <p style="color:#666;font-size:13px">Questions? Contact us at <a href="mailto:sales@belitesupplements.com" style="color:#8C6A1E">sales@belitesupplements.com</a></p>
+                <p style="color:#666;font-size:13px">Questions? Contact us at <a href="mailto:info@belitesupplements.com" style="color:#8C6A1E">info@belitesupplements.com</a></p>
               </div>
               <div style="background:#0E1116;padding:16px;text-align:center">
                 <p style="color:#8A8A87;font-size:11px;margin:0">© 2026 Be Elite Supplements · belitesupplements.com · Research use only</p>

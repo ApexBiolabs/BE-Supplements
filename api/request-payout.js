@@ -31,8 +31,8 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Be Elite Supplements <sales@belitesupplements.com>',
-        to: 'sales@belitesupplements.com',
+        from: 'Be Elite Supplements <info@belitesupplements.com>',
+        to: 'info@belitesupplements.com',
         subject: `💸 Payout Request — ${name} (${code})`,
         html: `
           <div style="font-family:Arial,sans-serif;max-width:500px">

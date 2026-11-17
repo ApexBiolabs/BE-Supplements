@@ -124,7 +124,7 @@ async function sendDispatchEmail(orderRef, tracking, supabase) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Be Elite Supplements <sales@belitesupplements.com>',
+        from: 'Be Elite Supplements <info@belitesupplements.com>',
         to: order.customer_email,
         subject: `Your Order ${orderRef} Has Been Dispatched 📦`,
         html: `
