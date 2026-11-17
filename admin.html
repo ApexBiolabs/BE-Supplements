@@ -67,12 +67,23 @@ th{padding:12px 16px;text-align:left;font-size:0.72rem;letter-spacing:0.1em;text
 td{padding:12px 16px;font-size:0.88rem;border-bottom:1px solid var(--border);vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(13,27,46,0.02)}
+/* Order rows coloured by status: red = pending/failed/cancelled, amber = paid (to dispatch), green = dispatched */
+tr.row-red td{background:#FEF3F2}
+tr.row-amber td{background:#FFF7E6}
+tr.row-green td{background:#ECF8F1}
+tr.row-red:hover td{background:#FDE7E5}
+tr.row-amber:hover td{background:#FFEFD1}
+tr.row-green:hover td{background:#DDF2E6}
+tr.row-red td:first-child{box-shadow:inset 4px 0 0 #D92D20}
+tr.row-amber td:first-child{box-shadow:inset 4px 0 0 #E8A317}
+tr.row-green td:first-child{box-shadow:inset 4px 0 0 #12A150}
 
 /* BADGES */
 .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
-.badge-pending{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.3)}
-.badge-paid{background:rgba(61,122,53,0.15);color:var(--green-xl);border:1px solid rgba(61,122,53,0.3)}
-.badge-dispatched{background:rgba(37,99,235,0.12);color:#1d4ed8;border:1px solid rgba(96,165,250,0.3)}
+.badge-pending,.badge-failed{background:#FEE4E2;color:#B42318;border:1px solid #FDA29B}
+.badge-paid{background:#FEF0C7;color:#93370D;border:1px solid #FEC84B}
+.badge-active{background:#D1FADF;color:#05603A;border:1px solid #6CE9A6}
+.badge-dispatched{background:#D1FADF;color:#05603A;border:1px solid #6CE9A6}
 .badge-cancelled{background:rgba(224,82,82,0.15);color:var(--red);border:1px solid rgba(224,82,82,0.3)}
 
 /* BUTTONS */
@@ -444,8 +455,9 @@ function renderOrders(orders) {
       </div>`;
     return;
   }
+  const rowClass = st => st === 'dispatched' ? 'row-green' : st === 'paid' ? 'row-amber' : 'row-red';
   const rows = orders.map(o => `
-    <tr>
+    <tr class="${rowClass(o.status||'pending')}">
       <td><strong>${o.ref}</strong></td>
       <td>${o.customer_name || '—'}<br><span style="color:var(--muted);font-size:0.75rem">${o.customer_email || ''}</span></td>
       <td style="color:var(--green-xl);font-weight:700">£${parseFloat(o.amount||0).toFixed(2)}</td>
@@ -754,7 +766,7 @@ function renderAffiliatesTable() {
           <td>${a.discount_pct||0}%</td>
           <td style="color:var(--gold)">${a.commission_pct||0}%</td>
           <td>${a.tier||'Standard'}</td>
-          <td><span class="badge ${a.status==='active'?'badge-paid':'badge-cancelled'}">${a.status||'active'}</span></td>
+          <td><span class="badge ${a.status==='active'?'badge-active':'badge-cancelled'}">${a.status||'active'}</span></td>
         </tr>`).join('')}
       </tbody>
     </table>`;
@@ -788,7 +800,7 @@ function renderDiscountCodesTable() {
           </td>
           <td><code style="background:rgba(13,27,46,0.04);padding:2px 8px;border-radius:4px;font-size:0.85rem">${d.code}</code></td>
           <td>${d.discount_pct||0}%</td>
-          <td><span class="badge ${d.status==='active'?'badge-paid':'badge-cancelled'}">${d.status||'active'}</span></td>
+          <td><span class="badge ${d.status==='active'?'badge-active':'badge-cancelled'}">${d.status||'active'}</span></td>
         </tr>`).join('')}
       </tbody>
     </table>`;
