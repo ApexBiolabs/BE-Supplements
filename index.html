@@ -212,6 +212,11 @@ nav.top .wrap{display:flex;align-items:center;gap:16px 28px;min-height:72px}
 .sold-out{font-size:14px;color:var(--muted)}
 .empty-results{grid-column:1/-1;border:1px dashed var(--line3);border-radius:10px;padding:40px;text-align:center;color:var(--ink2)}
 .empty-results .link-btn{color:var(--gold);font-weight:600}
+.coming-soon{display:flex;flex-direction:column;align-items:center;gap:10px;padding:56px 24px;background:var(--bg2);border-style:solid;border-color:var(--line)}
+.coming-soon strong{font-size:20px;font-weight:600;color:var(--ink)}
+.coming-soon span{max-width:420px;line-height:1.6}
+.coming-soon .btn-p{margin-top:8px}
+.card-brand{font-weight:600;color:var(--ink2)}
 
 /* Product page */
 .pd-wrap{padding-top:28px;padding-bottom:20px}
@@ -484,7 +489,9 @@ footer .wrap{padding-top:56px;padding-bottom:32px}
     <a class="nav-logo" href="/" onclick="showPage('home');return false" aria-label="Be Elite Supplements home"><img src="img/logo.png" alt="Be Elite Supplements"/></a>
     <div class="nav-links">
       <button type="button" class="nav-link active" onclick="showPage('home')">Home</button>
-      <button type="button" class="nav-link" onclick="currentCat='All';showPage('shop')">Shop all</button>
+      <button type="button" class="nav-link" onclick="goBrand('All')">Shop all</button>
+      <button type="button" class="nav-link" data-brand="Nexus" onclick="goBrand('Nexus')">Nexus</button>
+      <button type="button" class="nav-link" data-brand="Aluvii" onclick="goBrand('Aluvii')">Aluvii</button>
       <button type="button" class="nav-link" onclick="goSection('quality')">Quality</button>
       <button type="button" class="nav-link" onclick="goSection('about')">About</button>
       <a class="nav-link" href="/wholesale">Wholesale</a>
@@ -500,7 +507,9 @@ footer .wrap{padding-top:56px;padding-bottom:32px}
   <div class="mobile-menu" id="mobileMenu">
     <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6370" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="sr">Search compounds</span><input type="search" class="search-input" placeholder="Search compounds" oninput="onSearch(this.value)"/></label>
     <button type="button" class="nav-link" onclick="showPage('home')">Home</button>
-    <button type="button" class="nav-link" onclick="currentCat='All';showPage('shop')">Shop all</button>
+    <button type="button" class="nav-link" onclick="goBrand('All')">Shop all</button>
+      <button type="button" class="nav-link" data-brand="Nexus" onclick="goBrand('Nexus')">Nexus</button>
+      <button type="button" class="nav-link" data-brand="Aluvii" onclick="goBrand('Aluvii')">Aluvii</button>
     <button type="button" class="nav-link" onclick="goSection('quality')">Quality</button>
     <button type="button" class="nav-link" onclick="goSection('about')">About</button>
     <a class="nav-link" href="/wholesale">Wholesale</a>
@@ -518,7 +527,7 @@ footer .wrap{padding-top:56px;padding-bottom:32px}
         <h1>Research peptides, independently verified.</h1>
         <p class="hero-sub">High-purity compounds for qualified researchers. Every batch is third-party tested for purity before it goes on sale.</p>
         <div class="hero-btns">
-          <button type="button" class="btn-p" onclick="currentCat='All';showPage('shop')">Browse catalogue</button>
+          <button type="button" class="btn-p" onclick="goBrand('All')">Browse catalogue</button>
           <button type="button" class="btn-s" onclick="goSection('quality')">Our testing process</button>
         </div>
         <dl class="hero-stats">
@@ -545,12 +554,12 @@ footer .wrap{padding-top:56px;padding-bottom:32px}
   </div></section>
 
   <section class="sec"><div class="wrap">
-    <div class="sec-head"><h2 class="sec-h">Shop by research area</h2><button type="button" class="sec-link" onclick="currentCat='All';showPage('shop')">View all compounds →</button></div>
+    <div class="sec-head"><h2 class="sec-h">Shop by research area</h2><button type="button" class="sec-link" onclick="goBrand('All')">View all compounds →</button></div>
     <div class="cat-grid" id="home-cats"></div>
   </div></section>
 
   <section class="sec"><div class="wrap">
-    <div class="sec-head"><div><h2 class="sec-h">Price list</h2><p class="sec-p">Research grade. Pen and vial prices side by side.</p></div><button type="button" class="sec-link" onclick="currentCat='All';showPage('shop')">Open full catalogue →</button></div>
+    <div class="sec-head"><div><h2 class="sec-h">Price list</h2><p class="sec-p">Research grade. Pen and vial prices side by side.</p></div><button type="button" class="sec-link" onclick="goBrand('All')">Open full catalogue →</button></div>
     <div class="table-box">
       <table class="ptable">
         <thead><tr><th scope="col">Compound</th><th scope="col">Research area</th><th scope="col">Strength</th><th scope="col">Purity</th><th scope="col">Pen</th><th scope="col">Vial</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
@@ -604,7 +613,7 @@ footer .wrap{padding-top:56px;padding-bottom:32px}
 <!-- PRODUCT -->
 <main id="page-product" class="page">
   <div class="wrap pd-wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><button type="button" class="link-btn" onclick="showPage('home')">Home</button> / <button type="button" class="link-btn" onclick="currentCat='All';showPage('shop')">Shop</button> / <button type="button" class="link-btn" id="pd-crumb-cat" onclick="goCategory(this.textContent)"></button> / <span id="pd-crumb-name"></span></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><button type="button" class="link-btn" onclick="showPage('home')">Home</button> / <button type="button" class="link-btn" onclick="goBrand('All')">Shop</button> / <button type="button" class="link-btn" id="pd-crumb-cat" onclick="goCategory(this.textContent)"></button> / <span id="pd-crumb-name"></span></nav>
     <div class="pd-hero">
       <div class="pd-img-wrap"><img id="pd-img" src="" alt=""/><span id="pd-badge"></span></div>
       <div class="pd-info">
@@ -810,7 +819,7 @@ footer .wrap{padding-top:56px;padding-bottom:32px}
         <p><a href="mailto:info@belitesupplements.com">info@belitesupplements.com</a><br/>UK dispatch within 48 hours</p>
       </div>
       <div class="foot-cols">
-        <div class="foot-col"><span>Shop</span><button type="button" onclick="currentCat='All';showPage('shop')">All compounds</button><button type="button" onclick="goSection('finderSection')">Compound finder</button><a href="/wholesale">Wholesale</a></div>
+        <div class="foot-col"><span>Shop</span><button type="button" onclick="goBrand('All')">All compounds</button><button type="button" onclick="goSection('finderSection')">Compound finder</button><a href="/wholesale">Wholesale</a></div>
         <div class="foot-col"><span>Company</span><button type="button" onclick="goSection('about')">About</button><button type="button" onclick="goSection('quality')">Quality</button><a href="/affiliate">Affiliate portal</a><a href="/account">My account</a></div>
         <div class="foot-col"><span>Staff</span><a href="/admin">Admin</a></div>
       </div>
@@ -846,7 +855,7 @@ const PRODUCTS=[
   {id:8,key:"tesamorelin",name:"Tesamorelin",subtitle:"Lyophilised Peptide",category:"Growth & Performance",price:89.99,size:"20mg",badge:null,description:"Synthetic analogue of growth hormone releasing hormone (GHRH). Studied for GH secretion, body composition, and metabolic research.",purity:"98.4%",storage:"2°C–8°C",soldOut:true},
 ];
 
-PRODUCTS.forEach(p=>p.format="pen");
+PRODUCTS.forEach(p=>{p.format="pen";if(!p.brand)p.brand="Be Elite";});
 PRODUCTS.push(...PRODUCTS.map(p=>({...p,id:p.id+100,format:"vial",name:p.name+" Vial",price:(p.vialPrice!=null?p.vialPrice:Math.round((p.price-10)*100)/100),subtitle:"Lyophilised Vial · BAC Water Included"})));
 const CATS=["All","Healing & Recovery","Regenerative","Metabolic","Growth & Performance"];
 
@@ -913,7 +922,11 @@ function showPage(name){
   document.getElementById("page-"+name).classList.add("active");
   document.querySelectorAll(".nav-link").forEach(l=>l.classList.remove("active"));
   if(name==="home")document.querySelectorAll(".nav-link")[0].classList.add("active");
-  if(name==="shop")document.querySelectorAll(".nav-link")[1].classList.add("active");
+  if(name==="shop"){
+    const bl=document.querySelectorAll('.nav-link[data-brand="'+currentBrand+'"]');
+    if(currentBrand!=="All"&&bl.length)bl.forEach(l=>l.classList.add("active"));
+    else document.querySelectorAll(".nav-link")[1].classList.add("active");
+  }
   window.scrollTo(0,0);
   if(name==="home"||name==="shop")renderCatalogue(name);
   closeMobileMenu();
@@ -922,6 +935,7 @@ function showPage(name){
 }
 
 // CATALOGUE
+function showPageNavOnly(){document.querySelectorAll(".nav-link").forEach(l=>l.classList.remove("active"));const bl=document.querySelectorAll('.nav-link[data-brand="'+currentBrand+'"]');if(currentBrand!=="All"&&bl.length)bl.forEach(l=>l.classList.add("active"));else document.querySelectorAll(".nav-link")[1].classList.add("active");}
 function badgeHTML(b,abs=false){if(!b)return"";const cls=b==="Popular"?"b-pop":b==="New"?"b-new":"b-pre";return`<span class="badge${abs?" abs":""} ${cls}">${b}</span>`;}
 
 // PRODUCT DETAIL PAGE
@@ -942,7 +956,7 @@ function renderProductPage(){
   const info=PEPTIDE_INFO[p.key]||{};
   document.getElementById('pd-img').src=pimg(p);
   document.getElementById('pd-img').alt=p.name;
-  document.getElementById('pd-cat').textContent=p.category;
+  document.getElementById('pd-cat').textContent=(p.brand||'Be Elite')+' · '+p.category;
   document.getElementById('pd-crumb-cat').textContent=p.category;
   document.getElementById('pd-crumb-name').textContent=p.name;
   const st=document.getElementById('pd-stock');st.className='pd-stock'+(p.soldOut?' out':'');st.textContent=p.soldOut?'Out of stock':'In stock · dispatched within 48 hours';
@@ -1119,7 +1133,11 @@ function finderRenderResults(){
   `;
 }
 
-let currentSearch="",currentSort="popular",inStockOnly=false;
+let currentSearch="",currentSort="popular",inStockOnly=false,currentBrand="All";
+// Brands sold on the site. Add each product's brand as brand:"Nexus" or brand:"Aluvii" in PRODUCTS.
+const BRANDS=["Be Elite","Nexus","Aluvii"];
+const BRAND_BLURB={"Be Elite":"Our own range of lyophilised research peptides, independently tested.","Nexus":"Nexus research peptides, stocked by Be Elite Supplements.","Aluvii":"Aluvii research peptides, stocked by Be Elite Supplements."};
+function goBrand(b){currentBrand=b;currentCat="All";currentSearch="";syncSearch();showPage("shop");}
 const CAT_BLURB={"Metabolic":"Retatrutide, Tirzepatide, MOT-C, NAD+","Healing & Recovery":"BPC-157, TB500","Regenerative":"GHK-Cu","Growth & Performance":"Tesamorelin"};
 function money(n){return "£"+n.toFixed(2);}
 function sortProducts(list){
@@ -1141,24 +1159,29 @@ function renderHome(){
     return `<tr><th scope="row"><button type="button" class="link-btn strong" onclick="openProductPage(${p.id})">${p.name.replace(/ \d+mg$/,"")}</button></th><td>${p.category}</td><td class="mono">${p.size}</td><td class="mono">${p.purity}</td><td class="num">${p.soldOut?'<span class="muted">Out of stock</span>':money(p.price)}</td><td class="num">${v?(v.soldOut?'<span class="muted">Out of stock</span>':money(v.price)):"—"}</td><td class="act"><button type="button" class="btn-ghost sm" onclick="openProductPage(${p.id})">View</button></td></tr>`;
   }).join("");
 }
-function goCategory(c){currentCat=c;currentSearch="";syncSearch();showPage("shop");}
+function goCategory(c){currentCat=c;currentBrand="All";currentSearch="";syncSearch();showPage("shop");}
 function syncSearch(){document.querySelectorAll(".search-input").forEach(i=>{if(i.value!==currentSearch)i.value=currentSearch;});}
 function onSearch(v){currentSearch=v;syncSearch();if(!document.getElementById("page-shop").classList.contains("active"))showPage("shop");else renderCatalogue("shop");}
 function renderCatalogue(page){
   if(page==="home"){renderHome();return;}
   const q=currentSearch.trim().toLowerCase();
-  const inFmt=PRODUCTS.filter(p=>(p.format||"pen")===currentFormat);
+  const fmtAll=PRODUCTS.filter(p=>(p.format||"pen")===currentFormat);
+  const brandCount=b=>(b==="All"?fmtAll:fmtAll.filter(p=>p.brand===b)).length;
+  const inFmt=currentBrand==="All"?fmtAll:fmtAll.filter(p=>p.brand===currentBrand);
+  const brandEmpty=currentBrand!=="All"&&!PRODUCTS.some(p=>p.brand===currentBrand);
   const base=q?inFmt.filter(p=>(p.name+" "+p.category+" "+p.description).toLowerCase().includes(q)):inFmt;
   let filtered=currentCat==="All"?base:base.filter(p=>p.category===currentCat);
   if(inStockOnly)filtered=filtered.filter(p=>!p.soldOut);
   filtered=sortProducts(filtered);
   const catBtns=CATS.map(c=>{const n=c==="All"?base.length:base.filter(p=>p.category===c).length;const on=c===currentCat;
     return `<button type="button" role="radio" aria-checked="${on}" class="side-opt${on?" on":""}" onclick="filterCat('${c}','shop')"><span>${c==="All"?"All compounds":c}</span><span class="side-n">${n}</span></button>`;}).join("");
-  const grid=filtered.length?filtered.map(p=>`
+  const brandBtns=["All",...BRANDS].map(b=>{const on=b===currentBrand;
+    return `<button type="button" role="radio" aria-checked="${on}" class="side-opt${on?" on":""}" onclick="currentBrand='${b}';currentCat='All';renderCatalogue('shop');showPageNavOnly()"><span>${b==="All"?"All brands":b}</span><span class="side-n">${brandCount(b)}</span></button>`;}).join("");
+  const grid=brandEmpty?`<div class="empty-results coming-soon"><strong>${currentBrand} products are coming soon.</strong><span>We're adding the ${currentBrand} range now. In the meantime, browse our own Be Elite range.</span><button type="button" class="btn-p" onclick="goBrand('Be Elite')">Browse Be Elite</button></div>`:filtered.length?filtered.map(p=>`
     <article class="product-card">
       <button type="button" class="card-img-wrap" onclick="openProductPage(${p.id})" aria-label="View ${p.name}"><img src="${pimg(p)}" alt="" loading="lazy"/>${badgeHTML(p.badge,true)}</button>
       <div class="card-body">
-        <div class="card-cat">${p.category}</div>
+        <div class="card-cat"><span class="card-brand">${p.brand}</span> · ${p.category}</div>
         <h2 class="card-name"><button type="button" class="link-btn" onclick="openProductPage(${p.id})">${p.name} <span class="card-size">${p.format==="vial"?p.size:""}</span></button></h2>
         <div class="card-sub">${p.subtitle}</div>
         <dl class="card-specs"><dt>Strength</dt><dd>${p.size}</dd><dt>Purity</dt><dd>${p.purity}</dd><dt>Storage</dt><dd>${p.storage}</dd></dl>
@@ -1170,13 +1193,16 @@ function renderCatalogue(page){
     </article>`).join(""):`<div class="empty-results">No compounds match${q?` “${currentSearch.replace(/[<>&"]/g,"")}”`:""}. <button type="button" class="link-btn" onclick="currentSearch='';currentCat='All';inStockOnly=false;syncSearch();renderCatalogue('shop')">Clear filters</button></div>`;
   document.getElementById("catalogue-shop").innerHTML=`
   <div class="wrap shop-head">
-    <nav class="crumbs" aria-label="Breadcrumb"><button type="button" class="link-btn" onclick="showPage('home')">Home</button> / <span>Shop</span></nav>
-    <h1 class="page-title">${currentCat==="All"?"All compounds":currentCat}</h1>
-    <p class="page-sub">Lyophilised research peptides, available as pens or vials. Every batch independently tested.</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><button type="button" class="link-btn" onclick="showPage('home')">Home</button> / ${currentBrand==="All"?"<span>Shop</span>":`<button type="button" class="link-btn" onclick="goBrand('All')">Shop</button> / <span>${currentBrand}</span>`}</nav>
+    <h1 class="page-title">${currentBrand!=="All"&&currentCat==="All"?currentBrand:(currentCat==="All"?"All compounds":currentCat)}</h1>
+    <p class="page-sub">${currentBrand!=="All"?BRAND_BLURB[currentBrand]:"Lyophilised research peptides, available as pens or vials. Every batch independently tested."}</p>
   </div>
   <div class="wrap shop-layout">
     <aside class="shop-side" aria-label="Filters">
       <div class="side-box">
+        <h2 class="side-h">Brand</h2>
+        <div role="radiogroup" aria-label="Brand" class="side-list">${brandBtns}</div>
+        <div class="side-rule"></div>
         <h2 class="side-h">Format</h2>
         <div class="seg" role="radiogroup" aria-label="Format">
           <button type="button" role="radio" aria-checked="${currentFormat==="pen"}" class="seg-btn${currentFormat==="pen"?" on":""}" onclick="setFormat('pen','shop')">Pens</button>
@@ -1435,6 +1461,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     const di=document.getElementById('disc-code-input');
     if(di){di.value=refCode.toUpperCase();setTimeout(()=>{if(typeof applyDiscountCode==='function')applyDiscountCode();},800);}
   }
+  const brandParam=(urlParams.get('brand')||'').toLowerCase();
+  const bMatch=BRANDS.find(b=>b.toLowerCase().replace(/\s/g,'')===brandParam.replace(/\s/g,''));
+  if(bMatch)goBrand(bMatch);
   const productParam=urlParams.get('product');
   if(productParam){
     const pid=parseInt(productParam);
